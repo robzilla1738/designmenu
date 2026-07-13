@@ -32,9 +32,18 @@ describe("example stage contract", () => {
     // Use formatPromptDisplay so hyphenated tokens do not wrap mid-token
     expect(cardSource).toMatch(/formatPromptDisplay/);
     expect(cardSource).toMatch(/hyphens-none/);
-    // Title/description/prompt use intentional line clamps (complete lines only)
+    // Description/prompt use intentional line clamps (complete lines only)
     expect(cardSource).toMatch(/line-clamp-2/);
     expect(cardSource).toMatch(/line-clamp-4/);
+  });
+
+  it("gives card titles full width so long names are not crushed by badges", () => {
+    // Desktop used to nowrap title + Anti-pattern + aka on one row, truncating
+    // AI-slop titles mid-word ("Default purple…", "Intercha ngeabl…").
+    expect(cardSource).not.toMatch(/sm:flex-nowrap/);
+    expect(cardSource).toMatch(/CardTitle[\s\S]*?className="[^"]*\bw-full\b/);
+    expect(cardSource).toMatch(/break-normal/);
+    expect(cardSource).toMatch(/text-pretty/);
   });
 
   it("does not force max-w-full onto every descendant (breaks absolute layouts)", () => {

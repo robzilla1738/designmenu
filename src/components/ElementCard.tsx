@@ -63,25 +63,32 @@ export function ElementCard({ element }: { element: DesignElement }) {
       </div>
 
       <CardHeader className="shrink-0 gap-1.5 space-y-0 px-3.5 pt-3.5 pb-0 sm:px-[18px] sm:pt-4">
-        <div className="flex min-h-7 flex-wrap items-start justify-between gap-x-2 gap-y-1.5 sm:flex-nowrap">
-          <CardTitle className="line-clamp-2 min-w-0 flex-1 text-[14.5px] font-semibold leading-[1.32] tracking-[-0.015em] break-words hyphens-none sm:text-[15px]">
+        {/* Title on its own full-width row so long names (esp. AI slop) aren't
+            crushed beside Anti-pattern + aka badges on desktop. */}
+        <div className="flex min-h-7 flex-col gap-1.5">
+          <CardTitle
+            title={element.name}
+            className="w-full text-[14.5px] font-semibold leading-[1.32] tracking-[-0.015em] text-pretty break-normal hyphens-none sm:text-[15px] sm:leading-[1.35]"
+          >
             {element.name}
           </CardTitle>
-          <div className="flex max-w-full shrink-0 flex-wrap justify-end gap-1.5">
-            {isAvoid && (
-              <Badge className="h-[22px] rounded-full border-0 bg-destructive/10 px-2 text-[10px] font-medium tracking-wide text-destructive">
-                Anti-pattern
-              </Badge>
-            )}
-            {element.alsoKnownAs?.[0] && (
-              <Badge
-                title={`aka ${element.alsoKnownAs[0]}`}
-                className="max-w-[8.5rem] truncate rounded-full border-0 bg-secondary px-2 text-[10px] font-normal tracking-wide text-muted-foreground h-[22px] sm:max-w-[10rem]"
-              >
-                aka {element.alsoKnownAs[0]}
-              </Badge>
-            )}
-          </div>
+          {(isAvoid || element.alsoKnownAs?.[0]) && (
+            <div className="flex max-w-full flex-wrap gap-1.5">
+              {isAvoid && (
+                <Badge className="h-[22px] rounded-full border-0 bg-destructive/10 px-2 text-[10px] font-medium tracking-wide text-destructive">
+                  Anti-pattern
+                </Badge>
+              )}
+              {element.alsoKnownAs?.[0] && (
+                <Badge
+                  title={`aka ${element.alsoKnownAs[0]}`}
+                  className="h-[22px] max-w-full truncate rounded-full border-0 bg-secondary px-2 text-[10px] font-normal tracking-wide text-muted-foreground sm:max-w-[14rem]"
+                >
+                  aka {element.alsoKnownAs[0]}
+                </Badge>
+              )}
+            </div>
+          )}
         </div>
         <CardDescription className="line-clamp-2 min-h-[2.5rem] text-[12.5px] leading-[1.45] tracking-[-0.01em] text-muted-foreground break-words hyphens-none sm:min-h-[2.75rem] sm:text-[13px] sm:leading-[1.5]">
           {element.description}
