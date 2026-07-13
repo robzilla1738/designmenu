@@ -10,10 +10,6 @@ import { Button } from "@/components/ui/button";
 const STATIC_ARIA = "Cycle color theme: light, dark, or system";
 const STATIC_TITLE = "Cycle light / dark / system";
 
-/**
- * Renders an identical placeholder on the server and the first client paint.
- * Theme-dependent UI only appears after mount (localStorage is client-only).
- */
 export function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -22,7 +18,6 @@ export function ThemeToggle() {
     setMounted(true);
   }, []);
 
-  // Identical markup for SSR + first client render — no theme reads.
   if (!mounted) {
     return (
       <Button
@@ -32,7 +27,7 @@ export function ThemeToggle() {
         aria-label={STATIC_ARIA}
         title={STATIC_TITLE}
         data-testid="theme-toggle"
-        className="gap-2 rounded-full"
+        className="h-8 gap-2 rounded-full border-border/60 bg-card/80 px-3 text-[13px] font-medium tracking-[-0.01em] shadow-[0_1px_2px_rgba(0,0,0,0.04)]"
         disabled
       >
         <Sun className="size-3.5" aria-hidden />
@@ -66,7 +61,7 @@ export function ThemeToggle() {
       aria-label={`${STATIC_ARIA}. Current: ${label}.`}
       title={STATIC_TITLE}
       data-testid="theme-toggle"
-      className="gap-2 rounded-full"
+      className="h-8 gap-2 rounded-full border-border/60 bg-card/80 px-3 text-[13px] font-medium tracking-[-0.01em] shadow-[0_1px_2px_rgba(0,0,0,0.04)] backdrop-blur-sm transition-all hover:bg-card hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)]"
     >
       <Icon className="size-3.5" aria-hidden />
       <span className="hidden sm:inline">{label}</span>

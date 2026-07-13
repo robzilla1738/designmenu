@@ -29,27 +29,27 @@ export function CatalogApp() {
   );
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <header className="sticky top-0 z-40 border-b border-border bg-[var(--header-bg)] backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3">
+    <div className="min-h-screen bg-background text-foreground antialiased">
+      <header className="sticky top-0 z-40 border-b border-border/60 bg-[var(--header-bg)] backdrop-blur-2xl supports-[backdrop-filter]:bg-[var(--header-bg)]">
+        <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 py-3.5 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3.5">
             <div
-              className="flex size-9 items-center justify-center rounded-xl bg-primary text-sm font-bold text-primary-foreground shadow-sm"
+              className="relative flex size-9 items-center justify-center rounded-[12px] bg-foreground text-[11.5px] font-bold tracking-tight text-background shadow-[0_1px_2px_rgba(0,0,0,0.08)] ring-1 ring-border/50"
               aria-hidden
             >
               DM
             </div>
-            <div>
-              <p className="text-base font-semibold tracking-tight sm:text-lg">
+            <div className="leading-tight">
+              <p className="text-[15px] font-semibold tracking-[-0.02em] sm:text-[16px]">
                 Design Menu
               </p>
-              <p className="hidden text-xs text-muted-foreground sm:block">
+              <p className="hidden text-[11px] font-medium tracking-wide text-muted-foreground/80 sm:block">
                 Name it. See it. Prompt it.
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-2 sm:gap-3">
-            <span className="hidden text-xs text-muted-foreground md:inline">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <span className="hidden text-[11px] font-medium tracking-wide text-muted-foreground/70 tabular-nums md:inline">
               {stats.totalElements} elements · {stats.totalCategories} categories
             </span>
             <ThemeToggle />
@@ -57,18 +57,18 @@ export function CatalogApp() {
         </div>
       </header>
 
-      <div className="mx-auto flex max-w-7xl gap-8 px-4 py-8 sm:px-6 lg:px-8">
-        <aside className="hidden w-56 shrink-0 lg:block">
+      <div className="mx-auto flex max-w-[1280px] gap-8 px-4 py-8 sm:px-6 lg:gap-10 lg:px-8 lg:py-10">
+        <aside className="hidden w-[220px] shrink-0 lg:block">
           <nav
-            className="sticky top-24"
+            className="sticky top-[86px]"
             aria-label="Categories"
             data-testid="category-nav"
           >
-            <p className="mb-3 px-2 text-[11px] font-semibold tracking-wider text-muted-foreground uppercase">
+            <p className="mb-3 px-2.5 text-[10.5px] font-semibold tracking-[0.14em] text-muted-foreground/60 uppercase">
               Browse
             </p>
-            <ScrollArea className="h-[calc(100vh-8rem)] pr-2">
-              <div className="space-y-0.5 pb-8">
+            <ScrollArea className="h-[calc(100vh-8.5rem)] pr-2">
+              <div className="space-y-1 pb-8">
                 <NavButton
                   active={categoryId === "all"}
                   onClick={() => setCategoryId("all")}
@@ -100,37 +100,37 @@ export function CatalogApp() {
         </aside>
 
         <main className="min-w-0 flex-1">
-          <section className="mb-8">
-            <p className="text-[11px] font-semibold tracking-[0.18em] text-primary uppercase">
+          <section className="mb-10">
+            <p className="text-[11px] font-semibold tracking-[0.18em] text-primary/90 uppercase">
               Visual glossary for UI
             </p>
-            <h1 className="mt-2 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
+            <h1 className="mt-3 max-w-[18ch] text-[32px] font-semibold leading-[1.05] tracking-[-0.03em] sm:text-[42px]">
               Design Menu
             </h1>
-            <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <p className="mt-4 max-w-[58ch] text-[15px] leading-[1.6] tracking-[-0.01em] text-muted-foreground sm:text-[17px]">
               Live examples of design elements — with the names designers use and
               ready-made language for prompting AI. Includes creative effects, AI
               slop to avoid, and library best practices.
             </p>
 
-            <div className="relative mt-6 max-w-xl">
+            <div className="group relative mt-7 max-w-[560px]">
               <label htmlFor="catalog-search" className="sr-only">
                 Search design elements
               </label>
-              <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
+              <Search className="pointer-events-none absolute top-1/2 left-4 size-[18px] -translate-y-1/2 text-muted-foreground/55 transition-colors group-focus-within:text-foreground/70" />
               <Input
                 id="catalog-search"
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search elements, aliases, or tags…"
-                className="h-11 rounded-xl pl-9 shadow-sm"
+                className="h-12 rounded-[16px] border-border/60 bg-card pl-11 pr-4 text-[14.5px] tracking-[-0.01em] shadow-[var(--search-shadow)] transition-[box-shadow,border-color,background] placeholder:text-muted-foreground/60 focus-visible:border-border focus-visible:shadow-[var(--search-shadow-focus)] focus-visible:ring-0"
                 data-testid="catalog-search"
               />
             </div>
 
             <div
-              className="mt-4 flex gap-2 overflow-x-auto pb-1 lg:hidden"
+              className="scrollbar-hide mt-5 flex gap-2 overflow-x-auto pb-1 lg:hidden"
               data-testid="category-chips"
             >
               <Chip
@@ -149,9 +149,9 @@ export function CatalogApp() {
             </div>
           </section>
 
-          <div className="mb-6 flex items-center justify-between gap-3">
+          <div className="mb-7 flex items-center justify-between gap-3">
             <p
-              className="text-sm text-muted-foreground"
+              className="text-[13px] font-medium tracking-[-0.01em] text-muted-foreground"
               data-testid="result-count"
             >
               {result.total === 0
@@ -168,7 +168,7 @@ export function CatalogApp() {
                   setQuery("");
                   setCategoryId("all");
                 }}
-                className="gap-1 text-primary"
+                className="h-7 gap-1.5 rounded-full px-3 text-[13px] font-medium tracking-[-0.01em] text-muted-foreground hover:text-foreground"
               >
                 <X className="size-3.5" />
                 Clear filters
@@ -177,14 +177,14 @@ export function CatalogApp() {
           </div>
 
           {groups.length === 0 ? (
-            <div className="rounded-2xl border border-dashed border-border px-6 py-16 text-center">
-              <p className="text-lg font-medium">No elements found</p>
-              <p className="mt-1 text-sm text-muted-foreground">
+            <div className="rounded-[20px] border border-dashed border-border/60 bg-card/60 px-6 py-20 text-center backdrop-blur-sm">
+              <p className="text-[15px] font-semibold tracking-[-0.01em]">No elements found</p>
+              <p className="mt-1.5 text-[13px] tracking-[-0.01em] text-muted-foreground">
                 Try a different search term or category.
               </p>
             </div>
           ) : (
-            <div className="space-y-14">
+            <div className="space-y-16">
               {groups.map(({ category, elements }) => (
                 <section
                   key={category.id}
@@ -192,30 +192,30 @@ export function CatalogApp() {
                   data-category={category.id}
                   className="scroll-mt-28"
                 >
-                  <div className="mb-5 flex flex-wrap items-end justify-between gap-2">
+                  <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
                     <div>
-                      <div className="flex flex-wrap items-center gap-2">
-                        <h2 className="text-xl font-semibold tracking-tight">
+                      <div className="flex flex-wrap items-center gap-2.5">
+                        <h2 className="text-[20px] font-semibold tracking-[-0.02em]">
                           {category.name}
                         </h2>
                         {(category.id === "ai-slop" ||
                           category.id === "creative" ||
                           category.id === "library-practices") && (
-                          <Badge variant="secondary" className="text-[10px]">
+                          <Badge className="h-5 rounded-full border-0 bg-secondary px-2.5 text-[10px] font-medium tracking-wide text-secondary-foreground">
                             New
                           </Badge>
                         )}
                       </div>
-                      <p className="mt-0.5 text-sm text-muted-foreground">
+                      <p className="mt-1 max-w-[48ch] text-[13px] leading-[1.5] tracking-[-0.01em] text-muted-foreground">
                         {category.description}
                       </p>
                     </div>
-                    <Badge variant="outline" className="tabular-nums">
+                    <Badge variant="outline" className="h-6 rounded-full border-border/60 px-2.5 text-[11px] font-medium tabular-nums text-muted-foreground/80">
                       {elements.length}
                     </Badge>
                   </div>
-                  <Separator className="mb-5" />
-                  <div className="grid auto-rows-fr items-stretch gap-5 sm:grid-cols-2 xl:grid-cols-3">
+                  <Separator className="mb-6 bg-border/70" />
+                  <div className="grid auto-rows-fr items-stretch gap-5 sm:grid-cols-2 xl:grid-cols-3 gap-x-5 gap-y-6">
                     {elements.map((el) => (
                       <ElementCard key={el.id} element={el} />
                     ))}
@@ -225,12 +225,14 @@ export function CatalogApp() {
             </div>
           )}
 
-          <footer className="mt-16 border-t border-border pt-8 pb-12 text-center text-sm text-muted-foreground">
-            <p className="font-medium text-foreground">Design Menu</p>
-            <p className="mt-1">
-              Built with shadcn/ui · A labeled catalog of design language for
-              humans and the AIs they prompt.
-            </p>
+          <footer className="mt-20 border-t border-border/60 pt-10 pb-12">
+            <div className="flex flex-col items-center gap-2 text-center">
+              <p className="text-[13px] font-semibold tracking-[-0.01em] text-foreground/80">Design Menu</p>
+              <p className="max-w-[44ch] text-[13px] leading-[1.6] tracking-[-0.01em] text-muted-foreground/70">
+                Built with shadcn/ui · A labeled catalog of design language for
+                humans and the AIs they prompt.
+              </p>
+            </div>
           </footer>
         </main>
       </div>
@@ -264,15 +266,22 @@ function NavButton({
         }
       }}
       className={cn(
-        "flex w-full items-center justify-between rounded-lg px-2.5 py-2 text-left text-sm transition-colors",
+        "group flex w-full items-center justify-between rounded-[10px] px-2.5 py-2 text-left text-[13.5px] leading-[1.2] tracking-[-0.01em] transition-all duration-150",
         active
-          ? "bg-accent font-medium text-accent-foreground"
-          : "text-muted-foreground hover:bg-muted hover:text-foreground",
-        highlight && !active && "text-foreground/80",
+          ? "bg-foreground text-background shadow-[0_1px_2px_rgba(0,0,0,0.08)] font-[550]"
+          : "text-muted-foreground/80 hover:bg-muted hover:text-foreground",
+        highlight && !active && "text-foreground/70",
       )}
     >
       <span className="truncate">{label}</span>
-      <span className="ml-2 text-[11px] tabular-nums opacity-70">{count}</span>
+      <span
+        className={cn(
+          "ml-2 shrink-0 text-[11px] tabular-nums transition-opacity",
+          active ? "opacity-70" : "opacity-50 group-hover:opacity-80",
+        )}
+      >
+        {count}
+      </span>
     </button>
   );
 }
@@ -292,7 +301,12 @@ function Chip({
       size="sm"
       variant={active ? "default" : "outline"}
       onClick={onClick}
-      className="shrink-0 rounded-full"
+      className={cn(
+        "h-8 shrink-0 rounded-full border px-3.5 text-[13px] font-medium tracking-[-0.01em] shadow-[0_1px_1px_rgba(0,0,0,0.02)] transition-all",
+        active
+          ? "border-transparent bg-foreground text-background shadow-[0_1px_2px_rgba(0,0,0,0.08)] hover:bg-foreground/90"
+          : "border-border/60 bg-card text-muted-foreground hover:bg-muted hover:text-foreground",
+      )}
     >
       {label}
     </Button>
