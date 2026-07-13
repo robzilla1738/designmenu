@@ -43,23 +43,25 @@ Helpers: `getElementById`, `getElementsByCategory`, `getCatalogStats`.
 
 ## Search (`src/lib/search.ts`)
 
-- Case-insensitive substring match over name, description, prompt tip, id, aliases, and tags.
+- Case-insensitive **tokenized AND** match over name, description, prompt tip, id, aliases, and tags.
+- Multi-word queries (spaces / commas / slashes) require every token to hit some field.
+- **Relevance ranking** prefers name/alias/id/tag hits over description and prompt-tip text.
 - Optional hard filter by category.
-- Results sorted by category order, then catalog order.
-- `groupByCategory` rebuilds section headers for the main grid.
+- Empty query returns the full catalog in category order.
+- `groupByCategory` rebuilds section headers and preserves ranked order within a category.
 
 ## Live demos (`src/components/ElementExample.tsx`)
 
 - One large `switch (exampleKey)`.
 - Prefer shadcn primitives for interactive chrome (Button, Dialog, Tabs, …).
-- Creative textures live in CSS (`.dm-dither`, `.dm-paper`, …) under `globals.css`.
+- Optional demo helpers use a `dm-` prefix in `globals.css` when Tailwind alone is not enough.
 - Default branch is a fallback “missing demo” marker — tests fail if any catalog key lands there.
 
 ## Theme
 
 | Piece | Responsibility |
 |-------|----------------|
-| `globals.css` | Light/dark CSS variables (teal primary ~ OKLCH 195) |
+| `globals.css` | Light/dark CSS variables (light blue primary ~ OKLCH 232) |
 | `ThemeProvider` | `next-themes` with `attribute="class"` |
 | `theme.ts` | Pure parse/cycle/storage helpers for tests |
 | `ThemeToggle` | Cycles light → dark → system |
@@ -75,7 +77,7 @@ Fonts:
 
 | Suite | Asserts |
 |-------|---------|
-| `catalog.test.ts` | Categories present, element integrity, expanded creative/slop/practice floors |
+| `catalog.test.ts` | Categories present, element integrity, core UI + specialized floors, completeness ids |
 | `search.test.ts` | Query + category filters, findability of key entries |
 | `theme.test.ts` | Preference parse/cycle/storage |
 | `example-keys.test.ts` | Every `exampleKey` has a switch case; brand hues non-purple; Inter slop demo is real |

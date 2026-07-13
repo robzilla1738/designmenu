@@ -121,11 +121,45 @@ export function CatalogApp() {
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search elements, aliases, or tags…"
-                className="h-12 rounded-[16px] border-border/60 bg-card pl-11 pr-4 text-[14.5px] tracking-[-0.01em] shadow-[var(--search-shadow)] transition-[box-shadow,border-color,background] placeholder:text-muted-foreground/60 focus-visible:border-border focus-visible:shadow-[var(--search-shadow-focus)] focus-visible:ring-0"
+                placeholder="Search names, aliases, tags… try “outline button” or “floating action”"
+                autoComplete="off"
+                spellCheck={false}
+                className="h-12 rounded-[16px] border-border/60 bg-card pl-11 pr-11 text-[14.5px] tracking-[-0.01em] shadow-[var(--search-shadow)] transition-[box-shadow,border-color,background] placeholder:text-muted-foreground/60 focus-visible:border-border focus-visible:shadow-[var(--search-shadow-focus)] focus-visible:ring-0 [&::-webkit-search-cancel-button]:hidden"
                 data-testid="catalog-search"
               />
+              {query ? (
+                <button
+                  type="button"
+                  onClick={() => setQuery("")}
+                  className="absolute top-1/2 right-3 flex size-7 -translate-y-1/2 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                  aria-label="Clear search"
+                  data-testid="clear-search"
+                >
+                  <X className="size-3.5" />
+                </button>
+              ) : null}
             </div>
+            {!query ? (
+              <p className="mt-2.5 max-w-[560px] text-[12px] tracking-[-0.01em] text-muted-foreground/70">
+                Multi-word search matches every term (e.g.{" "}
+                <button
+                  type="button"
+                  className="font-medium text-foreground/80 underline-offset-2 hover:underline"
+                  onClick={() => setQuery("toast stack")}
+                >
+                  toast stack
+                </button>
+                ,{" "}
+                <button
+                  type="button"
+                  className="font-medium text-foreground/80 underline-offset-2 hover:underline"
+                  onClick={() => setQuery("focus ring")}
+                >
+                  focus ring
+                </button>
+                ). Ranked by name and aliases first.
+              </p>
+            ) : null}
 
             <div
               className="scrollbar-hide mt-5 flex gap-2 overflow-x-auto pb-1 lg:hidden"
@@ -175,11 +209,46 @@ export function CatalogApp() {
           </div>
 
           {groups.length === 0 ? (
-            <div className="rounded-[20px] border border-dashed border-border/60 bg-card/60 px-6 py-20 text-center backdrop-blur-sm">
-              <p className="text-[15px] font-semibold tracking-[-0.01em]">No elements found</p>
-              <p className="mt-1.5 text-[13px] tracking-[-0.01em] text-muted-foreground">
-                Try a different search term or category.
+            <div
+              className="rounded-[20px] border border-dashed border-border/60 bg-card/60 px-6 py-16 text-center backdrop-blur-sm"
+              data-testid="empty-results"
+            >
+              <p className="text-[15px] font-semibold tracking-[-0.01em]">
+                No elements found
               </p>
+              <p className="mx-auto mt-1.5 max-w-[36ch] text-[13px] leading-relaxed tracking-[-0.01em] text-muted-foreground">
+                Every word must match. Try fewer terms, a designer synonym
+                (e.g. “FAB”, “CTA”), or clear filters.
+              </p>
+              <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
+                {["button", "modal", "toast", "form", "slop"].map((hint) => (
+                  <Button
+                    key={hint}
+                    type="button"
+                    size="sm"
+                    variant="outline"
+                    className="h-8 rounded-full px-3 text-[12px]"
+                    onClick={() => {
+                      setQuery(hint);
+                      setCategoryId("all");
+                    }}
+                  >
+                    {hint}
+                  </Button>
+                ))}
+                <Button
+                  type="button"
+                  size="sm"
+                  variant="ghost"
+                  className="h-8 rounded-full px-3 text-[12px]"
+                  onClick={() => {
+                    setQuery("");
+                    setCategoryId("all");
+                  }}
+                >
+                  Clear all
+                </Button>
+              </div>
             </div>
           ) : (
             <div className="space-y-16">

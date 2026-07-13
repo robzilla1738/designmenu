@@ -50,22 +50,26 @@ export function ElementExample({ exampleKey }: { exampleKey: string }) {
     // ── Typography ────────────────────────────────────────
     case "display-heading":
       return (
-        <p className="text-2xl font-bold tracking-tight sm:text-3xl">
+        <p className="max-w-[16rem] px-1 text-center text-xl font-bold tracking-tight text-balance sm:text-2xl">
           Build something beautiful.
         </p>
       );
     case "page-title":
-      return <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">Settings</h2>;
+      return (
+        <h2 className="max-w-[14rem] text-center text-lg font-semibold tracking-tight sm:text-xl">
+          Settings
+        </h2>
+      );
     case "section-heading":
       return (
         <div className="space-y-1 text-left">
-          <h3 className="text-lg font-semibold">Account details</h3>
+          <h3 className="text-base font-semibold sm:text-lg">Account details</h3>
           <h4 className="text-sm font-medium text-muted-foreground">Profile</h4>
         </div>
       );
     case "body-text":
       return (
-        <p className="max-w-[18rem] text-left text-sm leading-relaxed">
+        <p className="max-w-[15rem] text-left text-[13px] leading-snug sm:text-sm sm:leading-relaxed">
           Body text carries the main narrative. Keep line length comfortable and
           line-height open so paragraphs stay easy to scan.
         </p>
@@ -76,11 +80,11 @@ export function ElementExample({ exampleKey }: { exampleKey: string }) {
       return <Label>Email address</Label>;
     case "overline":
       return (
-        <div>
-          <p className="text-[11px] font-semibold tracking-[0.2em] text-primary uppercase">
+        <div className="px-1">
+          <p className="text-[10px] font-semibold tracking-[0.18em] text-primary uppercase">
             New feature
           </p>
-          <p className="mt-1 text-lg font-semibold">Ship faster with menus</p>
+          <p className="mt-1 text-base font-semibold sm:text-lg">Ship faster with menus</p>
         </div>
       );
     case "code-inline":
@@ -401,7 +405,7 @@ export function ElementExample({ exampleKey }: { exampleKey: string }) {
       );
     case "file-upload":
       return (
-        <div className="flex w-full max-w-[240px] flex-col items-center gap-1 rounded-xl border-2 border-dashed border-border px-4 py-5 text-center">
+        <div className="flex w-full max-w-[200px] flex-col items-center gap-1 rounded-xl border-2 border-dashed border-border px-3 py-3 text-center">
           <Upload className="size-5 text-muted-foreground" />
           <p className="text-xs font-medium">Drop files or browse</p>
           <p className="text-[10px] text-muted-foreground">PNG, JPG up to 5MB</p>
@@ -559,9 +563,11 @@ export function ElementExample({ exampleKey }: { exampleKey: string }) {
     // ── Feedback ──────────────────────────────────────────
     case "alert-banner":
       return (
-        <Alert className="max-w-[280px]">
-          <AlertTitle>Scheduled maintenance</AlertTitle>
-          <AlertDescription>Brief downtime tonight at 2am UTC.</AlertDescription>
+        <Alert className="max-w-[220px] text-left">
+          <AlertTitle className="text-sm">Scheduled maintenance</AlertTitle>
+          <AlertDescription className="text-xs">
+            Brief downtime tonight at 2am UTC.
+          </AlertDescription>
         </Alert>
       );
     case "toast":
@@ -740,7 +746,7 @@ export function ElementExample({ exampleKey }: { exampleKey: string }) {
       );
     case "table":
       return (
-        <Table className="w-full max-w-[260px] text-xs">
+        <Table className="w-full max-w-[220px] text-xs">
           <TableHeader>
             <TableRow>
               <TableHead className="h-8">Name</TableHead>
@@ -778,7 +784,7 @@ export function ElementExample({ exampleKey }: { exampleKey: string }) {
         <Card className="px-1 py-1 shadow-sm">
           <CardContent className="px-3 py-2">
             <p className="text-[10px] text-muted-foreground">Revenue</p>
-            <p className="text-2xl font-bold tracking-tight">$48.2k</p>
+            <p className="text-xl font-bold tracking-tight">$48.2k</p>
             <p className="text-[10px] font-medium text-emerald-600 dark:text-emerald-400">
               ↑ 12% vs last month
             </p>
@@ -1519,7 +1525,7 @@ export function ElementExample({ exampleKey }: { exampleKey: string }) {
     // ── Completeness pack (standard vocabulary gaps) ──────
     case "lead-text":
       return (
-        <p className="max-w-[18rem] text-left text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <p className="max-w-[15rem] text-left text-[13px] leading-snug text-muted-foreground sm:text-sm sm:leading-relaxed">
           A short lead that frames the page before denser body copy begins.
         </p>
       );
@@ -1761,12 +1767,12 @@ export function ElementExample({ exampleKey }: { exampleKey: string }) {
       );
     case "success-banner":
       return (
-        <Alert className="w-full max-w-[240px] border-emerald-500/40 bg-emerald-500/10 text-left">
+        <Alert className="w-full max-w-[220px] border-emerald-500/40 bg-emerald-500/10 text-left">
           <Check className="size-4 text-emerald-600" />
-          <AlertTitle className="text-emerald-800 dark:text-emerald-200">
+          <AlertTitle className="text-sm text-emerald-800 dark:text-emerald-200">
             Saved
           </AlertTitle>
-          <AlertDescription className="text-emerald-700/90 dark:text-emerald-300/90">
+          <AlertDescription className="text-xs text-emerald-700/90 dark:text-emerald-300/90">
             Your changes are live.
           </AlertDescription>
         </Alert>
@@ -1790,9 +1796,9 @@ export function ElementExample({ exampleKey }: { exampleKey: string }) {
       );
     case "bottom-sheet":
       return (
-        <div className="relative h-24 w-full max-w-[200px] overflow-hidden rounded-xl border border-border bg-muted/40">
+        <div className="relative h-20 w-full max-w-[180px] overflow-hidden rounded-xl border border-border bg-muted/40">
           <div className="absolute inset-x-0 bottom-0 rounded-t-xl border border-border bg-card p-2 shadow-lg">
-            <div className="mx-auto mb-2 h-1 w-8 rounded-full bg-muted-foreground/30" />
+            <div className="mx-auto mb-1.5 h-1 w-8 rounded-full bg-muted-foreground/30" />
             <p className="text-center text-[11px] font-medium">Actions</p>
             <p className="text-center text-[10px] text-muted-foreground">Share · Edit · Copy</p>
           </div>
@@ -1881,7 +1887,7 @@ export function ElementExample({ exampleKey }: { exampleKey: string }) {
       );
     case "outline-ring":
       return (
-        <div className="rounded-xl border border-border bg-card px-4 py-3 text-xs ring-2 ring-primary ring-offset-2 ring-offset-background">
+        <div className="rounded-xl border border-border bg-card px-4 py-3 text-xs ring-2 ring-primary ring-offset-1 ring-offset-background">
           Selected ring
         </div>
       );
@@ -1981,6 +1987,1137 @@ export function ElementExample({ exampleKey }: { exampleKey: string }) {
         </div>
       );
 
+
+    // ── Expanded vocabulary demos ──────────────────────
+    case "ordered-list":
+      return (
+        <ol className="list-decimal space-y-1 pl-5 text-left text-sm">
+          <li>Define tokens</li>
+          <li>Compose primitives</li>
+          <li>Ship the pattern</li>
+        </ol>
+      );
+    case "kbd":
+      return (
+        <p className="text-sm">
+          Press{" "}
+          <kbd className="rounded border border-border bg-muted px-1.5 py-0.5 font-mono text-[11px] shadow-sm">
+            ⌘
+          </kbd>{" "}
+          <kbd className="rounded border border-border bg-muted px-1.5 py-0.5 font-mono text-[11px] shadow-sm">
+            K
+          </kbd>{" "}
+          to search.
+        </p>
+      );
+    case "code-block":
+      return (
+        <pre className="w-full max-w-[220px] overflow-x-auto rounded-lg bg-zinc-950 p-2.5 text-left font-mono text-[10px] leading-relaxed text-zinc-100">
+          <code>{`const ok = true;
+return ok;`}</code>
+        </pre>
+      );
+    case "font-weight-scale":
+      return (
+        <div className="space-y-1 text-left text-sm">
+          <p className="font-normal">Regular 400</p>
+          <p className="font-medium">Medium 500</p>
+          <p className="font-semibold">Semibold 600</p>
+          <p className="font-bold">Bold 700</p>
+        </div>
+      );
+    case "letter-spacing":
+      return (
+        <div className="space-y-2 text-left">
+          <p className="text-lg font-bold tracking-tighter">Tight display</p>
+          <p className="text-[10px] font-semibold tracking-[0.2em] text-muted-foreground uppercase">
+            Wide label
+          </p>
+        </div>
+      );
+    case "strikethrough":
+      return (
+        <p className="text-sm">
+          <span className="text-muted-foreground line-through">$48</span>{" "}
+          <span className="font-semibold text-foreground">$32</span>
+        </p>
+      );
+    case "prose-measure":
+      return (
+        <div className="w-full max-w-[220px] space-y-1 text-left">
+          <p className="text-[10px] font-medium text-muted-foreground">~65ch measure</p>
+          <p className="max-w-[18ch] rounded border border-dashed border-border px-2 py-1.5 text-[11px] leading-snug">
+            Short lines are easier to scan than full-bleed paragraphs.
+          </p>
+        </div>
+      );
+    case "text-balance":
+      return (
+        <p className="max-w-[10rem] text-center text-sm font-semibold text-balance">
+          Beautiful balanced multi-line titles
+        </p>
+      );
+    case "surface-colors":
+      return (
+        <div className="flex w-full max-w-[200px] flex-col gap-1 rounded-xl bg-background p-2 ring-1 ring-border">
+          <div className="rounded-lg bg-card p-2 ring-1 ring-border">
+            <div className="rounded-md bg-muted px-2 py-1.5 text-[10px]">Surface ladder</div>
+          </div>
+        </div>
+      );
+    case "focus-ring-color":
+      return (
+        <button
+          type="button"
+          className="rounded-md border border-border bg-card px-3 py-1.5 text-xs ring-2 ring-ring ring-offset-1 ring-offset-background"
+        >
+          Focus ring
+        </button>
+      );
+    case "chart-colors":
+      return (
+        <div className="flex items-end gap-1.5">
+          {["bg-sky-500", "bg-emerald-500", "bg-amber-500", "bg-violet-500", "bg-rose-500"].map(
+            (c, i) => (
+              <div
+                key={c}
+                className={`w-6 rounded-sm ${c}`}
+                style={{ height: 16 + i * 8 }}
+              />
+            ),
+          )}
+        </div>
+      );
+    case "contrast-pair":
+      return (
+        <div className="flex gap-2">
+          <div className="rounded-lg bg-background px-2.5 py-2 text-[10px] ring-1 ring-border">
+            <span className="text-foreground">AA text</span>
+          </div>
+          <div className="rounded-lg bg-primary px-2.5 py-2 text-[10px] text-primary-foreground">
+            On primary
+          </div>
+        </div>
+      );
+    case "link-color":
+      return (
+        <p className="text-sm">
+          See{" "}
+          <span className="font-medium text-primary underline underline-offset-2">docs</span>{" "}
+          for tokens.
+        </p>
+      );
+    case "density":
+      return (
+        <div className="flex w-full max-w-[220px] gap-2">
+          <div className="flex-1 space-y-2 rounded-lg border border-border p-3">
+            <div className="h-2 rounded bg-muted" />
+            <div className="h-2 w-2/3 rounded bg-muted" />
+            <p className="text-[9px] text-muted-foreground">Comfortable</p>
+          </div>
+          <div className="flex-1 space-y-1 rounded-lg border border-border p-1.5">
+            <div className="h-1.5 rounded bg-muted" />
+            <div className="h-1.5 w-2/3 rounded bg-muted" />
+            <p className="text-[9px] text-muted-foreground">Compact</p>
+          </div>
+        </div>
+      );
+    case "scroll-area":
+      return (
+        <div className="h-20 w-full max-w-[160px] overflow-y-auto rounded-lg border border-border">
+          <div className="space-y-1 p-2">
+            {["Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot"].map((r) => (
+              <div key={r} className="rounded bg-muted/70 px-2 py-1 text-[10px]">
+                {r}
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    case "full-bleed":
+      return (
+        <div className="w-full max-w-[200px] overflow-hidden rounded-lg border border-border">
+          <div className="h-8 bg-gradient-to-r from-sky-400 to-blue-600" />
+          <p className="px-2 py-1.5 text-[10px] text-muted-foreground">Full-bleed band</p>
+        </div>
+      );
+    case "multi-column":
+      return (
+        <div className="w-full max-w-[220px] columns-2 gap-3 text-left text-[10px] leading-snug text-muted-foreground">
+          <p className="mb-1">Column flow keeps short definitions compact.</p>
+          <p>Use for glossaries, not forms.</p>
+        </div>
+      );
+    case "center-layout":
+      return (
+        <div className="flex h-20 w-full max-w-[200px] items-center justify-center rounded-lg border border-dashed border-border bg-muted/30">
+          <div className="rounded-md border border-border bg-card px-3 py-2 text-[10px] shadow-sm">
+            Centered card
+          </div>
+        </div>
+      );
+    case "app-shell":
+      return (
+        <div className="flex h-20 w-full max-w-[220px] overflow-hidden rounded-lg border border-border text-[9px]">
+          <div className="w-12 shrink-0 border-r border-border bg-muted/60 p-1.5">Nav</div>
+          <div className="flex flex-1 flex-col">
+            <div className="border-b border-border px-2 py-1 font-medium">Header</div>
+            <div className="flex-1 bg-background p-2 text-muted-foreground">Main</div>
+          </div>
+        </div>
+      );
+    case "fab":
+      return (
+        <div className="relative h-20 w-full max-w-[180px] rounded-lg border border-border bg-muted/30">
+          <button
+            type="button"
+            className="absolute right-2 bottom-2 flex size-10 items-center justify-center rounded-full bg-primary text-lg font-medium text-primary-foreground shadow-lg"
+            aria-label="Create"
+          >
+            +
+          </button>
+        </div>
+      );
+    case "split-button":
+      return (
+        <div className="inline-flex overflow-hidden rounded-md shadow-sm">
+          <Button size="sm" className="rounded-r-none">
+            Save
+          </Button>
+          <Button size="sm" className="rounded-l-none border-l border-primary-foreground/20 px-2">
+            ▾
+          </Button>
+        </div>
+      );
+    case "toggle-button":
+      return (
+        <div className="inline-flex gap-1">
+          <Button size="sm" variant="outline" aria-pressed={false}>
+            List
+          </Button>
+          <Button size="sm" aria-pressed={true}>
+            Grid
+          </Button>
+        </div>
+      );
+    case "close-button":
+      return (
+        <div className="relative w-full max-w-[160px] rounded-lg border border-border bg-card p-3 pr-8 text-left text-[11px]">
+          Panel content
+          <button
+            type="button"
+            className="absolute top-1.5 right-1.5 flex size-6 items-center justify-center rounded-md text-muted-foreground hover:bg-muted"
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </div>
+      );
+    case "soft-button":
+      return (
+        <button
+          type="button"
+          className="rounded-md bg-primary/15 px-3 py-1.5 text-xs font-medium text-primary"
+        >
+          Soft action
+        </button>
+      );
+    case "combobox":
+      return (
+        <div className="w-full max-w-[180px] space-y-1">
+          <Input placeholder="Search cities…" className="h-7 text-xs" readOnly />
+          <div className="rounded-md border border-border bg-popover p-0.5 text-left text-[10px] shadow-md">
+            <div className="rounded px-2 py-1 bg-accent">Portland</div>
+            <div className="rounded px-2 py-1">Paris</div>
+          </div>
+        </div>
+      );
+    case "otp-input":
+      return (
+        <div className="flex gap-1.5" role="group" aria-label="One-time code">
+          {["4", "8", "2", ""].map((d, i) => (
+            <div
+              key={i}
+              className="flex size-9 items-center justify-center rounded-md border border-border bg-card font-mono text-sm font-semibold"
+            >
+              {d || <span className="h-3 w-2 animate-pulse rounded-sm bg-muted" />}
+            </div>
+          ))}
+        </div>
+      );
+    case "multi-select":
+      return (
+        <div className="flex w-full max-w-[220px] flex-wrap gap-1 rounded-md border border-border bg-card p-1.5">
+          <Badge variant="secondary" className="gap-1 text-[10px]">
+            Design <span className="opacity-60">×</span>
+          </Badge>
+          <Badge variant="secondary" className="gap-1 text-[10px]">
+            Eng <span className="opacity-60">×</span>
+          </Badge>
+          <span className="px-1 text-[10px] text-muted-foreground">Add…</span>
+        </div>
+      );
+    case "time-input":
+      return (
+        <Input type="time" defaultValue="09:30" className="max-w-[140px]" readOnly aria-label="Time" />
+      );
+    case "fieldset-group":
+      return (
+        <fieldset className="w-full max-w-[200px] space-y-2 rounded-lg border border-border p-2.5 text-left">
+          <legend className="px-1 text-[11px] font-semibold">Shipping</legend>
+          <Input placeholder="City" className="h-8" readOnly />
+          <Input placeholder="Postal code" className="h-8" readOnly />
+        </fieldset>
+      );
+    case "input-sizes":
+      return (
+        <div className="w-full max-w-[200px] space-y-1.5">
+          <Input placeholder="Small" className="h-7 text-xs" readOnly />
+          <Input placeholder="Default" className="h-9" readOnly />
+          <Input placeholder="Large" className="h-11 text-base" readOnly />
+        </div>
+      );
+    case "required-marker":
+      return (
+        <div className="w-full max-w-[200px] space-y-1 text-left">
+          <Label>
+            Email <span className="text-destructive">*</span>
+          </Label>
+          <Input placeholder="you@company.com" className="h-8" readOnly />
+        </div>
+      );
+    case "footer-nav":
+      return (
+        <div className="grid w-full max-w-[220px] grid-cols-3 gap-2 text-left text-[10px]">
+          {["Product", "Company", "Legal"].map((h) => (
+            <div key={h}>
+              <p className="mb-1 font-semibold">{h}</p>
+              <p className="text-muted-foreground">Link</p>
+              <p className="text-muted-foreground">Link</p>
+            </div>
+          ))}
+        </div>
+      );
+    case "back-link":
+      return (
+        <a href="#nav" className="inline-flex items-center gap-1 text-xs font-medium text-primary">
+          <span aria-hidden>←</span> Settings
+        </a>
+      );
+    case "app-rail":
+      return (
+        <div className="flex h-24 w-11 flex-col items-center gap-2 rounded-lg border border-border bg-card py-2">
+          <div className="flex size-7 items-center justify-center rounded-md bg-primary text-primary-foreground">
+            <Home className="size-3.5" />
+          </div>
+          <Search className="size-3.5 text-muted-foreground" />
+          <Settings className="size-3.5 text-muted-foreground" />
+        </div>
+      );
+    case "overflow-nav":
+      return (
+        <div className="inline-flex items-center gap-1 rounded-lg border border-border bg-card p-1 text-[11px]">
+          <span className="rounded-md bg-accent px-2 py-1 font-medium">Home</span>
+          <span className="px-2 py-1 text-muted-foreground">Docs</span>
+          <span className="rounded-md px-2 py-1 text-muted-foreground">More ▾</span>
+        </div>
+      );
+    case "nav-section-label":
+      return (
+        <nav className="w-full max-w-[140px] space-y-2 text-left text-[11px]">
+          <p className="text-[9px] font-semibold tracking-wider text-muted-foreground uppercase">
+            Workspace
+          </p>
+          <div className="rounded-md bg-accent px-2 py-1 font-medium">Projects</div>
+          <div className="px-2 py-1 text-muted-foreground">Members</div>
+        </nav>
+      );
+    case "announcement-bar":
+      return (
+        <div className="flex w-full max-w-[220px] items-center justify-between gap-2 rounded-md bg-primary px-2.5 py-1.5 text-[10px] text-primary-foreground">
+          <span>New: export to Figma →</span>
+          <span className="opacity-70" aria-hidden>
+            ×
+          </span>
+        </div>
+      );
+    case "circular-progress":
+      return (
+        <div className="relative size-14">
+          <svg viewBox="0 0 36 36" className="size-14 -rotate-90">
+            <circle cx="18" cy="18" r="15" fill="none" className="stroke-muted" strokeWidth="3" />
+            <circle
+              cx="18"
+              cy="18"
+              r="15"
+              fill="none"
+              className="stroke-primary"
+              strokeWidth="3"
+              strokeDasharray="70 100"
+              strokeLinecap="round"
+            />
+          </svg>
+          <span className="absolute inset-0 flex items-center justify-center text-[11px] font-semibold">
+            70%
+          </span>
+        </div>
+      );
+    case "action-banner":
+      return (
+        <div className="flex w-full max-w-[220px] flex-col gap-2 rounded-lg border border-amber-500/40 bg-amber-500/10 p-2.5 text-left">
+          <p className="text-[11px] font-medium">Update available</p>
+          <div className="flex gap-1.5">
+            <Button size="sm" className="h-7 text-[10px]">
+              Update
+            </Button>
+            <Button size="sm" variant="ghost" className="h-7 text-[10px]">
+              Later
+            </Button>
+          </div>
+        </div>
+      );
+    case "inline-status":
+      return (
+        <div className="flex items-center gap-2 text-xs">
+          <Check className="size-3.5 text-emerald-600" />
+          <span className="text-emerald-700 dark:text-emerald-400">All changes saved</span>
+        </div>
+      );
+    case "count-badge":
+      return (
+        <div className="inline-flex items-center gap-1.5 text-xs font-medium">
+          Inbox
+          <span className="rounded-full bg-primary px-1.5 py-0.5 text-[10px] text-primary-foreground">
+            12
+          </span>
+        </div>
+      );
+    case "lightbox":
+      return (
+        <div className="relative flex h-20 w-full max-w-[180px] items-center justify-center rounded-lg bg-black/70">
+          <div className="h-14 w-20 rounded-md bg-gradient-to-br from-sky-300 to-blue-600 shadow-xl" />
+          <span className="absolute top-1.5 right-2 text-xs text-white/80">×</span>
+        </div>
+      );
+    case "toast-stack":
+      return (
+        <div className="flex w-full max-w-[180px] flex-col gap-1.5">
+          <div className="rounded-lg border border-border bg-card px-2.5 py-1.5 text-[10px] shadow-md">
+            File uploaded
+          </div>
+          <div className="rounded-lg border border-border bg-card px-2.5 py-1.5 text-[10px] shadow-sm opacity-80">
+            Invite sent
+          </div>
+        </div>
+      );
+    case "fullscreen-modal":
+      return (
+        <div className="flex h-20 w-full max-w-[180px] flex-col overflow-hidden rounded-lg border border-border bg-card shadow-lg">
+          <div className="flex items-center justify-between border-b border-border px-2 py-1.5 text-[10px] font-semibold">
+            Editor
+            <span className="text-muted-foreground">×</span>
+          </div>
+          <div className="flex-1 bg-muted/40 p-2 text-[10px] text-muted-foreground">Full canvas</div>
+        </div>
+      );
+    case "modal-scrim":
+      return (
+        <div className="relative flex h-20 w-full max-w-[180px] items-center justify-center rounded-lg bg-foreground/50">
+          <div className="rounded-md bg-card px-3 py-2 text-[10px] shadow-lg">Dialog</div>
+        </div>
+      );
+    case "calendar-month":
+      return (
+        <div className="w-full max-w-[180px] rounded-lg border border-border p-2 text-center">
+          <p className="mb-1 text-[10px] font-semibold">July 2026</p>
+          <div className="grid grid-cols-7 gap-0.5 text-[8px]">
+            {["S", "M", "T", "W", "T", "F", "S"].map((d, i) => (
+              <span key={`dow-${i}`} className="text-muted-foreground">
+                {d}
+              </span>
+            ))}
+            {Array.from({ length: 14 }, (_, i) => (
+              <span
+                key={i}
+                className={cn(
+                  "rounded py-0.5",
+                  i === 9 ? "bg-primary font-semibold text-primary-foreground" : "",
+                )}
+              >
+                {i + 1}
+              </span>
+            ))}
+          </div>
+        </div>
+      );
+    case "carousel":
+      return (
+        <div className="w-full max-w-[200px] space-y-1.5">
+          <div className="flex gap-2 overflow-hidden">
+            <div className="h-14 w-[70%] shrink-0 rounded-lg bg-gradient-to-br from-sky-400 to-blue-600" />
+            <div className="h-14 w-[70%] shrink-0 rounded-lg bg-muted" />
+          </div>
+          <div className="flex items-center justify-between text-[10px]">
+            <span className="text-muted-foreground">‹ ›</span>
+            <span className="flex gap-1">
+              <span className="size-1.5 rounded-full bg-primary" />
+              <span className="size-1.5 rounded-full bg-muted-foreground/40" />
+              <span className="size-1.5 rounded-full bg-muted-foreground/40" />
+            </span>
+          </div>
+        </div>
+      );
+    case "price-display":
+      return (
+        <div className="text-left">
+          <p className="text-xl font-bold tracking-tight tabular-nums sm:text-2xl">
+            $29<span className="text-sm font-medium text-muted-foreground">/mo</span>
+          </p>
+          <p className="text-[10px] text-muted-foreground line-through tabular-nums">$39/mo</p>
+        </div>
+      );
+    case "code-snippet":
+      return (
+        <div className="w-full max-w-[220px] overflow-hidden rounded-lg border border-border bg-zinc-950 text-left">
+          <div className="flex items-center justify-between border-b border-white/10 px-2 py-1 text-[9px] text-zinc-400">
+            bash
+            <Copy className="size-3" />
+          </div>
+          <pre className="p-2 font-mono text-[10px] text-zinc-100">npm i design-menu</pre>
+        </div>
+      );
+    case "activity-feed":
+      return (
+        <div className="flex w-full max-w-[220px] gap-2 text-left">
+          <Avatar className="size-7">
+            <AvatarFallback className="text-[9px]">JM</AvatarFallback>
+          </Avatar>
+          <div className="min-w-0">
+            <p className="text-[11px] leading-snug">
+              <span className="font-semibold">Jordan</span> commented on{" "}
+              <span className="font-medium">Homepage</span>
+            </p>
+            <p className="text-[9px] text-muted-foreground">2h ago</p>
+          </div>
+        </div>
+      );
+    case "kpi-strip":
+      return (
+        <div className="flex w-full max-w-[220px] divide-x divide-border rounded-lg border border-border">
+          {[
+            { l: "Users", v: "2.4k" },
+            { l: "NPS", v: "62" },
+            { l: "Churn", v: "1.2%" },
+          ].map((m) => (
+            <div key={m.l} className="flex-1 px-1.5 py-1.5 text-center">
+              <p className="text-[9px] text-muted-foreground">{m.l}</p>
+              <p className="text-sm font-semibold tabular-nums">{m.v}</p>
+            </div>
+          ))}
+        </div>
+      );
+    case "backdrop-blur":
+      return (
+        <div className="relative h-20 w-full max-w-[180px] overflow-hidden rounded-lg">
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-400 to-indigo-500" />
+          <div className="absolute inset-x-0 top-0 border-b border-white/20 bg-white/30 px-2 py-1.5 text-[10px] font-medium backdrop-blur-md">
+            Blurred bar
+          </div>
+        </div>
+      );
+    case "surface-levels":
+      return (
+        <div className="flex items-end gap-2">
+          <div className="rounded-md border border-border bg-card px-2 py-3 text-[9px]">0</div>
+          <div className="rounded-md bg-card px-2 py-3 text-[9px] shadow-sm">1</div>
+          <div className="rounded-md bg-card px-2 py-3 text-[9px] shadow-md">2</div>
+          <div className="rounded-md bg-card px-2 py-3 text-[9px] shadow-lg">3</div>
+        </div>
+      );
+    case "tinted-surface":
+      return (
+        <div className="w-full max-w-[180px] rounded-xl bg-primary/10 px-3 py-3 text-[11px] text-primary ring-1 ring-primary/15">
+          Tinted panel
+        </div>
+      );
+    case "well-surface":
+      return (
+        <div className="inline-flex gap-1 rounded-lg bg-muted p-1">
+          <Button size="sm" variant="secondary" className="h-7 text-[10px]">
+            All
+          </Button>
+          <Button size="sm" variant="ghost" className="h-7 text-[10px]">
+            Mine
+          </Button>
+        </div>
+      );
+    case "illustration-placeholder":
+      return (
+        <div className="flex h-16 w-full max-w-[160px] items-center justify-center rounded-xl bg-gradient-to-br from-sky-100 to-blue-100 dark:from-sky-950 dark:to-blue-950">
+          <div className="flex gap-1">
+            <div className="size-6 rounded-full bg-sky-300/80" />
+            <div className="mt-2 size-8 rounded-lg bg-blue-400/70" />
+          </div>
+        </div>
+      );
+    case "gallery-strip":
+      return (
+        <div className="flex gap-1.5">
+          {["from-sky-400 to-blue-600", "from-amber-300 to-orange-500", "from-emerald-300 to-teal-600"].map(
+            (g, i) => (
+              <div
+                key={g}
+                className={cn(
+                  "size-10 rounded-md bg-gradient-to-br",
+                  g,
+                  i === 0 && "ring-2 ring-primary ring-offset-1 ring-offset-background",
+                )}
+              />
+            ),
+          )}
+        </div>
+      );
+    case "image-overlay":
+      return (
+        <div className="relative h-16 w-full max-w-[200px] overflow-hidden rounded-xl">
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-500 to-indigo-700" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+          <p className="absolute bottom-2 left-2 text-xs font-semibold text-white">Overlay title</p>
+        </div>
+      );
+    case "icon-pair":
+      return (
+        <div className="flex flex-col gap-2 text-left text-xs">
+          <div className="flex items-center gap-2">
+            <Home className="size-4 text-primary" />
+            <span>Home</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Bell className="size-4 text-primary" />
+            <span>Alerts</span>
+          </div>
+        </div>
+      );
+    case "read-only":
+      return (
+        <Input
+          readOnly
+          defaultValue="read-only@example.com"
+          className="max-w-[200px] bg-muted/50"
+          aria-label="Email read only"
+        />
+      );
+    case "success-control":
+      return (
+        <div className="relative w-full max-w-[200px]">
+          <Input
+            defaultValue="ok@design.menu"
+            className="border-emerald-500 pr-8 focus-visible:ring-emerald-500/30"
+            readOnly
+          />
+          <Check className="absolute top-1/2 right-2 size-4 -translate-y-1/2 text-emerald-600" />
+        </div>
+      );
+    case "indeterminate":
+      return (
+        <div className="flex items-center gap-2 text-xs">
+          <div className="flex size-4 items-center justify-center rounded border border-primary bg-primary">
+            <div className="h-0.5 w-2 bg-primary-foreground" />
+          </div>
+          Select all (partial)
+        </div>
+      );
+    case "reduced-motion":
+      return (
+        <div className="space-y-1 text-center text-[10px]">
+          <div className="mx-auto size-8 rounded-full bg-primary/20 ring-2 ring-primary/40" />
+          <p className="font-medium">Motion optional</p>
+          <p className="text-muted-foreground">Respect reduced-motion</p>
+        </div>
+      );
+    case "visited-link":
+      return (
+        <div className="space-y-1 text-left text-sm">
+          <a href="#a" className="text-primary underline-offset-2 hover:underline">
+            Unvisited link
+          </a>
+          <p>
+            <span className="text-violet-700 underline underline-offset-2 dark:text-violet-400">
+              Visited link
+            </span>
+          </p>
+        </div>
+      );
+    case "slop-gradient-text":
+      return (
+        <p className="bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 bg-clip-text text-center text-lg font-bold text-transparent">
+          Ship faster than ever
+        </p>
+      );
+    case "slop-busy-motion":
+      return (
+        <div className="flex items-center gap-3">
+          <div className="size-8 animate-bounce rounded-full bg-violet-500" />
+          <div className="size-8 animate-pulse rounded-lg bg-fuchsia-400" />
+          <div className="size-8 animate-spin rounded-md border-2 border-violet-400 border-t-transparent" />
+        </div>
+      );
+    case "slop-ai-badge-spam":
+      return (
+        <div className="flex flex-wrap justify-center gap-1.5">
+          {["✨ AI", "✨ Smart", "✨ Magic", "✨ GPT"].map((b) => (
+            <span
+              key={b}
+              className="rounded-full bg-violet-500/15 px-2 py-0.5 text-[10px] font-medium text-violet-700 dark:text-violet-300"
+            >
+              {b}
+            </span>
+          ))}
+        </div>
+      );
+    case "slop-hero-stats-row":
+      return (
+        <div className="flex gap-4 text-center">
+          {[
+            ["10x", "faster"],
+            ["99%", "happier"],
+            ["24/7", "uptime"],
+          ].map(([n, l]) => (
+            <div key={l}>
+              <p className="text-lg font-bold text-violet-600">{n}</p>
+              <p className="text-[9px] text-muted-foreground">{l}</p>
+            </div>
+          ))}
+        </div>
+      );
+    case "lib-portal-stacking":
+      return (
+        <div className="relative h-16 w-full max-w-[180px] overflow-hidden rounded-lg border border-border bg-muted/40 p-2 text-[10px]">
+          <p className="text-muted-foreground">Parent clips…</p>
+          <div className="absolute top-2 right-2 z-50 rounded-md border border-border bg-card px-2 py-1 shadow-lg">
+            Portaled menu
+          </div>
+        </div>
+      );
+    case "lib-accessible-names":
+      return (
+        <div className="flex items-center gap-2">
+          <Button size="icon-sm" variant="outline" aria-label="Notifications" className="size-8">
+            <Bell className="size-3.5" />
+          </Button>
+          <span className="text-[10px] text-muted-foreground">aria-label set</span>
+        </div>
+      );
+    case "lib-css-variables":
+      return (
+        <div className="space-y-1 rounded-lg border border-border bg-card p-2 font-mono text-[9px] text-left">
+          <p className="text-primary">--primary</p>
+          <p className="text-muted-foreground">--muted-foreground</p>
+          <p className="text-destructive">--destructive</p>
+        </div>
+      );
+    case "lib-compose-layout":
+      return (
+        <div className="flex w-full max-w-[200px] flex-col gap-2 rounded-lg border border-dashed border-border p-2 text-[9px]">
+          <div className="rounded bg-muted px-2 py-1">flex flex-col gap-2</div>
+          <div className="flex gap-1">
+            <div className="flex-1 rounded bg-primary/15 px-1 py-1 text-center">Button</div>
+            <div className="flex-1 rounded bg-primary/15 px-1 py-1 text-center">Button</div>
+          </div>
+        </div>
+      );
+    case "lib-error-boundaries-ui":
+      return (
+        <div className="w-full max-w-[180px] space-y-1 rounded-lg border border-border p-3 text-center">
+          <p className="text-xs font-semibold">Couldn&apos;t load</p>
+          <p className="text-[10px] text-muted-foreground">Try again in a moment.</p>
+          <Button size="sm" variant="outline" className="mt-1 h-7 text-[10px]">
+            Retry
+          </Button>
+        </div>
+      );
+
+    // ── Second-pass vocabulary demos ───────────────────
+    case "small-caps":
+      return (
+        <p className="text-sm">
+          <span className="text-[11px] font-semibold tracking-wide uppercase">API</span>{" "}
+          <span className="text-muted-foreground">vs</span>{" "}
+          <span style={{ fontVariant: "small-caps" }} className="text-base font-medium tracking-wide">
+            Api
+          </span>{" "}
+          small caps
+        </p>
+      );
+    case "monospace-stack":
+      return (
+        <p className="font-mono text-xs">
+          user_id · <span className="text-primary">a1b2c3</span>
+        </p>
+      );
+    case "responsive-type":
+      return (
+        <div className="space-y-1 text-left">
+          <p className="text-base font-semibold sm:text-lg">Scales up</p>
+          <p className="text-[10px] text-muted-foreground">text-base → sm:text-lg</p>
+        </div>
+      );
+    case "brand-scale":
+      return (
+        <div className="flex gap-1">
+          {["bg-primary/15", "bg-primary/30", "bg-primary/50", "bg-primary/75", "bg-primary"].map(
+            (c, i) => (
+              <div key={c} className={`size-7 rounded-md ${c}`} title={`step ${i + 1}`} />
+            ),
+          )}
+        </div>
+      );
+    case "disabled-colors":
+      return (
+        <div className="flex gap-2">
+          <div className="rounded-md bg-muted px-3 py-1.5 text-xs text-muted-foreground/60">
+            Disabled fill
+          </div>
+          <div className="rounded-md border border-border/50 px-3 py-1.5 text-xs text-muted-foreground/50">
+            Disabled text
+          </div>
+        </div>
+      );
+    case "safe-area":
+      return (
+        <div className="relative h-16 w-full max-w-[160px] overflow-hidden rounded-xl border border-border bg-card">
+          <div className="absolute inset-x-0 bottom-0 border-t border-border bg-muted/80 px-2 pb-2 pt-1 text-center text-[9px]">
+            <span className="text-muted-foreground">safe-area</span>
+            <div className="mx-auto mt-1 h-1 w-10 rounded-full bg-foreground/30" />
+          </div>
+        </div>
+      );
+    case "masonry-hint":
+      return (
+        <div className="grid w-full max-w-[180px] grid-cols-2 gap-1.5">
+          <div className="h-10 rounded-md bg-muted" />
+          <div className="h-14 rounded-md bg-muted" />
+          <div className="h-14 rounded-md bg-muted" />
+          <div className="h-10 rounded-md bg-muted" />
+        </div>
+      );
+    case "sticky-footer":
+      return (
+        <div className="flex h-20 w-full max-w-[180px] flex-col overflow-hidden rounded-lg border border-border">
+          <div className="flex-1 bg-muted/40 p-2 text-[9px] text-muted-foreground">Content…</div>
+          <div className="flex justify-end gap-1 border-t border-border bg-card p-1.5">
+            <Button size="sm" variant="ghost" className="h-6 text-[9px]">
+              Cancel
+            </Button>
+            <Button size="sm" className="h-6 text-[9px]">
+              Save
+            </Button>
+          </div>
+        </div>
+      );
+    case "pill-button":
+      return <Button className="rounded-full px-5">Get started</Button>;
+    case "button-block":
+      return (
+        <Button className="w-full max-w-[180px]">Continue</Button>
+      );
+    case "phone-input":
+      return (
+        <div className="flex w-full max-w-[200px] overflow-hidden rounded-md border border-border">
+          <span className="border-r border-border bg-muted px-2 py-2 text-[11px] text-muted-foreground">
+            +1
+          </span>
+          <Input
+            type="tel"
+            defaultValue="(555) 010-2000"
+            className="border-0 focus-visible:ring-0"
+            readOnly
+            aria-label="Phone"
+          />
+        </div>
+      );
+    case "color-input":
+      return (
+        <div className="flex items-center gap-2">
+          <div className="size-8 rounded-md border border-border bg-sky-500 shadow-sm" />
+          <Input defaultValue="#0ea5e9" className="h-8 w-24 font-mono text-xs" readOnly />
+        </div>
+      );
+    case "checkbox-group":
+      return (
+        <div className="space-y-2 text-left text-xs">
+          {["Email", "SMS", "Push"].map((l, i) => (
+            <label key={l} className="flex items-center gap-2">
+              <Checkbox defaultChecked={i < 2} />
+              {l}
+            </label>
+          ))}
+        </div>
+      );
+    case "inline-label-field":
+      return (
+        <div className="flex w-full max-w-[220px] items-center justify-between gap-3 text-left text-xs">
+          <Label className="text-muted-foreground">Notifications</Label>
+          <Switch defaultChecked />
+        </div>
+      );
+    case "tree-nav":
+      return (
+        <nav className="w-full max-w-[150px] space-y-0.5 text-left font-mono text-[11px]">
+          <div className="font-medium">▾ Product</div>
+          <div className="rounded bg-accent px-2 py-0.5 pl-4 font-sans">Overview</div>
+          <div className="px-2 py-0.5 pl-4 font-sans text-muted-foreground">Pricing</div>
+          <div className="font-medium text-muted-foreground">▸ Docs</div>
+        </nav>
+      );
+    case "utility-nav":
+      return (
+        <div className="flex gap-3 text-[10px] text-muted-foreground">
+          <span>Status</span>
+          <span>Docs</span>
+          <span className="text-foreground">Account</span>
+        </div>
+      );
+    case "tab-underline":
+      return (
+        <div className="flex gap-4 border-b border-border text-xs">
+          <span className="border-b-2 border-primary pb-1.5 font-medium">Overview</span>
+          <span className="pb-1.5 text-muted-foreground">Activity</span>
+          <span className="pb-1.5 text-muted-foreground">Settings</span>
+        </div>
+      );
+    case "top-progress":
+      return (
+        <div className="relative h-12 w-full max-w-[200px] overflow-hidden rounded-lg border border-border bg-muted/30">
+          <div className="absolute inset-x-0 top-0 h-0.5 bg-primary">
+            <div className="h-full w-2/3 bg-primary shadow-[0_0_8px] shadow-primary" />
+          </div>
+          <p className="p-3 text-[10px] text-muted-foreground">Page loading…</p>
+        </div>
+      );
+    case "snackbar-action":
+      return (
+        <div className="flex w-full max-w-[220px] items-center justify-between gap-2 rounded-lg bg-foreground px-3 py-2 text-[11px] text-background shadow-lg">
+          <span>Item deleted</span>
+          <button type="button" className="font-semibold text-primary">
+            Undo
+          </button>
+        </div>
+      );
+    case "validation-summary":
+      return (
+        <div className="w-full max-w-[220px] rounded-lg border border-destructive/40 bg-destructive/5 p-2.5 text-left text-[11px]">
+          <p className="font-semibold text-destructive">Fix 2 errors</p>
+          <ul className="mt-1 list-disc space-y-0.5 pl-4 text-destructive/90">
+            <li>Email is required</li>
+            <li>Password too short</li>
+          </ul>
+        </div>
+      );
+    case "coach-mark":
+      return (
+        <div className="flex w-full max-w-[200px] flex-col gap-2 rounded-lg bg-muted/50 p-2">
+          <div className="flex justify-start">
+            <Button
+              size="sm"
+              className="h-7 ring-2 ring-primary ring-offset-1 ring-offset-background"
+            >
+              Share
+            </Button>
+          </div>
+          <div className="rounded-lg border border-border bg-card p-2 text-left text-[10px] shadow-md">
+            <p className="font-semibold">Share with your team</p>
+            <p className="mt-0.5 text-muted-foreground">Invite people from here.</p>
+          </div>
+        </div>
+      );
+    case "side-drawer":
+      return (
+        <div className="flex h-20 w-full max-w-[220px] overflow-hidden rounded-lg border border-border">
+          <div className="flex-1 bg-muted/30 p-2 text-[9px] text-muted-foreground">List</div>
+          <div className="w-[55%] border-l border-border bg-card p-2 text-left shadow-lg">
+            <p className="text-[10px] font-semibold">Record</p>
+            <p className="text-[9px] text-muted-foreground">Detail panel</p>
+          </div>
+        </div>
+      );
+    case "rating-stars":
+      return (
+        <div className="flex items-center gap-1 text-amber-500" aria-label="4 out of 5 stars">
+          {"★★★★☆".split("").map((s, i) => (
+            <span key={i} className="text-sm leading-none">
+              {s}
+            </span>
+          ))}
+          <span className="ml-1 text-[11px] text-muted-foreground">4.0</span>
+        </div>
+      );
+    case "comparison-table":
+      return (
+        <table className="w-full max-w-[220px] text-left text-[10px]">
+          <thead>
+            <tr className="border-b border-border text-muted-foreground">
+              <th className="py-1 font-medium">Feature</th>
+              <th className="py-1 font-medium">Free</th>
+              <th className="py-1 font-medium">Pro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-border/60">
+              <td className="py-1">Projects</td>
+              <td>3</td>
+              <td className="font-semibold text-primary">∞</td>
+            </tr>
+            <tr>
+              <td className="py-1">SSO</td>
+              <td className="text-muted-foreground">—</td>
+              <td>✓</td>
+            </tr>
+          </tbody>
+        </table>
+      );
+    case "sortable-header":
+      return (
+        <div className="flex w-full max-w-[200px] items-center gap-1 border-b border-border pb-1 text-left text-[11px] font-medium">
+          Name
+          <span className="text-primary" aria-hidden>
+            ↑
+          </span>
+          <span className="ml-auto text-[9px] font-normal text-muted-foreground">sorted</span>
+        </div>
+      );
+    case "sparkline":
+      return (
+        <div className="flex items-end gap-2">
+          <svg viewBox="0 0 80 28" className="h-8 w-20 text-primary" aria-hidden>
+            <polyline
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              points="0,22 12,18 24,20 36,10 48,14 60,6 80,8"
+            />
+          </svg>
+          <span className="text-xs font-semibold text-emerald-600">+12%</span>
+        </div>
+      );
+    case "inner-border":
+      return (
+        <div className="rounded-xl bg-card px-4 py-3 text-xs shadow-[inset_0_0_0_1px_var(--border)]">
+          Inset border
+        </div>
+      );
+    case "layered-shadow":
+      return (
+        <div className="rounded-xl bg-card px-4 py-3 text-xs shadow-[0_1px_2px_rgba(0,0,0,0.06),0_8px_24px_rgba(0,0,0,0.08)]">
+          Layered depth
+        </div>
+      );
+    case "avatar-status":
+      return (
+        <div className="relative inline-flex">
+          <Avatar className="size-10">
+            <AvatarFallback>RK</AvatarFallback>
+          </Avatar>
+          <span className="absolute right-0 bottom-0 size-3 rounded-full border-2 border-background bg-emerald-500" />
+        </div>
+      );
+    case "favicon-set":
+      return (
+        <div className="flex items-center gap-2">
+          <div className="flex size-8 items-center justify-center rounded-lg bg-foreground text-[10px] font-bold text-background">
+            DM
+          </div>
+          <span className="text-[11px] text-muted-foreground">16–32px mark</span>
+        </div>
+      );
+    case "aspect-media-fit":
+      return (
+        <div className="flex gap-2">
+          <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-md bg-muted">
+            <div className="h-16 w-8 bg-gradient-to-b from-sky-400 to-blue-600" />
+          </div>
+          <div className="flex h-12 w-12 items-center justify-center rounded-md bg-muted">
+            <div className="h-8 w-5 rounded-sm bg-gradient-to-b from-sky-400 to-blue-600" />
+          </div>
+        </div>
+      );
+    case "offline-state":
+      return (
+        <div className="flex items-center gap-2 rounded-lg border border-border bg-muted/50 px-3 py-2 text-[11px]">
+          <span className="size-2 rounded-full bg-muted-foreground" />
+          You&apos;re offline
+        </div>
+      );
+    case "empty-zero":
+      return (
+        <div className="grid w-full max-w-[220px] grid-cols-2 gap-2 text-[9px]">
+          <div className="rounded-lg border border-dashed border-border p-2 text-center">
+            <p className="font-semibold">First run</p>
+            <p className="text-muted-foreground">Create project</p>
+          </div>
+          <div className="rounded-lg border border-border p-2 text-center">
+            <p className="font-semibold">No results</p>
+            <p className="text-muted-foreground">Clear filters</p>
+          </div>
+        </div>
+      );
+    case "stale-data":
+      return (
+        <div className="flex items-center gap-2 text-[11px]">
+          <span className="font-semibold tabular-nums">1,284</span>
+          <span className="rounded bg-amber-500/15 px-1.5 py-0.5 text-[9px] text-amber-800 dark:text-amber-200">
+            5m ago
+          </span>
+        </div>
+      );
+    case "slop-confetti-success":
+      return (
+        <div className="relative flex h-16 w-full max-w-[180px] items-center justify-center overflow-hidden rounded-lg border border-violet-300 bg-violet-50 dark:bg-violet-950/40">
+          <span className="absolute top-1 left-2 text-sm">🎊</span>
+          <span className="absolute top-2 right-4 text-sm">✨</span>
+          <span className="absolute bottom-2 left-6 text-sm">🎉</span>
+          <span className="text-[11px] font-medium text-violet-700 dark:text-violet-300">
+            Saved draft!!
+          </span>
+        </div>
+      );
+    case "slop-typewriter-hero":
+      return (
+        <p className="text-center text-sm font-semibold">
+          We help you{" "}
+          <span className="text-violet-600">
+            synergize<span className="animate-pulse">|</span>
+          </span>
+        </p>
+      );
+    case "lib-keyboard-nav":
+      return (
+        <div className="rounded-lg border border-border p-2 text-left text-[10px]">
+          <p className="font-medium">Menu · arrow keys</p>
+          <p className="mt-1 text-muted-foreground">↑↓ move · Enter select · Esc close</p>
+        </div>
+      );
+    case "lib-focus-visible":
+      return (
+        <div className="flex gap-2">
+          <Button size="sm" className="ring-2 ring-ring ring-offset-2">
+            Keyboard
+          </Button>
+          <Button size="sm" variant="outline">
+            Mouse
+          </Button>
+        </div>
+      );
+    case "lib-toast-region":
+      return (
+        <div
+          role="status"
+          aria-live="polite"
+          className="rounded-lg border border-border bg-card px-3 py-2 text-[11px] shadow-md"
+        >
+          Changes saved
+        </div>
+      );
     default:
       return (
         <div className="text-xs text-muted-foreground">

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Check, Copy } from "lucide-react";
 import type { DesignElement } from "@/lib/catalog";
+import { formatPromptDisplay } from "@/lib/prompt-display";
 import { ElementExample } from "./ElementExample";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -15,12 +16,17 @@ import {
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
+/** Preview stage height — demos must fit inside with stage padding. */
+export const EXAMPLE_STAGE_HEIGHT_PX = 200;
+export const EXAMPLE_STAGE_PADDING_PX = 16;
+
 export function ElementCard({ element }: { element: DesignElement }) {
   const [copied, setCopied] = useState(false);
   const isAvoid = element.promptKind === "avoid";
 
   async function copyPrompt() {
     try {
+      // Copy original tip (ASCII hyphens) for pasting into prompts
       await navigator.clipboard.writeText(element.promptTip);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1600);
@@ -40,23 +46,25 @@ export function ElementCard({ element }: { element: DesignElement }) {
         isAvoid && "border-[var(--slop-border)]/30 hover:border-[var(--slop-border)]/40",
       )}
     >
-      {/* Preview stage — taller, more breathable like Linear */}
+      {/* Preview stage — fixed viewport; demos must fit, not clip mid-glyph */}
       <div
+        data-testid="example-stage"
+        data-stage-height={EXAMPLE_STAGE_HEIGHT_PX}
         className={cn(
-          "relative flex h-[180px] shrink-0 items-center justify-center overflow-hidden border-b p-5",
+          "relative flex h-[200px] shrink-0 items-center justify-center overflow-hidden border-b p-4",
           isAvoid
             ? "border-[var(--slop-border)]/20 bg-[var(--slop-stage)]"
             : "border-border/50 bg-[var(--example-stage)]",
         )}
       >
-        <div className="flex max-h-full w-full max-w-full items-center justify-center overflow-hidden text-center [&_*]:max-w-full">
+        <div className="flex h-full max-h-full w-full max-w-full min-h-0 items-center justify-center overflow-hidden text-center [&>*]:max-w-full">
           <ElementExample exampleKey={element.exampleKey} />
         </div>
       </div>
 
       <CardHeader className="shrink-0 gap-1.5 space-y-0 px-[18px] pt-4 pb-0">
         <div className="flex min-h-7 items-start justify-between gap-2">
-          <CardTitle className="line-clamp-2 min-w-0 flex-1 text-[15px] font-semibold leading-[1.32] tracking-[-0.015em]">
+          <CardTitle className="line-clamp-2 min-w-0 flex-1 text-[15px] font-semibold leading-[1.32] tracking-[-0.015em] break-words hyphens-none">
             {element.name}
           </CardTitle>
           <div className="flex shrink-0 flex-wrap justify-end gap-1.5">
@@ -66,13 +74,16 @@ export function ElementCard({ element }: { element: DesignElement }) {
               </Badge>
             )}
             {element.alsoKnownAs?.[0] && (
-              <Badge className="max-w-[10rem] truncate rounded-full border-0 bg-secondary px-2 text-[10px] font-normal tracking-wide text-muted-foreground h-[22px]">
+              <Badge
+                title={`aka ${element.alsoKnownAs[0]}`}
+                className="max-w-[10rem] truncate rounded-full border-0 bg-secondary px-2 text-[10px] font-normal tracking-wide text-muted-foreground h-[22px]"
+              >
                 aka {element.alsoKnownAs[0]}
               </Badge>
             )}
           </div>
         </div>
-        <CardDescription className="line-clamp-2 min-h-[2.75rem] text-[13px] leading-[1.5] tracking-[-0.01em] text-muted-foreground">
+        <CardDescription className="line-clamp-2 min-h-[2.75rem] text-[13px] leading-[1.5] tracking-[-0.01em] text-muted-foreground break-words hyphens-none">
           {element.description}
         </CardDescription>
       </CardHeader>
@@ -115,8 +126,11 @@ export function ElementCard({ element }: { element: DesignElement }) {
               )}
             </Button>
           </div>
-          <p className="line-clamp-4 min-h-[4.25rem] text-[13px] leading-[1.55] tracking-[-0.01em] text-foreground/85">
-            {element.promptTip}
+          <p
+            data-testid="prompt-tip"
+            className="line-clamp-4 min-h-[4.25rem] text-[13px] leading-[1.55] tracking-[-0.01em] text-foreground/85 break-words hyphens-none"
+          >
+            {formatPromptDisplay(element.promptTip)}
           </p>
         </div>
       </CardContent>

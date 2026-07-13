@@ -27,7 +27,6 @@ npm run build
 | Category | Do | Don’t |
 |----------|----|--------|
 | Core UI (type → states) | Teach standard UI language | Invent one-off product features |
-| Creative | Distinctive, beautiful craft grounded in real design practice | Generic purple “pretty” gradients |
 | AI Slop | Exaggerate **one** failure mode; `promptKind: "avoid"` | Soften the anti-pattern until it’s unclear |
 | Library practices | Actionable shadcn/Radix/Tailwind system advice | Restate generic “write clean code” |
 

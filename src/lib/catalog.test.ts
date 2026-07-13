@@ -41,8 +41,8 @@ const CORE_UI_CATEGORIES: CategoryId[] = [
   "media",
   "states",
 ];
-const CORE_UI_FLOOR = 8;
-const SPECIALIZED_FLOOR = 15;
+const CORE_UI_FLOOR = 14;
+const SPECIALIZED_FLOOR = 20;
 
 describe("catalog data", () => {
   it("includes all required design categories", () => {
@@ -156,6 +156,7 @@ describe("catalog data", () => {
 
   it("ships standard vocabulary added for category completeness", () => {
     const expected: Array<{ id: string; category: CategoryId }> = [
+      // Prior completeness set
       { id: "lead-text", category: "typography" },
       { id: "tabular-nums", category: "typography" },
       { id: "accent-color", category: "color" },
@@ -173,6 +174,70 @@ describe("catalog data", () => {
       { id: "cover-image", category: "media" },
       { id: "active-pressed", category: "states" },
       { id: "drag-state", category: "states" },
+      // Exhaustive fill — one+ signature pattern per category
+      { id: "ordered-list", category: "typography" },
+      { id: "kbd", category: "typography" },
+      { id: "code-block", category: "typography" },
+      { id: "surface-colors", category: "color" },
+      { id: "chart-colors", category: "color" },
+      { id: "focus-ring-color", category: "color" },
+      { id: "density", category: "spacing-layout" },
+      { id: "scroll-area", category: "spacing-layout" },
+      { id: "app-shell", category: "spacing-layout" },
+      { id: "fab", category: "buttons" },
+      { id: "split-button", category: "buttons" },
+      { id: "toggle-button", category: "buttons" },
+      { id: "combobox", category: "forms" },
+      { id: "otp-input", category: "forms" },
+      { id: "multi-select", category: "forms" },
+      { id: "required-marker", category: "forms" },
+      { id: "footer-nav", category: "navigation" },
+      { id: "back-link", category: "navigation" },
+      { id: "app-rail", category: "navigation" },
+      { id: "announcement-bar", category: "feedback" },
+      { id: "circular-progress", category: "feedback" },
+      { id: "action-banner", category: "feedback" },
+      { id: "lightbox", category: "overlays" },
+      { id: "toast-stack", category: "overlays" },
+      { id: "calendar-month", category: "data-display" },
+      { id: "carousel", category: "data-display" },
+      { id: "price-display", category: "data-display" },
+      { id: "backdrop-blur", category: "surfaces" },
+      { id: "surface-levels", category: "surfaces" },
+      { id: "gallery-strip", category: "media" },
+      { id: "illustration-placeholder", category: "media" },
+      { id: "read-only", category: "states" },
+      { id: "indeterminate", category: "states" },
+      { id: "reduced-motion", category: "states" },
+      { id: "slop-gradient-text", category: "ai-slop" },
+      { id: "slop-busy-motion", category: "ai-slop" },
+      { id: "lib-portal-stacking", category: "library-practices" },
+      { id: "lib-accessible-names", category: "library-practices" },
+      { id: "lib-css-variables", category: "library-practices" },
+      // Second-pass vocabulary
+      { id: "small-caps", category: "typography" },
+      { id: "responsive-type", category: "typography" },
+      { id: "brand-scale", category: "color" },
+      { id: "safe-area", category: "spacing-layout" },
+      { id: "sticky-footer", category: "spacing-layout" },
+      { id: "pill-button", category: "buttons" },
+      { id: "button-block", category: "buttons" },
+      { id: "phone-input", category: "forms" },
+      { id: "checkbox-group", category: "forms" },
+      { id: "tree-nav", category: "navigation" },
+      { id: "tab-underline", category: "navigation" },
+      { id: "top-progress", category: "feedback" },
+      { id: "snackbar-action", category: "feedback" },
+      { id: "coach-mark", category: "overlays" },
+      { id: "rating-stars", category: "data-display" },
+      { id: "comparison-table", category: "data-display" },
+      { id: "sparkline", category: "data-display" },
+      { id: "avatar-status", category: "media" },
+      { id: "offline-state", category: "states" },
+      { id: "empty-zero", category: "states" },
+      { id: "slop-confetti-success", category: "ai-slop" },
+      { id: "lib-focus-visible", category: "library-practices" },
+      { id: "lib-toast-region", category: "library-practices" },
     ];
 
     for (const { id, category } of expected) {
@@ -181,6 +246,17 @@ describe("catalog data", () => {
       expect(el!.category).toBe(category);
       expect(el!.exampleKey).toBe(id);
       expect(el!.promptTip.trim().length).toBeGreaterThan(10);
+    }
+  });
+
+  it("keeps material catalog depth after exhaustive vocabulary fill", () => {
+    expect(ELEMENTS.length).toBeGreaterThanOrEqual(270);
+    // Core UI categories should be robust, not thin starter lists
+    for (const id of CORE_UI_CATEGORIES) {
+      expect(
+        getElementsByCategory(id).length,
+        `${id} should stay well-rounded`,
+      ).toBeGreaterThanOrEqual(14);
     }
   });
 

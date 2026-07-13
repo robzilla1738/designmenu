@@ -4,7 +4,7 @@ A visual catalog of UI design elements — each with a **live example**, the **n
 
 Built for people who recognize a pattern on screen but don’t know what it’s called (or how to describe it to an AI).
 
-**146 labeled elements** · **15 categories** · Teal brand accent · Light / dark / system theme
+**281 labeled elements** · **14 categories** · Light blue brand accent · Light / dark / system theme
 
 ---
 
@@ -13,7 +13,7 @@ Built for people who recognize a pattern on screen but don’t know what it’s 
 When you vibe-code or brief a designer (or an LLM), the bottleneck is often **vocabulary**:
 
 - “That soft blurry panel over the gradient” → **glass / frosted surface**
-- “The endless scrolling logo strip” → **marquee / ticker**
+- “The thin bar above the header about an outage” → **announcement bar**
 - “That same purple AI landing page look” → **default purple gradient hero** (AI slop — avoid)
 
 Design Menu names the pattern, shows it, and hands you prompt text you can copy.
@@ -24,20 +24,22 @@ Design Menu names the pattern, shows it, and hands you prompt text you can copy.
 
 | Area | Count | What you get |
 |------|------:|--------------|
-| Typography → States | 88 | Core UI language: type, color, layout, controls, feedback, overlays, surfaces |
-| **Creative** | 21 | Dither, grain, kinetic type, bento, paper, risograph, Swiss grid, mesh, and more |
-| **AI Slop** | 19 | Anti-patterns with **Avoid by prompting** tips (purple haze, Inter-only, fake metrics, glow spam…) |
-| **Library Best Practices** | 18 | shadcn / Radix / Tailwind composition habits |
+| Typography → States | 230 | Core UI language: type, color, layout, controls, feedback, overlays, surfaces, media, states |
+| **AI Slop** | 25 | Anti-patterns with **Avoid by prompting** tips (purple haze, Inter-only, fake metrics, glow spam…) |
+| **Library Best Practices** | 26 | shadcn / Radix / Tailwind composition habits |
 
 ### Categories
 
-Typography · Color · Spacing & Layout · Buttons · Form Controls · Navigation · Feedback · Overlays · Data Display · Surfaces · Media & Icons · States & Motion · **Creative** · **AI Slop** · **Library Best Practices**
+Typography · Color · Spacing & Layout · Buttons · Form Controls · Navigation · Feedback · Overlays · Data Display · Surfaces · Media & Icons · States & Motion · **AI Slop** · **Library Best Practices**
 
 ### Standout sections
 
-- **Creative** — distinctive visual craft that reads in a small stage (print texture, editorial type, restrained motion).
-- **AI Slop** — common model defaults and how to steer past them. Purple gradients stay *here* as intentional bad examples; the product chrome uses teal.
-- **Library Best Practices** — compose primitives, semantic tokens, CVA variants, accessible overlays, controlled open state, and more.
+- **AI Slop** — common model defaults and how to steer past them. Purple gradients stay *here* as intentional bad examples; the product chrome uses light blue.
+- **Library Best Practices** — compose primitives, semantic tokens, CVA variants, accessible overlays, controlled open state, portals, focus-visible, and more.
+
+### Search
+
+Multi-word queries use **AND** matching across name, aliases, tags, ids, descriptions, and prompt tips. Results are **ranked** so name and alias hits beat deep body text. Try phrases like `outline button`, `floating action`, or `toast stack`.
 
 ---
 
@@ -66,7 +68,7 @@ Requirements: **Node.js 20+** recommended.
 |-------|--------|
 | Framework | [Next.js](https://nextjs.org/) (App Router) 16 |
 | UI | [shadcn/ui](https://ui.shadcn.com/) + Radix primitives |
-| Styling | Tailwind CSS v4 · CSS variables (teal primary) |
+| Styling | Tailwind CSS v4 · CSS variables (light blue primary) |
 | Theme | [next-themes](https://github.com/pacocoursey/next-themes) (light / dark / system) |
 | Language | TypeScript |
 | Tests | [Vitest](https://vitest.dev/) |
@@ -85,7 +87,7 @@ src/
     ui/                # shadcn primitives
   lib/
     catalog.ts         # Categories + element data (pure, testable)
-    search.ts          # Catalog search / filter
+    search.ts          # Tokenized ranked catalog search / filter
     theme.ts           # Theme preference helpers
 ```
 
@@ -102,7 +104,7 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for data model details and [CON
 
 ## Brand notes
 
-- Product accent is **teal** (OKLCH hue ~195), not purple/indigo.
+- Product accent is **light blue** (OKLCH hue ~232), not purple/indigo.
 - Purple / violet / fuchsia gradients appear only in **intentional AI-slop demos**.
 - The Inter font is loaded solely so the **Inter-only vacuum** anti-pattern can be shown honestly; the app UI uses Geist.
 

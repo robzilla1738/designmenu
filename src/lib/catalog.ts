@@ -523,12 +523,12 @@ export const ELEMENTS: DesignElement[] = [
     id: "primary-button",
     category: "buttons",
     name: "Primary button",
-    alsoKnownAs: ["CTA button", "Solid button"],
+    alsoKnownAs: ["CTA button","Solid button","Main CTA"],
     description: "Highest-emphasis action—filled brand color.",
     promptTip:
       "Make the primary CTA a solid filled button with brand background, white text, and clear hover state.",
     exampleKey: "primary-button",
-    tags: ["cta", "action"],
+    tags: ["cta","action","submit"],
   },
   {
     id: "secondary-button",
@@ -826,6 +826,7 @@ export const ELEMENTS: DesignElement[] = [
     id: "breadcrumbs",
     category: "navigation",
     name: "Breadcrumbs",
+    alsoKnownAs: ["Path trail","Crumb trail"],
     description: "Trail showing hierarchy and path back up.",
     promptTip:
       "Show breadcrumbs as Home / Section / Page with separators and the current page as non-link text.",
@@ -878,18 +879,18 @@ export const ELEMENTS: DesignElement[] = [
     id: "segmented-control",
     category: "navigation",
     name: "Segmented control",
-    alsoKnownAs: ["Segmented tabs", "iOS segments"],
+    alsoKnownAs: ["Segmented tabs","iOS segments","iOS segment","Toggle group"],
     description: "Compact mutually exclusive choices in a single control.",
     promptTip:
       "Use a segmented control for 2–4 peer options (Day/Week/Month) with one selected fill and equal-width segments.",
     exampleKey: "segmented-control",
-    tags: ["segments", "toggle", "filter"],
+    tags: ["segments","toggle","filter","segment"],
   },
   {
     id: "skip-link",
     category: "navigation",
     name: "Skip link",
-    alsoKnownAs: ["Skip to content"],
+    alsoKnownAs: ["Skip to content","Skip navigation"],
     description: "Keyboard-first link that jumps past chrome to main content.",
     promptTip:
       "Add a skip-to-main-content link that is focusable first and becomes visible on keyboard focus.",
@@ -945,7 +946,7 @@ export const ELEMENTS: DesignElement[] = [
     id: "skeleton",
     category: "feedback",
     name: "Skeleton loader",
-    alsoKnownAs: ["Content placeholder"],
+    alsoKnownAs: ["Content placeholder","Shimmer loader"],
     description: "Pulsing shapes matching content layout while loading.",
     promptTip:
       "Replace loading content with skeleton placeholders (gray rounded bars) that match the final layout.",
@@ -956,6 +957,7 @@ export const ELEMENTS: DesignElement[] = [
     id: "progress-bar",
     category: "feedback",
     name: "Progress bar",
+    alsoKnownAs: ["Linear progress","Loading bar"],
     description: "Determinate progress for known completion %.",
     promptTip:
       "Show a horizontal progress bar with filled track for determinate progress (e.g. upload 60%).",
@@ -966,11 +968,12 @@ export const ELEMENTS: DesignElement[] = [
     id: "empty-state",
     category: "feedback",
     name: "Empty state",
+    alsoKnownAs: ["Blank slate","No data"],
     description: "Friendly screen when there's no data yet.",
     promptTip:
       "Design an empty state with illustration/icon, short explanation, and a primary action to create first item.",
     exampleKey: "empty-state",
-    tags: ["zero-data", "onboarding"],
+    tags: ["zero-data","onboarding","blank"],
   },
   {
     id: "badge-notification",
@@ -1022,7 +1025,7 @@ export const ELEMENTS: DesignElement[] = [
     id: "modal",
     category: "overlays",
     name: "Modal / dialog",
-    alsoKnownAs: ["Dialog", "Lightbox (related)"],
+    alsoKnownAs: ["Dialog","Lightbox (related)","Dialog window","Popup modal"],
     description: "Centered overlay requiring focus before continuing.",
     promptTip:
       "Open a centered modal dialog with backdrop, title, body, and primary/secondary actions; trap focus.",
@@ -1038,7 +1041,7 @@ export const ELEMENTS: DesignElement[] = [
     promptTip:
       "Use a side drawer/slide-over panel for secondary flows (filters, details) without leaving the page.",
     exampleKey: "drawer",
-    tags: ["sheet", "slide-over"],
+    tags: ["sheet","slide-over","slideover"],
   },
   {
     id: "tooltip",
@@ -1080,7 +1083,7 @@ export const ELEMENTS: DesignElement[] = [
     promptTip:
       "Add a Cmd+K command palette: centered search overlay listing actions and pages to jump to.",
     exampleKey: "command-palette",
-    tags: ["search", "keyboard"],
+    tags: ["search","keyboard","cmdk","shortcut"],
   },
   {
     id: "alert-dialog",
@@ -1168,7 +1171,7 @@ export const ELEMENTS: DesignElement[] = [
     promptTip:
       "Show a KPI stat card: large metric number, short label, and optional trend delta (↑ 12%).",
     exampleKey: "stat-card",
-    tags: ["kpi", "dashboard"],
+    tags: ["kpi","dashboard","metric"],
   },
   {
     id: "chip-tag",
@@ -1185,12 +1188,12 @@ export const ELEMENTS: DesignElement[] = [
     id: "avatar-group",
     category: "data-display",
     name: "Avatar group",
-    alsoKnownAs: ["Facepile"],
+    alsoKnownAs: ["Facepile","User stack"],
     description: "Overlapping avatars for multiple people.",
     promptTip:
       "Show an avatar group/facepile with overlapping circular images and a +N overflow count.",
     exampleKey: "avatar-group",
-    tags: ["people", "facepile"],
+    tags: ["people","facepile","users"],
   },
   {
     id: "description-list",
@@ -1296,12 +1299,12 @@ export const ELEMENTS: DesignElement[] = [
     id: "glassmorphism",
     category: "surfaces",
     name: "Glass / frosted surface",
-    alsoKnownAs: ["Glassmorphism", "Frosted glass"],
+    alsoKnownAs: ["Glassmorphism","Frosted glass","Blur panel"],
     description: "Translucent blurred surface over content.",
     promptTip:
       "Create a frosted glass panel with bg-white/10 backdrop-blur border and soft shadow over a gradient.",
     exampleKey: "glassmorphism",
-    tags: ["blur", "translucent"],
+    tags: ["blur","translucent","frost"],
   },
   {
     id: "gradient",
@@ -1480,6 +1483,7 @@ export const ELEMENTS: DesignElement[] = [
     id: "focus-ring",
     category: "states",
     name: "Focus ring",
+    alsoKnownAs: ["Keyboard focus"],
     description: "Keyboard-visible outline for accessibility.",
     promptTip:
       "Add a visible focus ring (ring-2 ring-offset-2) on keyboard focus for all interactive controls.",
@@ -1576,14 +1580,14 @@ export const ELEMENTS: DesignElement[] = [
     id: "slop-purple-gradient",
     category: "ai-slop",
     name: "Default purple gradient hero",
-    alsoKnownAs: ["AI purple haze"],
+    alsoKnownAs: ["AI purple haze","Violet gradient hero"],
     description:
       "The same indigo→violet→pink gradient every generic AI landing page ships.",
     promptTip:
       "Avoid the default purple-pink mesh hero. Use our brand neutrals with one restrained accent, or a photographic/textural background unique to the product.",
     promptKind: "avoid",
     exampleKey: "slop-purple-gradient",
-    tags: ["gradient", "landing", "anti-pattern"],
+    tags: ["gradient","landing","anti-pattern","violet"],
   },
   {
     id: "slop-3d-blobs",
@@ -1861,11 +1865,12 @@ export const ELEMENTS: DesignElement[] = [
     id: "lib-cn-merge",
     category: "library-practices",
     name: "cn() class merging",
+    alsoKnownAs: ["className merge","twMerge helper"],
     description: "clsx + tailwind-merge so consumer className can override safely.",
     promptTip:
       "Always pass className through cn()/twMerge in shared components so callers can extend without fighting conflicting utilities.",
     exampleKey: "lib-cn-merge",
-    tags: ["cn", "tailwind-merge"],
+    tags: ["cn","tailwind-merge","clsx"],
   },
   {
     id: "lib-dark-mode",
@@ -1998,6 +2003,1360 @@ export const ELEMENTS: DesignElement[] = [
     exampleKey: "lib-destructive-confirm",
     tags: ["a11y", "dialog", "patterns"],
   },
+
+  // ── Expanded vocabulary (exhaustive fill) ────────────
+  {
+    id: "ordered-list",
+    category: "typography",
+    name: "Numbered list",
+    alsoKnownAs: ["Ordered list","OL"],
+    description:
+      "Sequential list with numbers for steps, rankings, or ordered content.",
+    promptTip:
+      "Use an ordered list (ol) with consistent marker indent and spacing for sequential steps; prefer numbers over bullets when order matters.",
+    exampleKey: "ordered-list",
+    tags: ["list","ol","steps"],
+  },
+  {
+    id: "kbd",
+    category: "typography",
+    name: "Keyboard key",
+    alsoKnownAs: ["KBD","Shortcut key"],
+    description:
+      "Styled keycap for keyboard shortcuts in docs and command UIs.",
+    promptTip:
+      "Render shortcuts as <kbd> chips: mono font, bordered, subtle fill (e.g. \"⌘K\") so they read as physical keys.",
+    exampleKey: "kbd",
+    tags: ["keyboard","shortcut","kbd"],
+  },
+  {
+    id: "code-block",
+    category: "typography",
+    name: "Code block",
+    alsoKnownAs: ["Pre block","Fenced code"],
+    description:
+      "Multi-line monospace block for snippets, logs, and API examples.",
+    promptTip:
+      "Show multi-line code in a pre/code block: mono font, muted background, padding, overflow-x auto, and optional language label.",
+    exampleKey: "code-block",
+    tags: ["code","pre","mono"],
+  },
+  {
+    id: "font-weight-scale",
+    category: "typography",
+    name: "Font weight scale",
+    alsoKnownAs: ["Type weights"],
+    description:
+      "A small ladder of weights (regular → medium → semibold → bold) for hierarchy.",
+    promptTip:
+      "Define a weight scale (400 body, 500 labels, 600 headings, 700 emphasis) and reuse it—avoid random font-black on every title.",
+    exampleKey: "font-weight-scale",
+    tags: ["weight","type","hierarchy"],
+  },
+  {
+    id: "letter-spacing",
+    category: "typography",
+    name: "Letter spacing",
+    alsoKnownAs: ["Tracking","Character spacing"],
+    description:
+      "Tracking adjustments for display type, overlines, and dense UI labels.",
+    promptTip:
+      "Tighten tracking on large display headings; open tracking (tracking-widest) on small uppercase labels. Keep body text near default.",
+    exampleKey: "letter-spacing",
+    tags: ["tracking","type"],
+  },
+  {
+    id: "strikethrough",
+    category: "typography",
+    name: "Strikethrough",
+    alsoKnownAs: ["Deleted text","Compare-at price"],
+    description:
+      "Struck text for removed content, completed tasks, or old prices.",
+    promptTip:
+      "Use line-through for superseded prices or completed items; pair with a clear new value so the meaning is obvious.",
+    exampleKey: "strikethrough",
+    tags: ["deleted","price","s"],
+  },
+  {
+    id: "prose-measure",
+    category: "typography",
+    name: "Measure / line length",
+    alsoKnownAs: ["Reading width","Max characters"],
+    description:
+      "Comfortable line length (~45–75ch) so body copy stays readable.",
+    promptTip:
+      "Constrain body copy to ~65ch max-width (prose measure) so lines don't stretch edge-to-edge on wide screens.",
+    exampleKey: "prose-measure",
+    tags: ["measure","readability","prose"],
+  },
+  {
+    id: "text-balance",
+    category: "typography",
+    name: "Text balance",
+    alsoKnownAs: ["Balanced headlines","Wrap balance"],
+    description:
+      "Balanced line breaks on multi-line titles so the last line isn't a single word.",
+    promptTip:
+      "Apply text-wrap: balance (text-balance) on multi-line headings so wrapped titles look even, not orphaned.",
+    exampleKey: "text-balance",
+    tags: ["balance","headline","wrap"],
+  },
+  {
+    id: "surface-colors",
+    category: "color",
+    name: "Surface colors",
+    alsoKnownAs: ["Layered surfaces","Canvas levels"],
+    description:
+      "Stacked background tokens (page → card → popover) for depth without heavy shadows.",
+    promptTip:
+      "Define surface tokens (background, card, popover/muted) so nested panels step up in elevation via fill, not only shadow.",
+    exampleKey: "surface-colors",
+    tags: ["surface","tokens","layers"],
+  },
+  {
+    id: "focus-ring-color",
+    category: "color",
+    name: "Focus ring color",
+    alsoKnownAs: ["Ring token","Focus color"],
+    description:
+      "Dedicated ring/focus color so keyboard focus is visible and on-brand.",
+    promptTip:
+      "Set a focus ring token (ring-primary or ring) with offset so keyboard users always see a clear, brand-aligned focus indicator.",
+    exampleKey: "focus-ring-color",
+    tags: ["focus","ring","a11y"],
+  },
+  {
+    id: "chart-colors",
+    category: "color",
+    name: "Chart / data colors",
+    alsoKnownAs: ["Series colors","Data viz palette"],
+    description:
+      "Distinct hues for chart series and data categories that stay legible in light/dark.",
+    promptTip:
+      "Provide a chart color set (4–8 distinct hues) as tokens so multi-series charts stay consistent and colorblind-friendlier than pure red/green only.",
+    exampleKey: "chart-colors",
+    tags: ["chart","data","palette"],
+  },
+  {
+    id: "contrast-pair",
+    category: "color",
+    name: "Contrast pair",
+    alsoKnownAs: ["WCAG pair","Text on fill"],
+    description:
+      "Explicit text/fill pairs that meet contrast so content stays readable.",
+    promptTip:
+      "Document contrast pairs (e.g. foreground on background, primary-foreground on primary) and verify they meet WCAG AA for body and UI text.",
+    exampleKey: "contrast-pair",
+    tags: ["contrast","a11y","wcag"],
+  },
+  {
+    id: "link-color",
+    category: "color",
+    name: "Link color",
+    alsoKnownAs: ["Hyperlink color"],
+    description:
+      "Dedicated color for inline links, distinct from body text and primary buttons.",
+    promptTip:
+      "Use a link color (often primary) with underline on hover; don't rely on color alone—pair with underline or weight for affordance.",
+    exampleKey: "link-color",
+    tags: ["link","tokens"],
+  },
+  {
+    id: "density",
+    category: "spacing-layout",
+    name: "UI density",
+    alsoKnownAs: ["Compact mode","Comfortable density"],
+    description:
+      "Comfortable vs compact spacing modes for the same components.",
+    promptTip:
+      "Support density: comfortable (roomy padding/gaps) vs compact (tighter rows for data-heavy UIs). Toggle padding and gap tokens, not one-off pixels.",
+    exampleKey: "density",
+    tags: ["density","compact","comfortable"],
+  },
+  {
+    id: "scroll-area",
+    category: "spacing-layout",
+    name: "Scroll area",
+    alsoKnownAs: ["Overflow scroll","Scrollport"],
+    description:
+      "Bounded region that scrolls while the page chrome stays fixed.",
+    promptTip:
+      "Put long lists in a max-height scroll area with overflow-y auto so panels don't stretch the whole page; prefer custom thin scrollbars only if accessible.",
+    exampleKey: "scroll-area",
+    tags: ["scroll","overflow"],
+  },
+  {
+    id: "full-bleed",
+    category: "spacing-layout",
+    name: "Full-bleed",
+    alsoKnownAs: ["Edge-to-edge","Breakout"],
+    description:
+      "Content that breaks out of the container to span the full viewport width.",
+    promptTip:
+      "Allow heroes or media to go full-bleed (w-screen relative to container) while text stays in the max-width measure.",
+    exampleKey: "full-bleed",
+    tags: ["bleed","edge","hero"],
+  },
+  {
+    id: "multi-column",
+    category: "spacing-layout",
+    name: "Multi-column text",
+    alsoKnownAs: ["CSS columns","Newspaper columns"],
+    description:
+      "Text flowed into multiple columns for dense editorial layouts.",
+    promptTip:
+      "Use CSS multi-column (columns-2, gap) for dense FAQs or glossaries; avoid columns for interactive forms.",
+    exampleKey: "multi-column",
+    tags: ["columns","editorial"],
+  },
+  {
+    id: "center-layout",
+    category: "spacing-layout",
+    name: "Centered layout",
+    alsoKnownAs: ["Center stage","Auth layout"],
+    description:
+      "Content horizontally and often vertically centered—common for auth and empty heroes.",
+    promptTip:
+      "Center key solitary content with flex/grid place-items-center and a max-width card—common for login and empty states.",
+    exampleKey: "center-layout",
+    tags: ["center","auth","layout"],
+  },
+  {
+    id: "app-shell",
+    category: "spacing-layout",
+    name: "App shell",
+    alsoKnownAs: ["Admin layout","Sidebar + content"],
+    description:
+      "Persistent chrome (nav + main) framing application pages.",
+    promptTip:
+      "Structure product pages as an app shell: fixed/side nav + scrollable main content region with consistent header height.",
+    exampleKey: "app-shell",
+    tags: ["shell","admin","layout"],
+  },
+  {
+    id: "fab",
+    category: "buttons",
+    name: "Floating action button",
+    alsoKnownAs: ["FAB","Floating CTA","Plus button"],
+    description:
+      "Circular primary action that floats above content, usually bottom-right.",
+    promptTip:
+      "Add a floating action button (circular, elevated shadow, brand fill) for the single most common create action; keep one FAB per view.",
+    exampleKey: "fab",
+    tags: ["fab","floating","mobile","create","add"],
+  },
+  {
+    id: "split-button",
+    category: "buttons",
+    name: "Split button",
+    alsoKnownAs: ["Split CTA","Dropdown button"],
+    description:
+      "Primary action plus a chevron that opens related alternatives.",
+    promptTip:
+      "Use a split button: main action on the left, chevron dropdown on the right for alternate actions (Save / Save as…).",
+    exampleKey: "split-button",
+    tags: ["split","dropdown"],
+  },
+  {
+    id: "toggle-button",
+    category: "buttons",
+    name: "Toggle button",
+    alsoKnownAs: ["Pressed button","Toggle group item"],
+    description:
+      "Button that stays pressed/selected to represent an on/off or mode choice.",
+    promptTip:
+      "Use toggle buttons (aria-pressed) for modes like Bold/Grid view; show selected with filled or accent background.",
+    exampleKey: "toggle-button",
+    tags: ["toggle","pressed","aria"],
+  },
+  {
+    id: "close-button",
+    category: "buttons",
+    name: "Close button",
+    alsoKnownAs: ["Dismiss button","X button"],
+    description:
+      "Icon control that dismisses a dialog, toast, or chip.",
+    promptTip:
+      "Provide a clear close/dismiss icon button (X) with aria-label Close in the corner of modals, toasts, and banners.",
+    exampleKey: "close-button",
+    tags: ["close","dismiss","icon"],
+  },
+  {
+    id: "soft-button",
+    category: "buttons",
+    name: "Soft button",
+    alsoKnownAs: ["Subtle button","Tinted button"],
+    description:
+      "Medium-quiet action with soft tinted fill—between secondary outline and ghost.",
+    promptTip:
+      "Use a soft/subtle button: light primary-tinted background, no heavy border, for secondary actions that still need fill presence.",
+    exampleKey: "soft-button",
+    tags: ["soft","subtle","tinted"],
+  },
+  {
+    id: "combobox",
+    category: "forms",
+    name: "Combobox",
+    alsoKnownAs: ["Autocomplete","Typeahead", "Filter select", "Searchable select"],
+    description:
+      "Searchable select: type to filter options, pick one value.",
+    promptTip:
+      "Use a combobox/autocomplete for long option lists: input + filtered listbox, keyboard navigable, clear empty and loading states.",
+    exampleKey: "combobox",
+    tags: ["autocomplete","typeahead","select","filter","searchable"],
+  },
+  {
+    id: "otp-input",
+    category: "forms",
+    name: "OTP / PIN input",
+    alsoKnownAs: ["One-time code","Verification code","2FA code","Verification digits"],
+    description:
+      "Segmented digit fields for one-time passwords and PINs.",
+    promptTip:
+      "Build OTP as equal digit boxes with auto-advance, paste support, and a single accessible field group label.",
+    exampleKey: "otp-input",
+    tags: ["otp","pin","2fa","mfa"],
+  },
+  {
+    id: "multi-select",
+    category: "forms",
+    name: "Multi-select",
+    alsoKnownAs: ["Tag select","Multi combobox"],
+    description:
+      "Control that picks multiple values, often shown as removable chips.",
+    promptTip:
+      "For multi-select, show selected values as chips inside the field with remove actions, plus a checklist or combobox for adding more.",
+    exampleKey: "multi-select",
+    tags: ["multi","chips","select"],
+  },
+  {
+    id: "time-input",
+    category: "forms",
+    name: "Time field",
+    alsoKnownAs: ["Time picker","Time input"],
+    description:
+      "Control for selecting a clock time (hours and minutes).",
+    promptTip:
+      "Provide a time input (native type=time or custom spinner) with clear 12/24h handling and an associated label.",
+    exampleKey: "time-input",
+    tags: ["time","picker"],
+  },
+  {
+    id: "fieldset-group",
+    category: "forms",
+    name: "Fieldset / field group",
+    alsoKnownAs: ["Form section","Grouped fields"],
+    description:
+      "Related fields grouped under a legend for structure and accessibility.",
+    promptTip:
+      "Group related inputs in a fieldset with a visible legend (e.g. Billing address); use spacing and optional card chrome to show the group.",
+    exampleKey: "fieldset-group",
+    tags: ["fieldset","group","form"],
+  },
+  {
+    id: "input-sizes",
+    category: "forms",
+    name: "Input sizes",
+    alsoKnownAs: ["Field sizes"],
+    description:
+      "Small, default, and large field heights aligned with button size scale.",
+    promptTip:
+      "Offer input size variants (sm/default/lg) that match button heights so toolbars and forms align on a baseline grid.",
+    exampleKey: "input-sizes",
+    tags: ["size","input","scale"],
+  },
+  {
+    id: "required-marker",
+    category: "forms",
+    name: "Required field marker",
+    alsoKnownAs: ["Required asterisk"],
+    description:
+      "Visual cue (usually asterisk) that a field must be completed.",
+    promptTip:
+      "Mark required fields with an asterisk after the label and explain once near the form; don't rely on color alone.",
+    exampleKey: "required-marker",
+    tags: ["required","validation","a11y"],
+  },
+  {
+    id: "footer-nav",
+    category: "navigation",
+    name: "Footer navigation",
+    alsoKnownAs: ["Site footer links"],
+    description:
+      "Secondary link columns in the page footer for sitemap and legal.",
+    promptTip:
+      "Build footer nav as labeled link columns (Product, Company, Legal) with muted styling and adequate tap targets.",
+    exampleKey: "footer-nav",
+    tags: ["footer","sitemap"],
+  },
+  {
+    id: "back-link",
+    category: "navigation",
+    name: "Back link",
+    alsoKnownAs: ["Return link","Up navigation"],
+    description:
+      "Inline control that returns to the previous page or parent section.",
+    promptTip:
+      "Add a back link (\"← Settings\") above page titles for nested flows; prefer real history or parent route over browser-only back.",
+    exampleKey: "back-link",
+    tags: ["back","up","breadcrumb"],
+  },
+  {
+    id: "app-rail",
+    category: "navigation",
+    name: "App rail",
+    alsoKnownAs: ["Icon rail","Activity bar"],
+    description:
+      "Narrow vertical strip of icons for top-level app sections.",
+    promptTip:
+      "Use an app rail (icon-only vertical nav, ~48–64px) for multi-section products; pair icons with tooltips and an active indicator.",
+    exampleKey: "app-rail",
+    tags: ["rail","icons","sidebar"],
+  },
+  {
+    id: "overflow-nav",
+    category: "navigation",
+    name: "Overflow navigation",
+    alsoKnownAs: ["More menu","Nav overflow"],
+    description:
+      "Collapsed extra nav items behind a More/⋯ control when space is tight.",
+    promptTip:
+      "When horizontal nav overflows, move excess items into a More menu instead of shrinking labels unreadably.",
+    exampleKey: "overflow-nav",
+    tags: ["overflow","more","responsive"],
+  },
+  {
+    id: "nav-section-label",
+    category: "navigation",
+    name: "Nav section label",
+    alsoKnownAs: ["Sidebar group label"],
+    description:
+      "Small uppercase or muted heading that groups links in a sidebar.",
+    promptTip:
+      "Group sidebar links under muted section labels (Workspace, Settings) with extra top margin between groups.",
+    exampleKey: "nav-section-label",
+    tags: ["sidebar","group","label"],
+  },
+  {
+    id: "announcement-bar",
+    category: "feedback",
+    name: "Announcement bar",
+    alsoKnownAs: ["Promo bar","System banner"],
+    description:
+      "Thin full-width bar for product news, outages, or promos above the header.",
+    promptTip:
+      "Use a slim announcement bar (full width, dismissible) for sitewide news; keep copy to one line and a single action link.",
+    exampleKey: "announcement-bar",
+    tags: ["banner","promo","system"],
+  },
+  {
+    id: "circular-progress",
+    category: "feedback",
+    name: "Circular progress",
+    alsoKnownAs: ["Progress ring","Radial progress"],
+    description:
+      "Ring or circle that fills to show percent complete.",
+    promptTip:
+      "Show determinate circular progress for upload/completion percentages; include a text value for accessibility.",
+    exampleKey: "circular-progress",
+    tags: ["progress","ring","percent"],
+  },
+  {
+    id: "action-banner",
+    category: "feedback",
+    name: "Actionable banner",
+    alsoKnownAs: ["Banner with CTA"],
+    description:
+      "Alert-style banner that includes one or more explicit actions.",
+    promptTip:
+      "When a banner needs a decision, include primary/secondary actions inline (e.g. Update · Dismiss) rather than text-only notices.",
+    exampleKey: "action-banner",
+    tags: ["banner","cta","alert"],
+  },
+  {
+    id: "inline-status",
+    category: "feedback",
+    name: "Inline status text",
+    alsoKnownAs: ["Helper status","Field status"],
+    description:
+      "Short status line next to a control (Saving…, Saved, Error).",
+    promptTip:
+      "Show inline status beside or under controls for async saves (Saving… → Saved) using muted or semantic color.",
+    exampleKey: "inline-status",
+    tags: ["status","inline","async"],
+  },
+  {
+    id: "count-badge",
+    category: "feedback",
+    name: "Count badge",
+    alsoKnownAs: ["Numeric badge","Tab count"],
+    description:
+      "Small numeric chip indicating quantity (inbox count, tab totals).",
+    promptTip:
+      "Use a compact count badge (muted or primary) next to nav labels; cap display (e.g. 99+) for large numbers.",
+    exampleKey: "count-badge",
+    tags: ["count","badge","quantity"],
+  },
+  {
+    id: "lightbox",
+    category: "overlays",
+    name: "Lightbox",
+    alsoKnownAs: ["Image modal","Media zoom"],
+    description:
+      "Full-focus overlay that enlarges an image or media item.",
+    promptTip:
+      "Open images in a lightbox: dimmed scrim, centered media, close on Escape/scrim click, optional prev/next for galleries.",
+    exampleKey: "lightbox",
+    tags: ["lightbox","image","modal"],
+  },
+  {
+    id: "toast-stack",
+    category: "overlays",
+    name: "Toast stack",
+    alsoKnownAs: ["Toast region","Notification stack"],
+    description:
+      "Stacked toasts in a fixed corner region with newest on top or bottom.",
+    promptTip:
+      "Stack toasts in a fixed corner region with consistent spacing; limit visible toasts and collapse or queue overflow.",
+    exampleKey: "toast-stack",
+    tags: ["toast","stack","sonner"],
+  },
+  {
+    id: "fullscreen-modal",
+    category: "overlays",
+    name: "Fullscreen modal",
+    alsoKnownAs: ["Takeover modal","Page sheet"],
+    description:
+      "Modal that covers most or all of the viewport for complex flows.",
+    promptTip:
+      "For multi-step or dense tasks, use a near-fullscreen modal/sheet with sticky header actions and clear dismiss.",
+    exampleKey: "fullscreen-modal",
+    tags: ["modal","fullscreen","takeover"],
+  },
+  {
+    id: "modal-scrim",
+    category: "overlays",
+    name: "Modal scrim",
+    alsoKnownAs: ["Backdrop","Overlay dim"],
+    description:
+      "Dimmed layer behind dialogs that focuses attention and blocks the page.",
+    promptTip:
+      "Place dialogs over a semi-transparent scrim (black/50 or similar); clicking the scrim should dismiss only when appropriate.",
+    exampleKey: "modal-scrim",
+    tags: ["scrim","backdrop","overlay"],
+  },
+  {
+    id: "calendar-month",
+    category: "data-display",
+    name: "Calendar month",
+    alsoKnownAs: ["Date grid","Month view"],
+    description:
+      "Month grid of days for pickers and scheduling UIs.",
+    promptTip:
+      "Render a month calendar as a 7-column day grid with today highlighted and out-of-month days muted.",
+    exampleKey: "calendar-month",
+    tags: ["calendar","date","grid"],
+  },
+  {
+    id: "carousel",
+    category: "data-display",
+    name: "Carousel",
+    alsoKnownAs: ["Slider","Horizontal scroller"],
+    description:
+      "Horizontally paged content with next/previous controls.",
+    promptTip:
+      "Build a carousel with peek of next slide, prev/next controls, and dots or a counter; pause autoplay on hover and respect reduced motion.",
+    exampleKey: "carousel",
+    tags: ["carousel","slider","gallery"],
+  },
+  {
+    id: "price-display",
+    category: "data-display",
+    name: "Price / currency",
+    alsoKnownAs: ["Price block","Money format"],
+    description:
+      "Formatted currency with emphasis hierarchy for product and billing UIs.",
+    promptTip:
+      "Display prices with clear currency, tabular nums, and hierarchy (large amount, smaller period). Show compare-at with strikethrough when discounted.",
+    exampleKey: "price-display",
+    tags: ["price","currency","money"],
+  },
+  {
+    id: "code-snippet",
+    category: "data-display",
+    name: "Code snippet card",
+    alsoKnownAs: ["Snippet panel","Copyable code"],
+    description:
+      "Compact code panel with language cue and copy affordance for docs/APIs.",
+    promptTip:
+      "Present install/API snippets in a card with mono code, optional language label, and a copy button.",
+    exampleKey: "code-snippet",
+    tags: ["code","copy","docs"],
+  },
+  {
+    id: "activity-feed",
+    category: "data-display",
+    name: "Activity feed item",
+    alsoKnownAs: ["Feed row","Notification row"],
+    description:
+      "Single row in an activity or notification feed with actor, action, and time.",
+    promptTip:
+      "Layout feed items as avatar + action sentence + relative time; group by day when the list is long.",
+    exampleKey: "activity-feed",
+    tags: ["feed","activity","notifications"],
+  },
+  {
+    id: "kpi-strip",
+    category: "data-display",
+    name: "KPI strip",
+    alsoKnownAs: ["Metric row","Stats strip"],
+    description:
+      "Horizontal row of compact metrics for dashboards.",
+    promptTip:
+      "Show 3–5 KPIs in a horizontal strip with label, value, and optional delta; keep alignment and tabular numbers consistent.",
+    exampleKey: "kpi-strip",
+    tags: ["kpi","metrics","dashboard"],
+  },
+  {
+    id: "backdrop-blur",
+    category: "surfaces",
+    name: "Backdrop blur",
+    alsoKnownAs: ["Frosted chrome","Blur overlay"],
+    description:
+      "Blur of content behind a translucent bar or panel for layered chrome.",
+    promptTip:
+      "Use backdrop-blur on sticky headers and overlays with semi-transparent fill so underlying content softly shows through.",
+    exampleKey: "backdrop-blur",
+    tags: ["blur","frosted","glass"],
+  },
+  {
+    id: "surface-levels",
+    category: "surfaces",
+    name: "Surface elevation levels",
+    alsoKnownAs: ["Elevation ladder","Level 0–3"],
+    description:
+      "Stepped elevations (flat → raised → floating) via shadow and fill.",
+    promptTip:
+      "Define 3–4 elevation levels (flat, raised, floating, modal) with paired shadow + surface tokens and reuse them consistently.",
+    exampleKey: "surface-levels",
+    tags: ["elevation","levels","shadow"],
+  },
+  {
+    id: "tinted-surface",
+    category: "surfaces",
+    name: "Tinted surface",
+    alsoKnownAs: ["Soft fill panel"],
+    description:
+      "Panel with a light brand or semantic tint instead of pure neutral fill.",
+    promptTip:
+      "Use lightly tinted surfaces (primary/5–10%) for selected regions, tips, or brand panels without heavy borders.",
+    exampleKey: "tinted-surface",
+    tags: ["tint","fill","surface"],
+  },
+  {
+    id: "well-surface",
+    category: "surfaces",
+    name: "Well / recessed group",
+    alsoKnownAs: ["Recessed panel","Grouped well"],
+    description:
+      "Slightly recessed background that groups controls as one unit.",
+    promptTip:
+      "Group toolbars or filters in a muted well (bg-muted rounded-lg p-1) so related controls read as a single surface.",
+    exampleKey: "well-surface",
+    tags: ["well","group","toolbar"],
+  },
+  {
+    id: "illustration-placeholder",
+    category: "media",
+    name: "Illustration placeholder",
+    alsoKnownAs: ["Empty art","Spot illustration slot"],
+    description:
+      "Reserved art slot with abstract shapes when final illustration is pending.",
+    promptTip:
+      "Reserve illustration space with a soft abstract placeholder (shapes + muted fill) matching final aspect ratio—avoid broken-image icons for marketing empty states.",
+    exampleKey: "illustration-placeholder",
+    tags: ["illustration","placeholder","empty"],
+  },
+  {
+    id: "gallery-strip",
+    category: "media",
+    name: "Gallery strip",
+    alsoKnownAs: ["Thumbnail strip","Image row"],
+    description:
+      "Horizontal row of image thumbnails for product or media pickers.",
+    promptTip:
+      "Show a gallery as equal thumbnails in a horizontal strip with selected ring and optional horizontal scroll.",
+    exampleKey: "gallery-strip",
+    tags: ["gallery","thumbnails","images"],
+  },
+  {
+    id: "image-overlay",
+    category: "media",
+    name: "Image with text overlay",
+    alsoKnownAs: ["Hero image text","Media caption overlay"],
+    description:
+      "Text or controls layered on an image with a scrim for contrast.",
+    promptTip:
+      "When placing text on images, add a dark gradient scrim and light text so contrast holds over any photo.",
+    exampleKey: "image-overlay",
+    tags: ["overlay","scrim","hero"],
+  },
+  {
+    id: "icon-pair",
+    category: "media",
+    name: "Icon + label pair",
+    alsoKnownAs: ["Labeled icon","Feature icon row"],
+    description:
+      "Icon aligned with a short label for feature lists and menus.",
+    promptTip:
+      "Pair icons with labels (gap-2, size-4 icon) in menus and feature rows; never rely on unlabeled icons for primary navigation.",
+    exampleKey: "icon-pair",
+    tags: ["icon","label","pair"],
+  },
+  {
+    id: "read-only",
+    category: "states",
+    name: "Read-only state",
+    alsoKnownAs: ["Non-editable","Locked field"],
+    description:
+      "Control that displays a value but cannot be edited in this context.",
+    promptTip:
+      "Style read-only fields with muted border/fill and no focus caret; use readOnly or plaintext so they differ from disabled (still focusable when needed).",
+    exampleKey: "read-only",
+    tags: ["readonly","locked","form"],
+  },
+  {
+    id: "success-control",
+    category: "states",
+    name: "Success on control",
+    alsoKnownAs: ["Valid field","Success state"],
+    description:
+      "Positive validation styling on an input or control after success.",
+    promptTip:
+      "Show success on a control with green border/check when validation passes; clear it when the user edits again.",
+    exampleKey: "success-control",
+    tags: ["success","valid","form"],
+  },
+  {
+    id: "indeterminate",
+    category: "states",
+    name: "Indeterminate state",
+    alsoKnownAs: ["Partial check","Mixed state"],
+    description:
+      "Checkbox or progress that is neither fully on nor off (partial selection).",
+    promptTip:
+      "Use indeterminate checkboxes for partial tree/table selection; set aria-checked=mixed and a distinct dash visual.",
+    exampleKey: "indeterminate",
+    tags: ["indeterminate","checkbox","mixed"],
+  },
+  {
+    id: "reduced-motion",
+    category: "states",
+    name: "Reduced motion",
+    alsoKnownAs: ["prefers-reduced-motion"],
+    description:
+      "Design respect for users who prefer minimal animation.",
+    promptTip:
+      "Wrap non-essential animation in prefers-reduced-motion: reduce media queries—keep opacity fades short or static for those users.",
+    exampleKey: "reduced-motion",
+    tags: ["a11y","motion","prefers-reduced-motion"],
+  },
+  {
+    id: "visited-link",
+    category: "states",
+    name: "Visited link",
+    alsoKnownAs: ["Visited state"],
+    description:
+      "Link styling after the user has already opened the destination.",
+    promptTip:
+      "Optionally style :visited links with a distinct muted purple/secondary color in content-heavy docs so users see where they've been.",
+    exampleKey: "visited-link",
+    tags: ["visited","link","state"],
+  },
+  {
+    id: "slop-gradient-text",
+    category: "ai-slop",
+    name: "Gradient text on every headline",
+    alsoKnownAs: ["Rainbow headline"],
+    description:
+      "Every title gets a purple-to-pink gradient fill—instant AI landing page tell.",
+    promptTip:
+      "Don't put gradient fills on every headline. Use solid type; reserve gradient text for at most one intentional hero word if brand demands it.",
+    promptKind: "avoid",
+    exampleKey: "slop-gradient-text",
+    tags: ["gradient","type","anti-pattern"],
+  },
+  {
+    id: "slop-busy-motion",
+    category: "ai-slop",
+    name: "Everything animates forever",
+    alsoKnownAs: ["Motion spam","Infinite bounce"],
+    description:
+      "Bounce, float, and pulse on every element until nothing feels stable.",
+    promptTip:
+      "Don't animate every card, badge, and blob on a loop. Motion should highlight change or hierarchy—default UI should sit still.",
+    promptKind: "avoid",
+    exampleKey: "slop-busy-motion",
+    tags: ["motion","animation","anti-pattern"],
+  },
+  {
+    id: "slop-ai-badge-spam",
+    category: "ai-slop",
+    name: "Powered by AI badge spam",
+    alsoKnownAs: ["AI sparkle badge"],
+    description:
+      "Every surface stamped with ✨ AI badges as if that were the product.",
+    promptTip:
+      "Don't sprinkle 'AI-powered' badges on every section. State capability once in plain language; design the actual workflow instead.",
+    promptKind: "avoid",
+    exampleKey: "slop-ai-badge-spam",
+    tags: ["ai","badge","anti-pattern"],
+  },
+  {
+    id: "slop-hero-stats-row",
+    category: "ai-slop",
+    name: "Unsourced hero stats row",
+    alsoKnownAs: ["Fake social proof strip"],
+    description:
+      "Big 10x / 99% / 24/7 numbers under the hero with no source or meaning.",
+    promptTip:
+      "Don't invent 10x/99%/24/7 hero stats. If you show metrics, use real numbers with labels users understand—or cut the strip.",
+    promptKind: "avoid",
+    exampleKey: "slop-hero-stats-row",
+    tags: ["stats","social-proof","anti-pattern"],
+  },
+  {
+    id: "lib-portal-stacking",
+    category: "library-practices",
+    name: "Portals & stacking context",
+    alsoKnownAs: ["Portal layering"],
+    description:
+      "Render overlays in a portal so z-index and overflow aren't trapped by parents.",
+    promptTip:
+      "Let Dialog/Dropdown/Tooltip portal to document body so overflow:hidden parents don't clip them; keep one stacking scale for overlays.",
+    exampleKey: "lib-portal-stacking",
+    tags: ["portal","z-index","radix"],
+  },
+  {
+    id: "lib-accessible-names",
+    category: "library-practices",
+    name: "Accessible names",
+    alsoKnownAs: ["aria-label discipline"],
+    description:
+      "Icon buttons and inputs need computed names for assistive tech.",
+    promptTip:
+      "Give every icon-only control an aria-label (or visible text). Prefer Label htmlFor over placeholder-only fields.",
+    exampleKey: "lib-accessible-names",
+    tags: ["a11y","aria","label"],
+  },
+  {
+    id: "lib-css-variables",
+    category: "library-practices",
+    name: "Theme via CSS variables",
+    alsoKnownAs: ["Token variables"],
+    description:
+      "Brand and theme changes flow through CSS variables, not hunt-and-replace hex.",
+    promptTip:
+      "Map brand colors to CSS variables (--primary, --radius) and reference them in components so themes swap in one place.",
+    exampleKey: "lib-css-variables",
+    tags: ["css","tokens","theme"],
+  },
+  {
+    id: "lib-compose-layout",
+    category: "library-practices",
+    name: "Compose layout outside components",
+    alsoKnownAs: ["Pages use utilities"],
+    description:
+      "Page structure stays in Tailwind layout utilities; components stay interactive atoms.",
+    promptTip:
+      "Compose pages with flex/grid/gap utilities. Keep shared components focused on interactive atoms—not every margin wrapper.",
+    exampleKey: "lib-compose-layout",
+    tags: ["composition","layout","tailwind"],
+  },
+  {
+    id: "lib-error-boundaries-ui",
+    category: "library-practices",
+    name: "Graceful empty & error UI",
+    alsoKnownAs: ["Error and empty patterns"],
+    description:
+      "Shared empty and error panels so failures don't look like broken pages.",
+    promptTip:
+      "Ship reusable empty-state and error-panel patterns (icon, title, recovery action) instead of raw stack traces or blank main areas.",
+    exampleKey: "lib-error-boundaries-ui",
+    tags: ["empty","error","ux"],
+  },
+
+  // ── Second-pass vocabulary ────────────────────────────
+  {
+    id: "small-caps",
+    category: "typography",
+    name: "Small caps",
+    alsoKnownAs: ["Petite caps","SC"],
+    description:
+      "Uppercase letterforms at lowercase height for refined labels and acronyms.",
+    promptTip:
+      "Use font-variant: small-caps (or a true small-caps face) for acronyms and refined labels—not full uppercase shouty tracking on body copy.",
+    exampleKey: "small-caps",
+    tags: ["caps","type","acronym"],
+  },
+  {
+    id: "monospace-stack",
+    category: "typography",
+    name: "Monospace stack",
+    alsoKnownAs: ["Code font stack","Mono UI"],
+    description:
+      "Dedicated mono typeface for code, IDs, and technical metadata.",
+    promptTip:
+      "Define a mono stack (ui-monospace, SF Mono, Menlo, monospace) for code, IDs, and logs—never mix random mono fonts mid-UI.",
+    exampleKey: "monospace-stack",
+    tags: ["mono","code","font"],
+  },
+  {
+    id: "responsive-type",
+    category: "typography",
+    name: "Responsive type scale",
+    alsoKnownAs: ["Fluid type","Clamp type"],
+    description:
+      "Type sizes that scale smoothly between mobile and desktop breakpoints.",
+    promptTip:
+      "Scale headings with clamp() or stepped text-2xl/md:text-4xl so type stays proportional across viewports without jumping awkwardly.",
+    exampleKey: "responsive-type",
+    tags: ["fluid","responsive","type"],
+  },
+  {
+    id: "brand-scale",
+    category: "color",
+    name: "Brand color scale",
+    alsoKnownAs: ["Primary steps","Tint/shade ladder"],
+    description:
+      "Tints and shades of the brand hue for hover, soft fills, and emphasis.",
+    promptTip:
+      "Build a brand scale (50–900) from the primary hue so soft fills, hovers, and solid CTAs stay related—not random blues.",
+    exampleKey: "brand-scale",
+    tags: ["brand","scale","tints"],
+  },
+  {
+    id: "disabled-colors",
+    category: "color",
+    name: "Disabled colors",
+    alsoKnownAs: ["Inactive palette"],
+    description:
+      "Muted fill and text tokens for disabled controls that still look intentional.",
+    promptTip:
+      "Define disabled foreground/background tokens (lower contrast, no pure gray washout) and apply them consistently—not random opacity.",
+    exampleKey: "disabled-colors",
+    tags: ["disabled","tokens","muted"],
+  },
+  {
+    id: "safe-area",
+    category: "spacing-layout",
+    name: "Safe area insets",
+    alsoKnownAs: ["Notch padding","env(safe-area-inset)"],
+    description:
+      "Padding that respects device notches, home indicators, and rounded corners.",
+    promptTip:
+      "Add safe-area padding (env(safe-area-inset-*)) on fixed bottom bars and full-bleed mobile layouts so content clears the home indicator.",
+    exampleKey: "safe-area",
+    tags: ["safe-area","mobile","notch"],
+  },
+  {
+    id: "masonry-hint",
+    category: "spacing-layout",
+    name: "Staggered grid",
+    alsoKnownAs: ["Uneven grid","Pinterest-style layout"],
+    description:
+      "Grid of mixed-height cards for galleries when equal rows feel rigid.",
+    promptTip:
+      "For mixed-height media, use a CSS columns or grid with row-span variation—not forced equal card heights that crop content.",
+    exampleKey: "masonry-hint",
+    tags: ["grid","gallery","staggered"],
+  },
+  {
+    id: "sticky-footer",
+    category: "spacing-layout",
+    name: "Sticky footer actions",
+    alsoKnownAs: ["Pinned footer bar","Form footer"],
+    description:
+      "Action bar pinned to the bottom of a view or modal for primary saves.",
+    promptTip:
+      "Pin form or modal actions in a sticky footer bar (border-t, background, safe padding) so Save/Cancel stay reachable while content scrolls.",
+    exampleKey: "sticky-footer",
+    tags: ["footer","sticky","actions"],
+  },
+  {
+    id: "pill-button",
+    category: "buttons",
+    name: "Pill button",
+    alsoKnownAs: ["Rounded full button","Capsule button"],
+    description:
+      "Fully rounded capsule shape for marketing CTAs and filter chips-as-buttons.",
+    promptTip:
+      "Use rounded-full pill buttons for marketing CTAs or filter actions; keep product chrome on standard radius so shapes stay intentional.",
+    exampleKey: "pill-button",
+    tags: ["pill","capsule","rounded-full"],
+  },
+  {
+    id: "button-block",
+    category: "buttons",
+    name: "Full-width button",
+    alsoKnownAs: ["Block button","Stretch CTA"],
+    description:
+      "Button that spans its container—common in mobile forms and auth.",
+    promptTip:
+      "On mobile forms and auth, use full-width primary buttons (w-full) so the CTA is easy to tap; stack secondary full-width below.",
+    exampleKey: "button-block",
+    tags: ["block","full-width","mobile"],
+  },
+  {
+    id: "phone-input",
+    category: "forms",
+    name: "Phone field",
+    alsoKnownAs: ["Tel input","Phone number"],
+    description:
+      "Telephone input, often with country code prefix.",
+    promptTip:
+      "Use type=tel with a country code addon or select; format as the user types and keep a single accessible label.",
+    exampleKey: "phone-input",
+    tags: ["phone","tel","input"],
+  },
+  {
+    id: "color-input",
+    category: "forms",
+    name: "Color picker field",
+    alsoKnownAs: ["Color input","Swatch control"],
+    description:
+      "Control for choosing a color value, often with swatch + hex.",
+    promptTip:
+      "Pair a native color input or swatch button with a hex text field so users can pick visually or paste values.",
+    exampleKey: "color-input",
+    tags: ["color","picker","hex"],
+  },
+  {
+    id: "checkbox-group",
+    category: "forms",
+    name: "Checkbox group",
+    alsoKnownAs: ["Multi-checkbox","Option list"],
+    description:
+      "Stacked checkboxes for selecting multiple options in a set.",
+    promptTip:
+      "Group related checkboxes under a legend/label with consistent spacing; support select-all with indeterminate when partial.",
+    exampleKey: "checkbox-group",
+    tags: ["checkbox","group","multi"],
+  },
+  {
+    id: "inline-label-field",
+    category: "forms",
+    name: "Inline label field",
+    alsoKnownAs: ["Horizontal form row","Label left"],
+    description:
+      "Label and control on one row for dense settings UIs.",
+    promptTip:
+      "In settings tables, align labels left and controls right on one row (grid cols); stack on narrow screens.",
+    exampleKey: "inline-label-field",
+    tags: ["inline","settings","form"],
+  },
+  {
+    id: "tree-nav",
+    category: "navigation",
+    name: "Tree navigation",
+    alsoKnownAs: ["Nested nav","Folder nav"],
+    description:
+      "Expandable nested links for hierarchical app or docs structure.",
+    promptTip:
+      "Build tree nav with expand/collapse chevrons, indent levels, and a clear current-item style; keep hit targets large enough.",
+    exampleKey: "tree-nav",
+    tags: ["tree","nested","sidebar"],
+  },
+  {
+    id: "utility-nav",
+    category: "navigation",
+    name: "Utility navigation",
+    alsoKnownAs: ["Secondary top links","Meta nav"],
+    description:
+      "Small top links for help, status, locale, or account—secondary to primary nav.",
+    promptTip:
+      "Place utility nav (Help, Status, Locale) as small muted links above or beside primary nav—never compete with main IA.",
+    exampleKey: "utility-nav",
+    tags: ["utility","meta","header"],
+  },
+  {
+    id: "tab-underline",
+    category: "navigation",
+    name: "Underline tabs",
+    alsoKnownAs: ["Line tabs","Browser-style tabs"],
+    description:
+      "Tabs indicated by a bottom border rather than a filled pill.",
+    promptTip:
+      "Use underline tabs (border-b-2 on active) for content switching in dense product UIs; keep labels short and equal padding.",
+    exampleKey: "tab-underline",
+    tags: ["tabs","underline","nav"],
+  },
+  {
+    id: "top-progress",
+    category: "feedback",
+    name: "Top progress bar",
+    alsoKnownAs: ["NProgress","Route progress"],
+    description:
+      "Thin progress line at the top of the viewport for page/route loading.",
+    promptTip:
+      "Show a 2px top-of-viewport progress bar during route transitions; animate width and hide when complete. Respect reduced motion.",
+    exampleKey: "top-progress",
+    tags: ["nprogress","loading","route"],
+  },
+  {
+    id: "snackbar-action",
+    category: "feedback",
+    name: "Snackbar with action",
+    alsoKnownAs: ["Action toast","Undo snackbar"],
+    description:
+      "Transient message with a single related action like Undo.",
+    promptTip:
+      "Pair short snackbar copy with one text action (Undo, View) and optional dismiss; auto-hide after a few seconds.",
+    exampleKey: "snackbar-action",
+    tags: ["snackbar","undo","toast"],
+  },
+  {
+    id: "validation-summary",
+    category: "feedback",
+    name: "Validation summary",
+    alsoKnownAs: ["Error summary","Form errors list"],
+    description:
+      "List of form errors at the top of a form for keyboard and screen-reader users.",
+    promptTip:
+      "On submit failure, show a validation summary listing fields and errors with links/focus to each invalid control.",
+    exampleKey: "validation-summary",
+    tags: ["validation","errors","form"],
+  },
+  {
+    id: "coach-mark",
+    category: "overlays",
+    name: "Coach mark",
+    alsoKnownAs: ["Feature spotlight","Tour step","Hotspot"],
+    description:
+      "Spotlight callout teaching a UI control during onboarding.",
+    promptTip:
+      "Coach marks: dim the page, highlight one target, short title + body + Next/Skip. Never block critical paths permanently.",
+    exampleKey: "coach-mark",
+    tags: ["onboarding","tour","spotlight"],
+  },
+  {
+    id: "side-drawer",
+    category: "overlays",
+    name: "Side drawer detail",
+    alsoKnownAs: ["Detail drawer","Record panel"],
+    description:
+      "Edge drawer for viewing/editing a record without leaving the list.",
+    promptTip:
+      "Open row details in a side drawer (not a full page) for master-detail flows; include close, title, and sticky footer actions.",
+    exampleKey: "side-drawer",
+    tags: ["drawer","detail","master-detail"],
+  },
+  {
+    id: "rating-stars",
+    category: "data-display",
+    name: "Star rating",
+    alsoKnownAs: ["Rating","Stars"],
+    description:
+      "Visual score with stars for reviews and product quality.",
+    promptTip:
+      "Show star ratings with filled/empty stars, a numeric value for a11y, and consistent half-star rules if used.",
+    exampleKey: "rating-stars",
+    tags: ["rating","stars","review"],
+  },
+  {
+    id: "comparison-table",
+    category: "data-display",
+    name: "Comparison table",
+    alsoKnownAs: ["Pricing compare","Feature matrix"],
+    description:
+      "Matrix of plans or products with checkmarks and feature rows.",
+    promptTip:
+      "Build comparison tables with sticky first column, clear plan headers, and check/dash cells—not walls of paragraphs.",
+    exampleKey: "comparison-table",
+    tags: ["compare","pricing","matrix"],
+  },
+  {
+    id: "sortable-header",
+    category: "data-display",
+    name: "Sortable table header",
+    alsoKnownAs: ["Column sort","Sort affordance"],
+    description:
+      "Table column header that toggles sort order with a clear indicator.",
+    promptTip:
+      "Mark sortable columns with a chevron; show active sort direction and keep sort state in the URL or table state.",
+    exampleKey: "sortable-header",
+    tags: ["table","sort","header"],
+  },
+  {
+    id: "sparkline",
+    category: "data-display",
+    name: "Sparkline",
+    alsoKnownAs: ["Inline chart","Mini trend"],
+    description:
+      "Tiny inline chart showing a trend without full chart chrome.",
+    promptTip:
+      "Use sparklines beside KPIs for trend at a glance; no axes required, but provide a text summary for screen readers.",
+    exampleKey: "sparkline",
+    tags: ["chart","trend","kpi"],
+  },
+  {
+    id: "inner-border",
+    category: "surfaces",
+    name: "Inner border / ring inset",
+    alsoKnownAs: ["Inset border","Hairline inset"],
+    description:
+      "Border drawn inside the box so outer size stays stable.",
+    promptTip:
+      "Prefer ring-inset or shadow-[inset_0_0_0_1px] when adding focus/selection borders so layout doesn't shift.",
+    exampleKey: "inner-border",
+    tags: ["inset","border","ring"],
+  },
+  {
+    id: "layered-shadow",
+    category: "surfaces",
+    name: "Layered shadow",
+    alsoKnownAs: ["Multi-layer elevation","Soft depth"],
+    description:
+      "Two-or-more stacked shadows for realistic soft elevation.",
+    promptTip:
+      "Compose elevation from 2 soft shadows (tight + ambient) instead of one harsh drop-shadow for cards and modals.",
+    exampleKey: "layered-shadow",
+    tags: ["shadow","elevation","depth"],
+  },
+  {
+    id: "avatar-status",
+    category: "media",
+    name: "Avatar with status",
+    alsoKnownAs: ["Presence avatar","Online indicator"],
+    description:
+      "User avatar with a small status dot for online/away/busy.",
+    promptTip:
+      "Overlay a status dot on avatars (bottom-right, ring of background color) for presence; keep the dot large enough to read.",
+    exampleKey: "avatar-status",
+    tags: ["avatar","presence","status"],
+  },
+  {
+    id: "favicon-set",
+    category: "media",
+    name: "Favicon set",
+    alsoKnownAs: ["App icons","Browser icon"],
+    description:
+      "Small brand marks for browser tabs and home-screen icons.",
+    promptTip:
+      "Ship a favicon set (16/32 SVG or PNG, apple-touch) with a simple mark that reads at 16px—avoid tiny text in the icon.",
+    exampleKey: "favicon-set",
+    tags: ["favicon","icon","brand"],
+  },
+  {
+    id: "aspect-media-fit",
+    category: "media",
+    name: "Object fit media",
+    alsoKnownAs: ["Cover vs contain","Image crop"],
+    description:
+      "How media fills a frame: cover (crop) vs contain (letterbox).",
+    promptTip:
+      "Choose object-fit cover for thumbnails/heroes and contain for product shots that must not crop; set a background for letterboxing.",
+    exampleKey: "aspect-media-fit",
+    tags: ["object-fit","cover","contain"],
+  },
+  {
+    id: "offline-state",
+    category: "states",
+    name: "Offline state",
+    alsoKnownAs: ["Disconnected","Network offline"],
+    description:
+      "UI treatment when the client has no network connectivity.",
+    promptTip:
+      "Detect offline and show a non-blocking banner or badge; queue actions when possible and explain what still works.",
+    exampleKey: "offline-state",
+    tags: ["offline","network","status"],
+  },
+  {
+    id: "empty-zero",
+    category: "states",
+    name: "Zero state vs empty",
+    alsoKnownAs: ["First-run empty","No results yet"],
+    description:
+      "Distinguish first-use empty from filtered zero results.",
+    promptTip:
+      "First-run empty: illustrate + primary CTA to create. Filter zero: “No results” + clear filters—not the same illustration.",
+    exampleKey: "empty-zero",
+    tags: ["empty","zero","first-run"],
+  },
+  {
+    id: "stale-data",
+    category: "states",
+    name: "Stale data indicator",
+    alsoKnownAs: ["Outdated badge","Refresh needed"],
+    description:
+      "Cue that shown data may be out of date and needs refresh.",
+    promptTip:
+      "When data may be stale, show a subtle “Updated 5m ago · Refresh” control rather than silently showing old numbers.",
+    exampleKey: "stale-data",
+    tags: ["stale","refresh","cache"],
+  },
+  {
+    id: "slop-confetti-success",
+    category: "ai-slop",
+    name: "Confetti on every success",
+    alsoKnownAs: ["Celebration spam"],
+    description:
+      "Particle confetti for mundane saves makes celebration meaningless.",
+    promptTip:
+      "Don't fire confetti for routine saves. Reserve celebration for rare milestones—or skip it and show a quiet success state.",
+    promptKind: "avoid",
+    exampleKey: "slop-confetti-success",
+    tags: ["confetti","celebration","anti-pattern"],
+  },
+  {
+    id: "slop-typewriter-hero",
+    category: "ai-slop",
+    name: "Typewriter hero loop",
+    alsoKnownAs: ["Rotating keyword hero"],
+    description:
+      "Hero that types endless buzzwords—dated SaaS cliché.",
+    promptTip:
+      "Don't use a looping typewriter of buzzwords in the hero. Write one clear value proposition users can read at a glance.",
+    promptKind: "avoid",
+    exampleKey: "slop-typewriter-hero",
+    tags: ["typewriter","hero","anti-pattern"],
+  },
+  {
+    id: "lib-keyboard-nav",
+    category: "library-practices",
+    name: "Keyboard navigation paths",
+    alsoKnownAs: ["Roving tabindex","Arrow key menus"],
+    description:
+      "Menus and toolbars should be fully operable from the keyboard.",
+    promptTip:
+      "Rely on Radix keyboard behavior for menus/tabs (arrows, Home/End, typeahead). Don't ship custom menus that trap Tab incorrectly.",
+    exampleKey: "lib-keyboard-nav",
+    tags: ["a11y","keyboard","radix"],
+  },
+  {
+    id: "lib-focus-visible",
+    category: "library-practices",
+    name: "Focus-visible only rings",
+    alsoKnownAs: [":focus-visible discipline"],
+    description:
+      "Show focus rings for keyboard users without punishing mouse clicks.",
+    promptTip:
+      "Style focus with :focus-visible (or focus-visible:ring) so mouse users don't see rings on every click, but keyboard users always do.",
+    exampleKey: "lib-focus-visible",
+    tags: ["focus","a11y","css"],
+  },
+  {
+    id: "lib-toast-region",
+    category: "library-practices",
+    name: "Live region toasts",
+    alsoKnownAs: ["aria-live toasts","Sonner region"],
+    description:
+      "Toasts must announce to assistive tech via a live region.",
+    promptTip:
+      "Use a toast library (or role=status aria-live) so success/error messages are announced—not only painted visually.",
+    exampleKey: "lib-toast-region",
+    tags: ["a11y","toast","live-region"],
+  }
 ];
 
 export function getCategoryById(id: CategoryId): Category | undefined {
