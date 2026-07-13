@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -33,6 +33,22 @@ export const metadata: Metadata = {
     "shadcn",
     "design glossary",
   ],
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Design Menu",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f7f9fc" },
+    { media: "(prefers-color-scheme: dark)", color: "#151820" },
+  ],
 };
 
 export default function RootLayout({
@@ -46,7 +62,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col font-sans">
+      <body className="flex min-h-full flex-col overflow-x-hidden font-sans">
         <ThemeProvider>
           <TooltipProvider delayDuration={200}>{children}</TooltipProvider>
         </ThemeProvider>

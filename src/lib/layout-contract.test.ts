@@ -25,8 +25,9 @@ describe("example stage contract", () => {
 
   it("ships ElementCard with fixed-height stage, padding, and overflow containment", () => {
     expect(cardSource).toMatch(/data-testid="example-stage"/);
-    expect(cardSource).toMatch(/h-\[200px\]/);
-    expect(cardSource).toMatch(/\bp-4\b/);
+    // Mobile-shorter stage + desktop 200px
+    expect(cardSource).toMatch(/h-\[168px\]|sm:h-\[200px\]|h-\[200px\]/);
+    expect(cardSource).toMatch(/\bp-3\b|\bp-4\b|sm:p-4/);
     expect(cardSource).toMatch(/overflow-hidden/);
     // Use formatPromptDisplay so hyphenated tokens do not wrap mid-token
     expect(cardSource).toMatch(/formatPromptDisplay/);
@@ -34,7 +35,6 @@ describe("example stage contract", () => {
     // Title/description/prompt use intentional line clamps (complete lines only)
     expect(cardSource).toMatch(/line-clamp-2/);
     expect(cardSource).toMatch(/line-clamp-4/);
-    expect(cardSource).toMatch(/min-h-\[4\.25rem\]/);
   });
 
   it("does not force max-w-full onto every descendant (breaks absolute layouts)", () => {

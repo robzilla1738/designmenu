@@ -170,6 +170,49 @@ body {
   display: none;
 }
 
+/* Horizontal chip scroller: edge fade + smooth touch pan */
+.dm-chip-scroller {
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-x: contain;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 12px,
+    #000 calc(100% - 12px),
+    transparent 100%
+  );
+}
+.dm-chip-scroller > * {
+  scroll-snap-align: start;
+}
+
+/* Safe-area helpers for notched phones */
+.dm-safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.dm-safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.dm-safe-x {
+  padding-left: max(1rem, env(safe-area-inset-left, 0px));
+  padding-right: max(1rem, env(safe-area-inset-right, 0px));
+}
+
+/* Avoid sticky hover lift on touch devices */
+@media (hover: none) {
+  .group:hover {
+    transform: none !important;
+  }
+}
+
+/* Prevent iOS input zoom when font < 16px — force 16px on small screens */
+@media (max-width: 639px) {
+  #catalog-search {
+    font-size: 16px !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
