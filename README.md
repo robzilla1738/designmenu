@@ -4,7 +4,7 @@ A visual catalog of UI design elements — each with a **live example**, the **n
 
 Built for people who recognize a pattern on screen but don’t know what it’s called (or how to describe it to an AI).
 
-**281 labeled elements** · **14 categories** · Light blue brand accent · Light / dark / system theme
+**309 labeled elements** · **14 categories** · Light blue brand accent · Light / dark / system theme
 
 ---
 
@@ -24,9 +24,9 @@ Design Menu names the pattern, shows it, and hands you prompt text you can copy.
 
 | Area | Count | What you get |
 |------|------:|--------------|
-| Typography → States | 230 | Core UI language: type, color, layout, controls, feedback, overlays, surfaces, media, states |
+| Typography → States | 254 | Core UI language: type, color, layout, controls, feedback, overlays, surfaces, media, states |
 | **AI Slop** | 25 | Anti-patterns with **Avoid by prompting** tips (purple haze, Inter-only, fake metrics, glow spam…) |
-| **Library Best Practices** | 26 | shadcn / Radix / Tailwind composition habits |
+| **Library Best Practices** | 30 | shadcn / Radix / Tailwind composition habits |
 
 ### Categories
 
@@ -35,7 +35,7 @@ Typography · Color · Spacing & Layout · Buttons · Form Controls · Navigatio
 ### Standout sections
 
 - **AI Slop** — common model defaults and how to steer past them. Purple gradients stay *here* as intentional bad examples; the product chrome uses light blue.
-- **Library Best Practices** — compose primitives, semantic tokens, CVA variants, accessible overlays, controlled open state, portals, focus-visible, and more.
+- **Library Best Practices** — compose primitives, semantic tokens, CVA variants, accessible overlays, controlled open state, portals, focus-visible, schema forms, compound APIs, and more.
 
 ### Search
 

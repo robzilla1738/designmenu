@@ -238,6 +238,35 @@ describe("catalog data", () => {
       { id: "slop-confetti-success", category: "ai-slop" },
       { id: "lib-focus-visible", category: "library-practices" },
       { id: "lib-toast-region", category: "library-practices" },
+      // Gap-fill pass — multi-category standard vocabulary + lib habits
+      { id: "mark-highlight", category: "typography" },
+      { id: "selection-colors", category: "color" },
+      { id: "dark-mode-pair", category: "color" },
+      { id: "bento-grid", category: "spacing-layout" },
+      { id: "success-button", category: "buttons" },
+      { id: "field-helper-text", category: "forms" },
+      { id: "character-count", category: "forms" },
+      { id: "tag-input", category: "forms" },
+      { id: "password-strength", category: "forms" },
+      { id: "floating-label", category: "forms" },
+      { id: "date-range", category: "forms" },
+      { id: "hamburger-menu", category: "navigation" },
+      { id: "account-menu", category: "navigation" },
+      { id: "table-of-contents", category: "navigation" },
+      { id: "cookie-consent", category: "feedback" },
+      { id: "typing-indicator", category: "feedback" },
+      { id: "popconfirm", category: "overlays" },
+      { id: "notification-center", category: "overlays" },
+      { id: "filter-chips", category: "data-display" },
+      { id: "expandable-row", category: "data-display" },
+      { id: "simple-bar-chart", category: "data-display" },
+      { id: "kanban-column", category: "data-display" },
+      { id: "danger-zone", category: "surfaces" },
+      { id: "empty-search", category: "states" },
+      { id: "lib-form-schema", category: "library-practices" },
+      { id: "lib-compound-components", category: "library-practices" },
+      { id: "lib-polymorphic", category: "library-practices" },
+      { id: "lib-empty-error-pair", category: "library-practices" },
     ];
 
     for (const { id, category } of expected) {
@@ -250,7 +279,7 @@ describe("catalog data", () => {
   });
 
   it("keeps material catalog depth after exhaustive vocabulary fill", () => {
-    expect(ELEMENTS.length).toBeGreaterThanOrEqual(270);
+    expect(ELEMENTS.length).toBeGreaterThanOrEqual(300);
     // Core UI categories should be robust, not thin starter lists
     for (const id of CORE_UI_CATEGORIES) {
       expect(
@@ -272,5 +301,60 @@ describe("catalog data", () => {
     const avoid = ELEMENTS.filter((e) => e.promptKind === "avoid");
     expect(avoid.length).toBeGreaterThanOrEqual(5);
     expect(avoid.every((e) => e.category === "ai-slop")).toBe(true);
+  });
+
+  it("locks the multi-category gap-fill floor (core UI + library practices)", () => {
+    const gapCore = [
+      "mark-highlight",
+      "selection-colors",
+      "dark-mode-pair",
+      "bento-grid",
+      "success-button",
+      "field-helper-text",
+      "character-count",
+      "tag-input",
+      "password-strength",
+      "floating-label",
+      "date-range",
+      "hamburger-menu",
+      "account-menu",
+      "table-of-contents",
+      "cookie-consent",
+      "typing-indicator",
+      "popconfirm",
+      "notification-center",
+      "filter-chips",
+      "expandable-row",
+      "simple-bar-chart",
+      "kanban-column",
+      "danger-zone",
+      "empty-search",
+    ];
+    const gapLibs = [
+      "lib-form-schema",
+      "lib-compound-components",
+      "lib-polymorphic",
+      "lib-empty-error-pair",
+    ];
+    expect(gapCore.length).toBeGreaterThanOrEqual(12);
+    expect(gapLibs.length).toBeGreaterThanOrEqual(3);
+
+    const categories = new Set<CategoryId>();
+    for (const id of gapCore) {
+      const el = getElementById(id);
+      expect(el, `missing gap-fill ${id}`).toBeDefined();
+      expect(el!.description.trim().length).toBeGreaterThan(10);
+      expect(el!.promptTip.trim().length).toBeGreaterThan(10);
+      expect(el!.exampleKey).toBe(id);
+      categories.add(el!.category);
+    }
+    expect(categories.size).toBeGreaterThanOrEqual(5);
+
+    for (const id of gapLibs) {
+      const el = getElementById(id);
+      expect(el, `missing lib gap-fill ${id}`).toBeDefined();
+      expect(el!.category).toBe("library-practices");
+      expect(el!.promptTip.trim().length).toBeGreaterThan(10);
+    }
   });
 });

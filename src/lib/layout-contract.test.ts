@@ -91,4 +91,34 @@ describe("demo anti-cutoff patterns", () => {
     expect(table![1]).toMatch(/max-w-\[220px\]/);
     expect(table![1]).not.toMatch(/max-w-\[260px\]/);
   });
+
+  it("stage-fits gap-fill demos (no blow-out type, contained width)", () => {
+    const gapKeys = [
+      "mark-highlight",
+      "bento-grid",
+      "notification-center",
+      "simple-bar-chart",
+      "kanban-column",
+      "danger-zone",
+      "empty-search",
+      "cookie-consent",
+    ];
+    for (const key of gapKeys) {
+      const match = exampleSource.match(
+        new RegExp(
+          `case\\s+"${key}":\\s*return\\s*\\(([\\s\\S]*?)\\);\\s*case\\s+"`,
+        ),
+      );
+      expect(match, `${key} case missing`).not.toBeNull();
+      const body = match![1];
+      expect(body, `${key} should not use text-3xl`).not.toMatch(/text-3xl/);
+      expect(body, `${key} should not use text-4xl`).not.toMatch(/text-4xl/);
+      // Prefer stage-friendly max widths when a width constraint is present
+      if (/max-w-\[/.test(body)) {
+        expect(body, `${key} max-w too wide`).not.toMatch(
+          /max-w-\[(2[5-9]\d|[3-9]\d{2})px\]/,
+        );
+      }
+    }
+  });
 });

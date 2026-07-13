@@ -3356,7 +3356,344 @@ export const ELEMENTS: DesignElement[] = [
       "Use a toast library (or role=status aria-live) so success/error messages are announced—not only painted visually.",
     exampleKey: "lib-toast-region",
     tags: ["a11y","toast","live-region"],
-  }
+  },
+  // ── Gap-fill pass: standard vocabulary + library habits ──
+  {
+    id: "mark-highlight",
+    category: "typography",
+    name: "Mark / highlight",
+    alsoKnownAs: ["Highlighted text", "Text mark", "<mark>"],
+    description:
+      "Inline highlight that draws attention to a phrase inside a sentence.",
+    promptTip:
+      "Highlight key phrases with a soft mark background (e.g. primary/15) and readable foreground—not neon yellow on long passages.",
+    exampleKey: "mark-highlight",
+    tags: ["mark", "highlight", "inline", "emphasis"],
+  },
+  {
+    id: "selection-colors",
+    category: "color",
+    name: "Selection colors",
+    alsoKnownAs: ["::selection", "Text selection tint"],
+    description:
+      "Browser text-selection highlight colors that match the brand.",
+    promptTip:
+      "Set ::selection (and ::-moz-selection) to a soft primary tint with enough contrast so selected text stays readable in light and dark.",
+    exampleKey: "selection-colors",
+    tags: ["selection", "highlight", "css"],
+  },
+  {
+    id: "dark-mode-pair",
+    category: "color",
+    name: "Dark-mode pair",
+    alsoKnownAs: ["Light/dark swatch", "Theme pair"],
+    description:
+      "Paired light and dark surface samples so tokens stay intentional in both themes.",
+    promptTip:
+      "Design colors as light/dark pairs (bg + fg + border) and verify both themes—don’t only polish light mode then invert.",
+    exampleKey: "dark-mode-pair",
+    tags: ["dark", "theme", "pair", "tokens"],
+  },
+  {
+    id: "bento-grid",
+    category: "spacing-layout",
+    name: "Bento grid",
+    alsoKnownAs: ["Bento layout", "Feature mosaic", "Asymmetric grid"],
+    description:
+      "Asymmetric card mosaic where cells span uneven rows/columns for hierarchy.",
+    promptTip:
+      "Build a bento grid with CSS grid and span utilities (col-span/row-span) so one hero cell anchors smaller feature tiles.",
+    exampleKey: "bento-grid",
+    tags: ["bento", "grid", "mosaic", "layout"],
+  },
+  {
+    id: "success-button",
+    category: "buttons",
+    name: "Success button",
+    alsoKnownAs: ["Positive button", "Confirm success CTA"],
+    description:
+      "Affirmative action styled with success green instead of brand primary.",
+    promptTip:
+      "Use a success button (emerald fill) only for completing a positive outcome (Publish, Confirm payment)—not every primary action.",
+    exampleKey: "success-button",
+    tags: ["success", "positive", "green", "confirm"],
+  },
+  {
+    id: "field-helper-text",
+    category: "forms",
+    name: "Field helper text",
+    alsoKnownAs: ["Hint text", "Field description", "Help text"],
+    description:
+      "Supporting sentence under a field that explains format or constraints.",
+    promptTip:
+      "Put helper text under the input (muted, text-xs), wire aria-describedby, and replace it with error text on validation failure—not both stacked forever.",
+    exampleKey: "field-helper-text",
+    tags: ["helper", "hint", "description", "a11y"],
+  },
+  {
+    id: "character-count",
+    category: "forms",
+    name: "Character count",
+    alsoKnownAs: ["Char counter", "Max length meter", "Remaining characters"],
+    description:
+      "Live count of characters used vs max for titles, bios, and tweets.",
+    promptTip:
+      "Show a character counter near the field (current/max, tabular-nums); warn near the limit and block or explain hard max on submit.",
+    exampleKey: "character-count",
+    tags: ["counter", "maxlength", "textarea", "limit"],
+  },
+  {
+    id: "tag-input",
+    category: "forms",
+    name: "Tag / chip input",
+    alsoKnownAs: ["Chips input", "Tags field", "Token field"],
+    description:
+      "Freeform field that turns entered tokens into removable chips.",
+    promptTip:
+      "Build a tag input: type + Enter/comma creates chips, Backspace removes the last, each chip has a clear remove control and a single field label.",
+    exampleKey: "tag-input",
+    tags: ["tags", "chips", "tokens", "input"],
+  },
+  {
+    id: "password-strength",
+    category: "forms",
+    name: "Password strength",
+    alsoKnownAs: ["Strength meter", "Password meter"],
+    description:
+      "Meter and cues that show how strong a new password is as the user types.",
+    promptTip:
+      "Pair the password field with a strength meter (weak→strong segments) and short rules met/unmet—not only a color bar with no text.",
+    exampleKey: "password-strength",
+    tags: ["password", "strength", "meter", "security"],
+  },
+  {
+    id: "floating-label",
+    category: "forms",
+    name: "Floating label",
+    alsoKnownAs: ["Float label", "Material label"],
+    description:
+      "Label that sits inside the field and rises when the field is focused or filled.",
+    promptTip:
+      "Use a floating label that shrinks above the value on focus/fill; keep a visible label always—don’t rely on placeholder alone.",
+    exampleKey: "floating-label",
+    tags: ["floating", "label", "material", "field"],
+  },
+  {
+    id: "date-range",
+    category: "forms",
+    name: "Date range",
+    alsoKnownAs: ["Date range picker", "From–to dates", "Daterange"],
+    description:
+      "Paired start and end date controls for filters, bookings, and reports.",
+    promptTip:
+      "Offer a date range as From/To fields (or one dual calendar) with validation that end ≥ start and clear empty states.",
+    exampleKey: "date-range",
+    tags: ["date", "range", "picker", "filter"],
+  },
+  {
+    id: "hamburger-menu",
+    category: "navigation",
+    name: "Hamburger menu",
+    alsoKnownAs: ["Menu button", "Mobile nav toggle", "☰ button"],
+    description:
+      "Icon control that opens the primary navigation on small screens.",
+    promptTip:
+      "Use a hamburger (☰) menu button with aria-expanded and aria-controls; open a sheet/drawer of full nav links—don’t hide critical actions only behind it on desktop.",
+    exampleKey: "hamburger-menu",
+    tags: ["hamburger", "menu", "mobile", "toggle"],
+  },
+  {
+    id: "account-menu",
+    category: "navigation",
+    name: "Account menu",
+    alsoKnownAs: ["User menu", "Profile menu", "Avatar menu"],
+    description:
+      "Avatar or name control that opens account settings, team switch, and sign out.",
+    promptTip:
+      "Put account actions in an avatar-triggered dropdown: profile, settings, team, sign out—separate from primary product nav.",
+    exampleKey: "account-menu",
+    tags: ["account", "user", "profile", "avatar", "menu"],
+  },
+  {
+    id: "table-of-contents",
+    category: "navigation",
+    name: "Table of contents",
+    alsoKnownAs: ["On this page", "In-page TOC", "Section nav"],
+    description:
+      "Anchored list of page sections for long docs and marketing pages.",
+    promptTip:
+      "Add an on-this-page table of contents with anchor links and an active section indicator as the user scrolls.",
+    exampleKey: "table-of-contents",
+    tags: ["toc", "anchors", "docs", "sidebar"],
+  },
+  {
+    id: "cookie-consent",
+    category: "feedback",
+    name: "Cookie consent",
+    alsoKnownAs: ["Cookie banner", "Consent bar", "Privacy banner"],
+    description:
+      "Non-blocking bar or modal asking for cookie/analytics consent.",
+    promptTip:
+      "Show a compact cookie consent bar with Accept / Reject / Manage choices; don’t block the whole page with a forced modal for basic consent.",
+    exampleKey: "cookie-consent",
+    tags: ["cookie", "consent", "privacy", "gdpr"],
+  },
+  {
+    id: "typing-indicator",
+    category: "feedback",
+    name: "Typing indicator",
+    alsoKnownAs: ["Is typing", "Composer dots", "Presence typing"],
+    description:
+      "Animated cue that another person is typing in chat or comments.",
+    promptTip:
+      "Show a typing indicator (three bouncing dots + name) near the thread; hide after idle and don’t block the composer.",
+    exampleKey: "typing-indicator",
+    tags: ["typing", "chat", "presence", "dots"],
+  },
+  {
+    id: "popconfirm",
+    category: "overlays",
+    name: "Popconfirm",
+    alsoKnownAs: ["Confirm popover", "Inline confirm", "Light confirm"],
+    description:
+      "Small confirm dialog anchored to the action instead of a full modal.",
+    promptTip:
+      "Use a popconfirm (popover with title + Cancel/OK) for medium-risk actions; reserve full alert dialogs for destructive irreversibility.",
+    exampleKey: "popconfirm",
+    tags: ["confirm", "popover", "inline", "delete"],
+  },
+  {
+    id: "notification-center",
+    category: "overlays",
+    name: "Notification center",
+    alsoKnownAs: ["Notification panel", "Inbox drawer", "Bell panel"],
+    description:
+      "Panel of recent alerts opened from a bell or inbox control.",
+    promptTip:
+      "Build a notification center: bell with unread count opens a panel of items (read/unread), mark-all, and empty state—not only a single toast.",
+    exampleKey: "notification-center",
+    tags: ["notifications", "inbox", "bell", "panel"],
+  },
+  {
+    id: "filter-chips",
+    category: "data-display",
+    name: "Filter chips",
+    alsoKnownAs: ["Facet chips", "Active filters", "Filter bar chips"],
+    description:
+      "Removable chips showing active filters in a results toolbar.",
+    promptTip:
+      "Represent active filters as dismissible chips in a filter bar (label + value + ×), with Clear all when more than one is applied.",
+    exampleKey: "filter-chips",
+    tags: ["filter", "chips", "facets", "toolbar"],
+  },
+  {
+    id: "expandable-row",
+    category: "data-display",
+    name: "Expandable row",
+    alsoKnownAs: ["Row expand", "Detail row", "Nested table row"],
+    description:
+      "Table row that expands to reveal nested detail without leaving the list.",
+    promptTip:
+      "Use expandable rows with a chevron and aria-expanded; show detail in a full-width nested panel under the row—keep the stage compact.",
+    exampleKey: "expandable-row",
+    tags: ["table", "expand", "detail", "row"],
+  },
+  {
+    id: "simple-bar-chart",
+    category: "data-display",
+    name: "Simple bar chart",
+    alsoKnownAs: ["Bar chart", "Horizontal bars", "Mini chart"],
+    description:
+      "Compact bar comparison for a few categories without a full charting library.",
+    promptTip:
+      "For 3–6 categories, use a simple bar chart (labels + proportional bars + tabular values); reserve heavy chart libs for interactive analytics.",
+    exampleKey: "simple-bar-chart",
+    tags: ["chart", "bars", "data", "viz"],
+  },
+  {
+    id: "kanban-column",
+    category: "data-display",
+    name: "Kanban column",
+    alsoKnownAs: ["Board column", "Pipeline column", "Card column"],
+    description:
+      "Vertical swimlane of cards for status-based boards (To do / Doing / Done).",
+    promptTip:
+      "Design kanban as labeled columns with card stacks and counts; keep cards short (title + meta) and allow drag between columns when interactive.",
+    exampleKey: "kanban-column",
+    tags: ["kanban", "board", "column", "cards"],
+  },
+  {
+    id: "danger-zone",
+    category: "surfaces",
+    name: "Danger zone",
+    alsoKnownAs: ["Destructive zone", "Delete account section"],
+    description:
+      "Isolated settings block for irreversible actions, visually warned.",
+    promptTip:
+      "Put irreversible actions in a danger zone card: destructive border/tint, plain-language risk, and a confirm step—never next to routine saves.",
+    exampleKey: "danger-zone",
+    tags: ["danger", "destructive", "settings", "delete"],
+  },
+  {
+    id: "empty-search",
+    category: "states",
+    name: "Empty search results",
+    alsoKnownAs: ["No search hits", "Search zero state"],
+    description:
+      "State when a query returns no matches, with ways to recover.",
+    promptTip:
+      "For empty search, show the query, suggest spelling/filters, and offer Clear search—not the same first-run empty illustration.",
+    exampleKey: "empty-search",
+    tags: ["search", "empty", "zero", "no-results"],
+  },
+  {
+    id: "lib-form-schema",
+    category: "library-practices",
+    name: "Form schema wiring",
+    alsoKnownAs: ["Zod + RHF", "Schema forms", "Typed validation"],
+    description:
+      "Validate forms with a schema library wired to field errors—not ad-hoc if checks.",
+    promptTip:
+      "Wire forms with a schema (Zod) + React Hook Form (or equivalent): one source of truth for types, validation, and field-level errors.",
+    exampleKey: "lib-form-schema",
+    tags: ["zod", "rhf", "schema", "forms", "validation"],
+  },
+  {
+    id: "lib-compound-components",
+    category: "library-practices",
+    name: "Compound components",
+    alsoKnownAs: ["Compound pattern", "Namespaced parts"],
+    description:
+      "API shape like Card/CardHeader/CardTitle that compose without prop soup.",
+    promptTip:
+      "Prefer compound components (Dialog + DialogTrigger + DialogContent) over one mega-component with 40 props—compose parts at the call site.",
+    exampleKey: "lib-compound-components",
+    tags: ["compound", "compose", "api", "shadcn"],
+  },
+  {
+    id: "lib-polymorphic",
+    category: "library-practices",
+    name: "Polymorphic props discipline",
+    alsoKnownAs: ["as prop", "Polymorphic components"],
+    description:
+      "Components that render as different elements must keep typing and a11y correct.",
+    promptTip:
+      "If you add as/asChild polymorphism, preserve ref typing and don’t strip native button/link semantics—prefer Radix Slot/asChild over unsafe as= hacks.",
+    exampleKey: "lib-polymorphic",
+    tags: ["polymorphic", "asChild", "typescript", "slot"],
+  },
+  {
+    id: "lib-empty-error-pair",
+    category: "library-practices",
+    name: "Empty + error UI pairing",
+    alsoKnownAs: ["Empty and error states", "Failure vs empty"],
+    description:
+      "Ship distinct empty and error presentations—never reuse one generic panel.",
+    promptTip:
+      "Pair empty and error UIs: empty invites the next action; error explains failure + retry. Don’t show “Nothing here” for a failed fetch.",
+    exampleKey: "lib-empty-error-pair",
+    tags: ["empty", "error", "states", "ux"],
+  },
 ];
 
 export function getCategoryById(id: CategoryId): Category | undefined {

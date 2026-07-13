@@ -3,13 +3,16 @@
 import {
   Bell,
   Check,
+  ChevronDown,
   Copy,
   Home,
   Loader2,
+  Menu,
   Search,
   Settings,
   User,
   Upload,
+  X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -546,14 +549,14 @@ export function ElementExample({ exampleKey }: { exampleKey: string }) {
       );
     case "mega-menu":
       return (
-        <div className="w-full rounded-lg border border-border bg-card p-3 text-[10px] shadow-sm">
+        <div className="w-full max-w-[220px] rounded-lg border border-border bg-card p-2.5 text-[10px] shadow-sm">
           <div className="mb-2 font-medium">Products ▾</div>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-3 gap-1.5">
             {["Design", "Code", "Docs"].map((col) => (
-              <div key={col}>
-                <p className="mb-1 font-semibold text-muted-foreground">{col}</p>
-                <p>Item one</p>
-                <p>Item two</p>
+              <div key={col} className="min-w-0">
+                <p className="mb-1 truncate font-semibold text-muted-foreground">{col}</p>
+                <p className="truncate">Item one</p>
+                <p className="truncate">Item two</p>
               </div>
             ))}
           </div>
@@ -3116,6 +3119,395 @@ return ok;`}</code>
           className="rounded-lg border border-border bg-card px-3 py-2 text-[11px] shadow-md"
         >
           Changes saved
+        </div>
+      );
+
+    // ── Gap-fill vocabulary ───────────────────────────────
+    case "mark-highlight":
+      return (
+        <p className="max-w-[200px] text-left text-[12px] leading-snug">
+          Ship the{" "}
+          <mark className="rounded-sm bg-primary/20 px-0.5 text-foreground">
+            pricing page
+          </mark>{" "}
+          before launch week.
+        </p>
+      );
+    case "selection-colors":
+      return (
+        <div className="max-w-[200px] space-y-1.5 text-left">
+          <p className="text-[11px] leading-snug">
+            <span className="rounded-sm bg-primary/25 px-0.5 text-foreground">
+              Selected text
+            </span>{" "}
+            uses brand tint
+          </p>
+          <p className="text-[9px] text-muted-foreground">::selection · primary/25</p>
+        </div>
+      );
+    case "dark-mode-pair":
+      return (
+        <div className="flex w-full max-w-[220px] gap-2">
+          <div className="flex-1 rounded-lg border border-neutral-200 bg-white p-2 text-[9px] text-neutral-900 shadow-sm">
+            <p className="font-semibold">Light</p>
+            <p className="text-neutral-500">bg · fg</p>
+          </div>
+          <div className="flex-1 rounded-lg border border-neutral-700 bg-neutral-950 p-2 text-[9px] text-neutral-100 shadow-sm">
+            <p className="font-semibold">Dark</p>
+            <p className="text-neutral-400">bg · fg</p>
+          </div>
+        </div>
+      );
+    case "bento-grid":
+      return (
+        <div className="grid w-full max-w-[200px] grid-cols-3 grid-rows-2 gap-1">
+          <div className="col-span-2 row-span-2 rounded-md bg-primary/15 p-2 text-[9px] font-semibold text-primary">
+            Hero
+          </div>
+          <div className="rounded-md bg-muted p-1.5 text-[8px] text-muted-foreground">A</div>
+          <div className="rounded-md bg-muted p-1.5 text-[8px] text-muted-foreground">B</div>
+        </div>
+      );
+    case "success-button":
+      return (
+        <Button
+          size="sm"
+          className="bg-emerald-600 text-white hover:bg-emerald-600/90"
+        >
+          Publish
+        </Button>
+      );
+    case "field-helper-text":
+      return (
+        <div className="w-full max-w-[200px] space-y-1 text-left">
+          <Label className="text-xs">Workspace URL</Label>
+          <Input className="h-8 text-xs" defaultValue="acme" readOnly />
+          <p className="text-[10px] text-muted-foreground">
+            Lowercase letters and hyphens only.
+          </p>
+        </div>
+      );
+    case "character-count":
+      return (
+        <div className="w-full max-w-[200px] space-y-1 text-left">
+          <Label className="text-xs">Bio</Label>
+          <Textarea
+            className="min-h-[52px] resize-none text-xs"
+            defaultValue="Design systems nerd."
+            readOnly
+          />
+          <p className="text-right text-[10px] tabular-nums text-muted-foreground">
+            21 / 160
+          </p>
+        </div>
+      );
+    case "tag-input":
+      return (
+        <div className="flex w-full max-w-[220px] flex-wrap items-center gap-1 rounded-md border border-input bg-background px-2 py-1.5">
+          {["design", "a11y"].map((t) => (
+            <Badge key={t} variant="secondary" className="gap-0.5 text-[10px]">
+              {t}
+              <X className="size-2.5 opacity-60" />
+            </Badge>
+          ))}
+          <span className="text-[11px] text-muted-foreground">Add tag…</span>
+        </div>
+      );
+    case "password-strength":
+      return (
+        <div className="w-full max-w-[200px] space-y-1.5 text-left">
+          <Input
+            type="password"
+            className="h-8 text-xs"
+            defaultValue="••••••••"
+            readOnly
+          />
+          <div className="flex gap-0.5">
+            <div className="h-1 flex-1 rounded-full bg-emerald-500" />
+            <div className="h-1 flex-1 rounded-full bg-emerald-500" />
+            <div className="h-1 flex-1 rounded-full bg-emerald-500" />
+            <div className="h-1 flex-1 rounded-full bg-muted" />
+          </div>
+          <p className="text-[10px] text-emerald-700 dark:text-emerald-400">Strong</p>
+        </div>
+      );
+    case "floating-label":
+      return (
+        <div className="relative w-full max-w-[200px]">
+          <Input
+            id="demo-float"
+            className="peer h-10 pt-4 text-xs"
+            defaultValue="Ada Lovelace"
+            readOnly
+            placeholder=" "
+          />
+          <label
+            htmlFor="demo-float"
+            className="pointer-events-none absolute top-1 left-3 text-[9px] font-medium text-muted-foreground"
+          >
+            Full name
+          </label>
+        </div>
+      );
+    case "date-range":
+      return (
+        <div className="flex w-full max-w-[220px] items-center gap-1.5">
+          <div className="min-w-0 flex-1 space-y-0.5 text-left">
+            <p className="text-[9px] text-muted-foreground">From</p>
+            <div className="rounded-md border border-input px-2 py-1.5 text-[11px] tabular-nums">
+              Mar 1
+            </div>
+          </div>
+          <span className="pt-3 text-[10px] text-muted-foreground">–</span>
+          <div className="min-w-0 flex-1 space-y-0.5 text-left">
+            <p className="text-[9px] text-muted-foreground">To</p>
+            <div className="rounded-md border border-input px-2 py-1.5 text-[11px] tabular-nums">
+              Mar 14
+            </div>
+          </div>
+        </div>
+      );
+    case "hamburger-menu":
+      return (
+        <div className="flex w-full max-w-[200px] items-center justify-between rounded-lg border border-border px-2 py-1.5">
+          <Button variant="ghost" size="icon-sm" aria-label="Open menu" aria-expanded={false}>
+            <Menu className="size-4" />
+          </Button>
+          <span className="text-[11px] font-medium">Product</span>
+          <span className="size-7" />
+        </div>
+      );
+    case "account-menu":
+      return (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" size="sm" className="gap-2">
+              <Avatar className="size-5">
+                <AvatarFallback className="text-[9px]">AL</AvatarFallback>
+              </Avatar>
+              Ada
+              <ChevronDown className="size-3 opacity-60" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-40">
+            <DropdownMenuItem>Profile</DropdownMenuItem>
+            <DropdownMenuItem>Settings</DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>Sign out</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      );
+    case "table-of-contents":
+      return (
+        <nav
+          aria-label="On this page"
+          className="w-full max-w-[180px] space-y-1 rounded-lg border border-border p-2 text-left text-[11px]"
+        >
+          <p className="text-[9px] font-semibold tracking-wide text-muted-foreground uppercase">
+            On this page
+          </p>
+          <p className="border-l-2 border-primary pl-2 font-medium text-primary">Intro</p>
+          <p className="border-l-2 border-transparent pl-2 text-muted-foreground">Setup</p>
+          <p className="border-l-2 border-transparent pl-2 text-muted-foreground">API</p>
+        </nav>
+      );
+    case "cookie-consent":
+      return (
+        <div className="flex w-full max-w-[220px] flex-col gap-2 rounded-lg border border-border bg-card p-2 shadow-md">
+          <p className="text-[10px] leading-snug text-muted-foreground">
+            We use cookies for analytics. Manage anytime.
+          </p>
+          <div className="flex gap-1.5">
+            <Button size="xs" variant="outline" className="flex-1 text-[10px]">
+              Reject
+            </Button>
+            <Button size="xs" className="flex-1 text-[10px]">
+              Accept
+            </Button>
+          </div>
+        </div>
+      );
+    case "typing-indicator":
+      return (
+        <div className="flex items-center gap-2 rounded-full border border-border bg-muted/40 px-3 py-1.5">
+          <span className="flex gap-0.5">
+            <span className="size-1.5 animate-pulse rounded-full bg-muted-foreground/70" />
+            <span className="size-1.5 animate-pulse rounded-full bg-muted-foreground/70 [animation-delay:150ms]" />
+            <span className="size-1.5 animate-pulse rounded-full bg-muted-foreground/70 [animation-delay:300ms]" />
+          </span>
+          <span className="text-[11px] text-muted-foreground">Ada is typing</span>
+        </div>
+      );
+    case "popconfirm":
+      return (
+        <div className="w-full max-w-[200px] space-y-2 rounded-lg border border-border bg-card p-2.5 text-left shadow-md">
+          <p className="text-[11px] font-medium">Delete this file?</p>
+          <p className="text-[10px] text-muted-foreground">This can’t be undone.</p>
+          <div className="flex justify-end gap-1.5">
+            <Button size="xs" variant="ghost">
+              Cancel
+            </Button>
+            <Button size="xs" variant="destructive">
+              Delete
+            </Button>
+          </div>
+        </div>
+      );
+    case "notification-center":
+      return (
+        <div className="w-full max-w-[220px] overflow-hidden rounded-xl border border-border bg-card shadow-lg">
+          <div className="flex items-center justify-between border-b border-border px-2.5 py-1.5">
+            <span className="flex items-center gap-1.5 text-[11px] font-semibold">
+              <Bell className="size-3.5" />
+              Notifications
+            </span>
+            <Badge className="h-4 min-w-4 px-1 text-[9px]">2</Badge>
+          </div>
+          <ul className="divide-y divide-border text-[10px]">
+            <li className="bg-primary/5 px-2.5 py-1.5 font-medium">Deploy succeeded</li>
+            <li className="px-2.5 py-1.5 text-muted-foreground">Invite accepted</li>
+          </ul>
+        </div>
+      );
+    case "filter-chips":
+      return (
+        <div className="flex w-full max-w-[220px] flex-wrap items-center gap-1">
+          <Badge variant="secondary" className="gap-0.5 text-[10px]">
+            Status: Open
+            <X className="size-2.5 opacity-60" />
+          </Badge>
+          <Badge variant="secondary" className="gap-0.5 text-[10px]">
+            Owner: You
+            <X className="size-2.5 opacity-60" />
+          </Badge>
+          <button type="button" className="text-[10px] text-primary underline-offset-2 hover:underline">
+            Clear
+          </button>
+        </div>
+      );
+    case "expandable-row":
+      return (
+        <div className="w-full max-w-[220px] overflow-hidden rounded-lg border border-border text-[10px]">
+          <div className="flex items-center gap-1.5 bg-muted/40 px-2 py-1.5 font-medium">
+            <ChevronDown className="size-3 shrink-0 text-muted-foreground" />
+            Invoice #1042
+            <span className="ml-auto tabular-nums text-muted-foreground">$420</span>
+          </div>
+          <div className="border-t border-border bg-card px-2 py-1.5 pl-6 text-muted-foreground">
+            Paid · Visa ••42 · Mar 3
+          </div>
+        </div>
+      );
+    case "simple-bar-chart":
+      return (
+        <div className="w-full max-w-[200px] space-y-1.5 text-[10px]">
+          {[
+            { label: "Web", pct: 78 },
+            { label: "iOS", pct: 52 },
+            { label: "API", pct: 34 },
+          ].map((row) => (
+            <div key={row.label} className="flex items-center gap-2">
+              <span className="w-7 shrink-0 text-muted-foreground">{row.label}</span>
+              <div className="h-2 min-w-0 flex-1 rounded-full bg-muted">
+                <div
+                  className="h-2 rounded-full bg-primary"
+                  style={{ width: `${row.pct}%` }}
+                />
+              </div>
+              <span className="w-6 text-right tabular-nums">{row.pct}</span>
+            </div>
+          ))}
+        </div>
+      );
+    case "kanban-column":
+      return (
+        <div className="flex w-full max-w-[220px] gap-1.5">
+          {["To do", "Doing"].map((col, i) => (
+            <div
+              key={col}
+              className="min-w-0 flex-1 rounded-lg border border-border bg-muted/30 p-1.5"
+            >
+              <p className="mb-1 flex items-center justify-between text-[9px] font-semibold">
+                {col}
+                <span className="tabular-nums text-muted-foreground">{i === 0 ? 2 : 1}</span>
+              </p>
+              <div className="space-y-1">
+                <div className="rounded-md border border-border bg-card px-1.5 py-1 text-[9px] shadow-sm">
+                  {i === 0 ? "Write copy" : "Ship demo"}
+                </div>
+                {i === 0 && (
+                  <div className="rounded-md border border-border bg-card px-1.5 py-1 text-[9px] shadow-sm">
+                    QA pass
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    case "danger-zone":
+      return (
+        <div className="w-full max-w-[220px] rounded-lg border border-destructive/40 bg-destructive/5 p-2.5 text-left">
+          <p className="text-[11px] font-semibold text-destructive">Danger zone</p>
+          <p className="mt-0.5 text-[10px] text-muted-foreground">
+            Delete workspace and all data.
+          </p>
+          <Button size="xs" variant="destructive" className="mt-2">
+            Delete workspace
+          </Button>
+        </div>
+      );
+    case "empty-search":
+      return (
+        <div className="flex w-full max-w-[200px] flex-col items-center gap-1.5 text-center">
+          <Search className="size-5 text-muted-foreground" />
+          <p className="text-[11px] font-medium">No results for “qwerty”</p>
+          <p className="text-[10px] text-muted-foreground">Try another term or clear search.</p>
+          <Button size="xs" variant="outline">
+            Clear search
+          </Button>
+        </div>
+      );
+    case "lib-form-schema":
+      return (
+        <div className="w-full max-w-[200px] space-y-1 rounded-lg border border-border p-2 text-left text-[10px]">
+          <p className="font-mono text-[9px] text-muted-foreground">
+            {"z.object({ email })"}
+          </p>
+          <div className="rounded-md border border-destructive/40 px-2 py-1 text-destructive">
+            Invalid email
+          </div>
+          <p className="text-muted-foreground">Schema → field errors</p>
+        </div>
+      );
+    case "lib-compound-components":
+      return (
+        <div className="w-full max-w-[200px] rounded-lg border border-border text-left text-[10px] shadow-sm">
+          <div className="border-b border-border px-2 py-1 font-semibold">Card</div>
+          <div className="px-2 py-1 text-muted-foreground">CardHeader · CardTitle</div>
+          <div className="px-2 py-1 text-muted-foreground">CardContent</div>
+        </div>
+      );
+    case "lib-polymorphic":
+      return (
+        <div className="flex flex-col items-center gap-1.5">
+          <Button size="sm" asChild>
+            <a href="#polymorphic-demo">asChild link</a>
+          </Button>
+          <p className="text-[9px] text-muted-foreground">Slot · keeps semantics</p>
+        </div>
+      );
+    case "lib-empty-error-pair":
+      return (
+        <div className="grid w-full max-w-[220px] grid-cols-2 gap-1.5 text-[9px]">
+          <div className="rounded-lg border border-dashed border-border p-2 text-center">
+            <p className="font-semibold">Empty</p>
+            <p className="text-muted-foreground">Create first</p>
+          </div>
+          <div className="rounded-lg border border-destructive/40 bg-destructive/5 p-2 text-center">
+            <p className="font-semibold text-destructive">Error</p>
+            <p className="text-muted-foreground">Retry fetch</p>
+          </div>
         </div>
       );
     default:
