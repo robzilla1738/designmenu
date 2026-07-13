@@ -16,7 +16,6 @@ export type CategoryId =
   | "surfaces"
   | "media"
   | "states"
-  | "creative"
   | "ai-slop"
   | "library-practices";
 
@@ -116,23 +115,16 @@ export const CATEGORIES: Category[] = [
     order: 12,
   },
   {
-    id: "creative",
-    name: "Creative",
-    description:
-      "Print textures, kinetic type, bento layouts, and distinctive visual craft",
-    order: 13,
-  },
-  {
     id: "ai-slop",
     name: "AI Slop",
     description: "Common AI design anti-patterns — and how to prompt past them",
-    order: 14,
+    order: 13,
   },
   {
     id: "library-practices",
     name: "Library Best Practices",
     description: "Working well with shadcn, Radix, Tailwind, and design systems",
-    order: 15,
+    order: 14,
   },
 ];
 
@@ -245,6 +237,53 @@ export const ELEMENTS: DesignElement[] = [
     exampleKey: "link-text",
     tags: ["link", "anchor"],
   },
+  {
+    id: "lead-text",
+    category: "typography",
+    name: "Lead / intro text",
+    alsoKnownAs: ["Deck", "Lede", "Intro paragraph"],
+    description:
+      "Slightly larger supporting paragraph under a title that sets context before body copy.",
+    promptTip:
+      "Add a lead paragraph under the H1 at text-lg/xl with relaxed leading and muted or slightly softer color than body.",
+    exampleKey: "lead-text",
+    tags: ["type", "intro", "lede"],
+  },
+  {
+    id: "text-truncation",
+    category: "typography",
+    name: "Text truncation",
+    alsoKnownAs: ["Ellipsis", "Line clamp"],
+    description:
+      "Single- or multi-line clamp with ellipsis when content overflows a fixed width.",
+    promptTip:
+      "Truncate overflowing titles with truncate (1 line) or line-clamp-2; ensure full text is available via title attribute or expand.",
+    exampleKey: "text-truncation",
+    tags: ["ellipsis", "clamp", "overflow"],
+  },
+  {
+    id: "tabular-nums",
+    category: "typography",
+    name: "Tabular numbers",
+    alsoKnownAs: ["Monospaced digits", "Table numerals"],
+    description:
+      "Fixed-width digits so columns of numbers align cleanly in tables and stats.",
+    promptTip:
+      "Use font-variant-numeric: tabular-nums (or tabular-nums utility) on prices, stats, and table columns so digits align.",
+    exampleKey: "tabular-nums",
+    tags: ["numbers", "tables", "stats"],
+  },
+  {
+    id: "unordered-list",
+    category: "typography",
+    name: "Bulleted list",
+    alsoKnownAs: ["Unordered list", "UL"],
+    description: "Vertical list of items with bullets for scannable content.",
+    promptTip:
+      "Render a bulleted list with consistent marker indent, comfortable line-height, and gap between items (not dense walls of text).",
+    exampleKey: "unordered-list",
+    tags: ["list", "ul", "bullets"],
+  },
 
   // ── Color ───────────────────────────────────────────────
   {
@@ -307,6 +346,53 @@ export const ELEMENTS: DesignElement[] = [
       "Show a palette as rounded color swatches with hex labels in a horizontal row.",
     exampleKey: "color-swatches",
     tags: ["palette", "swatch"],
+  },
+  {
+    id: "accent-color",
+    category: "color",
+    name: "Accent color",
+    alsoKnownAs: ["Secondary accent", "Highlight color"],
+    description:
+      "Supporting brand hue for selected rows, chips, and soft highlights—not every CTA.",
+    promptTip:
+      "Define an accent token for soft highlights (selected rows, chips, focus tints) separate from the primary CTA color so actions stay clear.",
+    exampleKey: "accent-color",
+    tags: ["accent", "highlight", "tokens"],
+  },
+  {
+    id: "border-color",
+    category: "color",
+    name: "Border color",
+    alsoKnownAs: ["Hairline", "Stroke color"],
+    description: "Subtle stroke color for cards, inputs, and dividers.",
+    promptTip:
+      "Use a dedicated border color token (low-chroma, mid lightness) for cards and inputs; avoid pure black borders on light UIs.",
+    exampleKey: "border-color",
+    tags: ["border", "stroke", "tokens"],
+  },
+  {
+    id: "opacity-scale",
+    category: "color",
+    name: "Opacity / alpha scale",
+    alsoKnownAs: ["Alpha steps", "Transparent overlays"],
+    description:
+      "Consistent transparency steps for overlays, disabled UI, and scrims.",
+    promptTip:
+      "Use a short opacity scale (e.g. 5/10/20/40/60/80%) for scrims, disabled fills, and overlays instead of one-off rgba values.",
+    exampleKey: "opacity-scale",
+    tags: ["opacity", "alpha", "overlay"],
+  },
+  {
+    id: "inverse-colors",
+    category: "color",
+    name: "Inverse colors",
+    alsoKnownAs: ["On-primary", "Inverted surface"],
+    description:
+      "Light text on dark/brand surfaces (and the reverse) for badges, toasts, and heroes.",
+    promptTip:
+      "Provide inverse pairs (e.g. primary-foreground on primary) so text on solid brand fills always meets contrast.",
+    exampleKey: "inverse-colors",
+    tags: ["inverse", "contrast", "on-color"],
   },
 
   // ── Spacing & Layout ────────────────────────────────────
@@ -395,6 +481,42 @@ export const ELEMENTS: DesignElement[] = [
     exampleKey: "aspect-ratio",
     tags: ["ratio", "media"],
   },
+  {
+    id: "z-index-layers",
+    category: "spacing-layout",
+    name: "Z-index layers",
+    alsoKnownAs: ["Stacking order", "Elevation layers"],
+    description:
+      "Named stacking levels so dropdowns, sticky bars, and modals never fight randomly.",
+    promptTip:
+      "Define a small z-index scale (base, sticky, dropdown, modal, toast) and never invent one-off z-[9999] values.",
+    exampleKey: "z-index-layers",
+    tags: ["z-index", "stacking", "layers"],
+  },
+  {
+    id: "sticky-position",
+    category: "spacing-layout",
+    name: "Sticky position",
+    alsoKnownAs: ["Sticky header", "Pinned bar"],
+    description:
+      "Element sticks within its scroll container (headers, table columns, side notes).",
+    promptTip:
+      "Use position sticky with a top offset for toolbars or section labels that should pin while content scrolls beneath.",
+    exampleKey: "sticky-position",
+    tags: ["sticky", "scroll", "header"],
+  },
+  {
+    id: "split-layout",
+    category: "spacing-layout",
+    name: "Split layout",
+    alsoKnownAs: ["Two-column", "Side-by-side", "Master-detail"],
+    description:
+      "Two regions side by side (form + preview, list + detail) with a shared gap.",
+    promptTip:
+      "Build a two-column split (e.g. 1fr 1fr or 320px 1fr) with consistent gap; stack to one column on small screens.",
+    exampleKey: "split-layout",
+    tags: ["columns", "split", "responsive"],
+  },
 
   // ── Buttons ─────────────────────────────────────────────
   {
@@ -481,6 +603,39 @@ export const ELEMENTS: DesignElement[] = [
       "Offer sm/md/lg button sizes with consistent padding and type scale across variants.",
     exampleKey: "button-sizes",
     tags: ["size", "scale"],
+  },
+  {
+    id: "outline-button",
+    category: "buttons",
+    name: "Outline button",
+    alsoKnownAs: ["Bordered button"],
+    description: "Medium-emphasis action with a stroke and transparent fill.",
+    promptTip:
+      "Use an outline button (1px border, transparent fill) for secondary actions that still need clear hit targets.",
+    exampleKey: "outline-button",
+    tags: ["outline", "secondary"],
+  },
+  {
+    id: "link-button",
+    category: "buttons",
+    name: "Link button",
+    alsoKnownAs: ["Text button", "Button as link"],
+    description: "Button-role control styled like a text link for low emphasis.",
+    promptTip:
+      "Use a link-variant button for tertiary actions (Cancel as text, Learn more) when you need button semantics without chrome.",
+    exampleKey: "link-button",
+    tags: ["link", "tertiary"],
+  },
+  {
+    id: "button-with-icon",
+    category: "buttons",
+    name: "Button with icon",
+    alsoKnownAs: ["Icon + label button"],
+    description: "Label paired with a leading or trailing icon for faster recognition.",
+    promptTip:
+      "Pair a short label with a leading icon inside the button (icon size ~1em, gap-2); keep the label for accessibility.",
+    exampleKey: "button-with-icon",
+    tags: ["icon", "label", "cta"],
   },
 
   // ── Forms ───────────────────────────────────────────────
@@ -589,6 +744,50 @@ export const ELEMENTS: DesignElement[] = [
     exampleKey: "file-upload",
     tags: ["upload", "file"],
   },
+  {
+    id: "search-input",
+    category: "forms",
+    name: "Search field",
+    alsoKnownAs: ["Search input", "Filter field"],
+    description: "Input with search affordance for query and filter UIs.",
+    promptTip:
+      "Build a search field with a leading search icon, placeholder like “Search…”, and optional clear control.",
+    exampleKey: "search-input",
+    tags: ["search", "filter", "input"],
+  },
+  {
+    id: "password-input",
+    category: "forms",
+    name: "Password field",
+    alsoKnownAs: ["Secret input"],
+    description: "Masked text entry for secrets, often with show/hide.",
+    promptTip:
+      "Use a password input with type=password, label, and a show/hide toggle; never prefill real secrets in demos.",
+    exampleKey: "password-input",
+    tags: ["password", "security", "input"],
+  },
+  {
+    id: "number-input",
+    category: "forms",
+    name: "Number input",
+    alsoKnownAs: ["Numeric field", "Stepper input"],
+    description: "Numeric entry with optional steppers for counts and quantities.",
+    promptTip:
+      "Provide a number input with min/max, step, and either native spinners or +/- steppers for quantities.",
+    exampleKey: "number-input",
+    tags: ["number", "quantity", "input"],
+  },
+  {
+    id: "date-input",
+    category: "forms",
+    name: "Date field",
+    alsoKnownAs: ["Date picker input", "Calendar field"],
+    description: "Control for selecting a calendar date.",
+    promptTip:
+      "Add a date field with a clear label and calendar affordance (native date input or picker trigger).",
+    exampleKey: "date-input",
+    tags: ["date", "calendar", "input"],
+  },
 
   // ── Navigation ──────────────────────────────────────────
   {
@@ -675,6 +874,39 @@ export const ELEMENTS: DesignElement[] = [
     exampleKey: "mega-menu",
     tags: ["dropdown", "desktop"],
   },
+  {
+    id: "segmented-control",
+    category: "navigation",
+    name: "Segmented control",
+    alsoKnownAs: ["Segmented tabs", "iOS segments"],
+    description: "Compact mutually exclusive choices in a single control.",
+    promptTip:
+      "Use a segmented control for 2–4 peer options (Day/Week/Month) with one selected fill and equal-width segments.",
+    exampleKey: "segmented-control",
+    tags: ["segments", "toggle", "filter"],
+  },
+  {
+    id: "skip-link",
+    category: "navigation",
+    name: "Skip link",
+    alsoKnownAs: ["Skip to content"],
+    description: "Keyboard-first link that jumps past chrome to main content.",
+    promptTip:
+      "Add a skip-to-main-content link that is focusable first and becomes visible on keyboard focus.",
+    exampleKey: "skip-link",
+    tags: ["a11y", "keyboard", "skip"],
+  },
+  {
+    id: "active-nav-item",
+    category: "navigation",
+    name: "Active nav item",
+    alsoKnownAs: ["Current page indicator", "Selected nav"],
+    description: "Visual treatment showing which destination the user is on.",
+    promptTip:
+      "Highlight the current nav item with stronger weight, accent color, or left bar; set aria-current=page.",
+    exampleKey: "active-nav-item",
+    tags: ["active", "current", "nav"],
+  },
 
   // ── Feedback ────────────────────────────────────────────
   {
@@ -751,6 +983,39 @@ export const ELEMENTS: DesignElement[] = [
     exampleKey: "badge-notification",
     tags: ["badge", "count"],
   },
+  {
+    id: "status-dot",
+    category: "feedback",
+    name: "Status indicator",
+    alsoKnownAs: ["Status dot", "Presence indicator"],
+    description: "Colored dot signaling online, busy, offline, or health.",
+    promptTip:
+      "Show a small status dot (green online, amber away, red busy/error) next to avatars or service names.",
+    exampleKey: "status-dot",
+    tags: ["status", "presence", "dot"],
+  },
+  {
+    id: "inline-callout",
+    category: "feedback",
+    name: "Inline callout",
+    alsoKnownAs: ["Info callout", "Note box"],
+    description: "Soft in-flow note for tips or secondary guidance (not a full alert).",
+    promptTip:
+      "Add an inline callout with a soft accent background, short title, and tip body for non-urgent guidance.",
+    exampleKey: "inline-callout",
+    tags: ["callout", "tip", "note"],
+  },
+  {
+    id: "success-banner",
+    category: "feedback",
+    name: "Success confirmation",
+    alsoKnownAs: ["Success banner", "Save confirmation"],
+    description: "Positive confirmation after a completed action.",
+    promptTip:
+      "After a successful save, show a green success banner or check + “Saved” message; allow dismiss.",
+    exampleKey: "success-banner",
+    tags: ["success", "confirmation"],
+  },
 
   // ── Overlays ────────────────────────────────────────────
   {
@@ -816,6 +1081,50 @@ export const ELEMENTS: DesignElement[] = [
       "Add a Cmd+K command palette: centered search overlay listing actions and pages to jump to.",
     exampleKey: "command-palette",
     tags: ["search", "keyboard"],
+  },
+  {
+    id: "alert-dialog",
+    category: "overlays",
+    name: "Alert / confirm dialog",
+    alsoKnownAs: ["Confirmation dialog", "Destructive confirm"],
+    description: "Modal that asks the user to confirm a consequential action.",
+    promptTip:
+      "For delete/overwrite, open an alert dialog with clear consequence copy, Cancel, and a destructive Confirm.",
+    exampleKey: "alert-dialog",
+    tags: ["confirm", "destructive", "dialog"],
+  },
+  {
+    id: "bottom-sheet",
+    category: "overlays",
+    name: "Bottom sheet",
+    alsoKnownAs: ["Mobile sheet", "Action sheet (related)"],
+    description: "Panel that rises from the bottom edge—common on mobile.",
+    promptTip:
+      "Use a bottom sheet for mobile filters or actions: drag handle, title, content, and scrim dismiss.",
+    exampleKey: "bottom-sheet",
+    tags: ["sheet", "mobile", "drawer"],
+  },
+  {
+    id: "context-menu",
+    category: "overlays",
+    name: "Context menu",
+    alsoKnownAs: ["Right-click menu"],
+    description: "Action menu anchored to a pointer or long-press target.",
+    promptTip:
+      "Provide a context menu on right-click/long-press with dense action rows; keep labels short and group with separators.",
+    exampleKey: "context-menu",
+    tags: ["menu", "right-click", "actions"],
+  },
+  {
+    id: "hover-card",
+    category: "overlays",
+    name: "Hover card",
+    alsoKnownAs: ["Preview card", "Rich tooltip"],
+    description: "Floating preview that appears on hover/focus with richer content than a tooltip.",
+    promptTip:
+      "Show a hover card on avatar/link hover with name, meta, and optional action—delay open slightly to avoid flicker.",
+    exampleKey: "hover-card",
+    tags: ["preview", "hover", "card"],
   },
 
   // ── Data Display ────────────────────────────────────────
@@ -905,6 +1214,39 @@ export const ELEMENTS: DesignElement[] = [
     exampleKey: "accordion",
     tags: ["collapse", "faq"],
   },
+  {
+    id: "timeline",
+    category: "data-display",
+    name: "Timeline",
+    alsoKnownAs: ["Activity feed", "Event history"],
+    description: "Chronological events connected by a vertical line.",
+    promptTip:
+      "Show a vertical timeline with dots, connector line, timestamps, and short event titles for activity history.",
+    exampleKey: "timeline",
+    tags: ["history", "events", "chronology"],
+  },
+  {
+    id: "tree-list",
+    category: "data-display",
+    name: "Tree list",
+    alsoKnownAs: ["Nested list", "File tree"],
+    description: "Hierarchical nested items with expand/collapse.",
+    promptTip:
+      "Render a tree of nested items with indent levels and expand chevrons for folders/sections.",
+    exampleKey: "tree-list",
+    tags: ["tree", "hierarchy", "nested"],
+  },
+  {
+    id: "toolbar",
+    category: "data-display",
+    name: "Toolbar",
+    alsoKnownAs: ["Action bar", "Tool strip"],
+    description: "Horizontal strip of related actions above content.",
+    promptTip:
+      "Place a compact toolbar above a table or editor with icon buttons, separators, and optional overflow menu.",
+    exampleKey: "toolbar",
+    tags: ["actions", "tools", "bar"],
+  },
 
   // ── Surfaces ────────────────────────────────────────────
   {
@@ -971,6 +1313,50 @@ export const ELEMENTS: DesignElement[] = [
     exampleKey: "gradient",
     tags: ["gradient", "fill"],
   },
+  {
+    id: "raised-surface",
+    category: "surfaces",
+    name: "Raised surface",
+    alsoKnownAs: ["Elevated card", "Paper surface"],
+    description: "Surface lifted above the page with shadow or lighter fill.",
+    promptTip:
+      "Raise a panel above the canvas with a soft shadow and slightly brighter fill so it reads as a card layer.",
+    exampleKey: "raised-surface",
+    tags: ["elevation", "card", "paper"],
+  },
+  {
+    id: "inset-surface",
+    category: "surfaces",
+    name: "Inset / sunken surface",
+    alsoKnownAs: ["Well", "Recessed panel"],
+    description: "Recessed area that feels cut into the page (wells, code blocks).",
+    promptTip:
+      "Use an inset surface (darker fill, inner shadow or ring) for wells, code blocks, and drop targets.",
+    exampleKey: "inset-surface",
+    tags: ["inset", "well", "sunken"],
+  },
+  {
+    id: "outline-ring",
+    category: "surfaces",
+    name: "Outline ring",
+    alsoKnownAs: ["Focus outline", "Halo ring"],
+    description: "Ring stroke outside a component for selection or focus.",
+    promptTip:
+      "Apply a 2px outline/ring outside the border (ring-offset) for selected cards or keyboard focus.",
+    exampleKey: "outline-ring",
+    tags: ["ring", "outline", "focus"],
+  },
+  {
+    id: "dashed-border",
+    category: "surfaces",
+    name: "Dashed border",
+    alsoKnownAs: ["Dropzone border", "Placeholder stroke"],
+    description: "Dashed stroke for placeholders, dropzones, and optional regions.",
+    promptTip:
+      "Use a dashed border for empty dropzones and “add item” placeholders so they feel provisional, not solid cards.",
+    exampleKey: "dashed-border",
+    tags: ["dashed", "placeholder", "border"],
+  },
 
   // ── Media & Icons ───────────────────────────────────────
   {
@@ -1022,6 +1408,61 @@ export const ELEMENTS: DesignElement[] = [
       "Use square or 16:9 thumbnails in lists/grids with consistent size and object-cover cropping.",
     exampleKey: "thumbnail",
     tags: ["preview", "small"],
+  },
+  {
+    id: "media-object",
+    category: "media",
+    name: "Media object",
+    alsoKnownAs: ["Image + text row", "Media block"],
+    description: "Classic layout: media on one side, title and body on the other.",
+    promptTip:
+      "Compose a media object: fixed-size image/avatar left, title + supporting text right, aligned to the start.",
+    exampleKey: "media-object",
+    tags: ["layout", "image", "text"],
+  },
+  {
+    id: "image-caption",
+    category: "media",
+    name: "Image with caption",
+    alsoKnownAs: ["Figure", "Captioned image"],
+    description: "Image paired with a caption or credit beneath.",
+    promptTip:
+      "Wrap an image in a figure with a muted caption below (credit, source, or short description).",
+    exampleKey: "image-caption",
+    tags: ["figure", "caption", "photo"],
+  },
+  {
+    id: "video-placeholder",
+    category: "media",
+    name: "Video placeholder",
+    alsoKnownAs: ["Video frame", "Play overlay"],
+    description: "Reserved frame for video with play affordance before load.",
+    promptTip:
+      "Show a 16:9 video placeholder with a centered play button and optional duration badge.",
+    exampleKey: "video-placeholder",
+    tags: ["video", "play", "media"],
+  },
+  {
+    id: "icon-badge",
+    category: "media",
+    name: "Icon with badge",
+    alsoKnownAs: ["Badged icon"],
+    description: "Icon carrying a small status or count badge.",
+    promptTip:
+      "Overlay a small badge (dot or count) on the top-right of an icon for notifications or status.",
+    exampleKey: "icon-badge",
+    tags: ["icon", "badge", "notification"],
+  },
+  {
+    id: "cover-image",
+    category: "media",
+    name: "Cover image",
+    alsoKnownAs: ["Hero image", "Banner image"],
+    description: "Wide image that fills a header or card edge with object-cover.",
+    promptTip:
+      "Use a wide cover image with object-cover and fixed height for card headers or profile banners.",
+    exampleKey: "cover-image",
+    tags: ["cover", "hero", "banner"],
   },
 
   // ── States & Motion ─────────────────────────────────────
@@ -1085,246 +1526,49 @@ export const ELEMENTS: DesignElement[] = [
     exampleKey: "cursor-affordance",
     tags: ["cursor", "affordance"],
   },
-
-  // ── Creative ────────────────────────────────────────────
   {
-    id: "dither",
-    category: "creative",
-    name: "Dither",
-    alsoKnownAs: ["Ordered dither", "Bitmap texture"],
-    description:
-      "Halftone-like pixel density that approximates gradients with limited colors — print, retro, and lo-fi UIs.",
+    id: "active-pressed",
+    category: "states",
+    name: "Active / pressed state",
+    alsoKnownAs: ["Pressed", "Active state"],
+    description: "Momentary feedback while a control is held down.",
     promptTip:
-      "Apply a dithered texture overlay (ordered Bayer or dot dither) over a gradient panel for a print/retro feel; keep type sharp on top.",
-    exampleKey: "dither",
-    tags: ["texture", "retro", "print"],
+      "On press/active, darken the fill slightly or scale to 0.98 so clicks feel responsive; keep the change brief.",
+    exampleKey: "active-pressed",
+    tags: ["active", "pressed", "interactive"],
   },
   {
-    id: "noise-grain",
-    category: "creative",
-    name: "Film grain / noise",
-    alsoKnownAs: ["Grain overlay"],
-    description: "Subtle fractal noise that softens flat digital fills.",
+    id: "loading-state",
+    category: "states",
+    name: "Loading state",
+    alsoKnownAs: ["Busy state", "Pending"],
+    description: "Control or region waiting on an async result.",
     promptTip:
-      "Add a low-opacity film grain/noise overlay on hero backgrounds so solid colors feel less plastic.",
-    exampleKey: "noise-grain",
-    tags: ["grain", "texture"],
+      "While loading, disable the control, show a spinner, and optionally swap the label to a progressive verb (Saving…).",
+    exampleKey: "loading-state",
+    tags: ["loading", "async", "busy"],
   },
   {
-    id: "scanlines",
-    category: "creative",
-    name: "Scanlines",
-    description: "Horizontal CRT-style lines for retro or terminal aesthetics.",
+    id: "error-state",
+    category: "states",
+    name: "Error state",
+    alsoKnownAs: ["Invalid state", "Failed state"],
+    description: "Visual treatment when a control or section has failed.",
     promptTip:
-      "Layer subtle horizontal scanlines over a dark panel for CRT/terminal vibe without hurting readability.",
-    exampleKey: "scanlines",
-    tags: ["crt", "retro"],
+      "Mark error state with danger border/text and a short recovery message; keep the field value editable.",
+    exampleKey: "error-state",
+    tags: ["error", "invalid", "failure"],
   },
   {
-    id: "halftone",
-    category: "creative",
-    name: "Halftone dots",
-    description: "Comic/print style dots that form tones at a distance.",
+    id: "drag-state",
+    category: "states",
+    name: "Drag state",
+    alsoKnownAs: ["Dragging", "Reorder state"],
+    description: "Appearance while an item is being dragged for reorder or drop.",
     promptTip:
-      "Use a halftone dot pattern as a decorative accent behind a headline — large soft dots, not on body text.",
-    exampleKey: "halftone",
-    tags: ["print", "comic"],
-  },
-  {
-    id: "glitch",
-    category: "creative",
-    name: "Glitch effect",
-    alsoKnownAs: ["RGB split", "Chromatic aberration"],
-    description: "Channel-offset distortion that signals digital error or cyberpunk mood.",
-    promptTip:
-      "Create a restrained glitch: slight RGB text-shadow split and a 1px skew on a single display word — not full-page chaos.",
-    exampleKey: "glitch",
-    tags: ["cyberpunk", "distortion"],
-  },
-  {
-    id: "mesh-gradient",
-    category: "creative",
-    name: "Mesh gradient",
-    alsoKnownAs: ["Aurora gradient", "Blob gradient"],
-    description: "Soft multi-blob color fields popular in modern marketing.",
-    promptTip:
-      "Build a soft mesh/aurora gradient with 3–4 blurred brand-color blobs (e.g. teal, sky, warm sand) at low saturation behind the hero — avoid neon purple overload.",
-    exampleKey: "mesh-gradient",
-    tags: ["gradient", "aurora"],
-  },
-  {
-    id: "duotone",
-    category: "creative",
-    name: "Duotone",
-    description: "Two-color treatment on imagery for brand cohesion.",
-    promptTip:
-      "Apply a duotone filter using two brand colors (deep teal + warm amber, not default purple) so mixed stock imagery still feels on-brand.",
-    exampleKey: "duotone",
-    tags: ["photo", "brand"],
-  },
-  {
-    id: "marquee",
-    category: "creative",
-    name: "Marquee / ticker",
-    alsoKnownAs: ["Infinite scroll text"],
-    description: "Continuously scrolling strip of text or logos.",
-    promptTip:
-      "Add an infinite marquee/ticker of short phrases or logos; pause on hover and respect reduced motion.",
-    exampleKey: "marquee",
-    tags: ["motion", "ticker"],
-  },
-  {
-    id: "pixel-art",
-    category: "creative",
-    name: "Pixel art frame",
-    description: "Chunky pixel borders and scaling for playful UIs.",
-    promptTip:
-      "Frame a badge or avatar with a pixel-art border (crisp edges, image-rendering: pixelated) for a game-like accent.",
-    exampleKey: "pixel-art",
-    tags: ["pixel", "game"],
-  },
-  {
-    id: "blob-shape",
-    category: "creative",
-    name: "Organic blob shape",
-    alsoKnownAs: ["Squircle blob", "Morph shape"],
-    description: "Irregular soft shapes as illustration containers.",
-    promptTip:
-      "Use an organic blob mask (border-radius multi-value or SVG path) behind an icon — one accent color, not a full blob-site.",
-    exampleKey: "blob-shape",
-    tags: ["organic", "shape"],
-  },
-  {
-    id: "kinetic-type",
-    category: "creative",
-    name: "Kinetic typography",
-    alsoKnownAs: ["Animated type", "Staggered reveal"],
-    description:
-      "Type that moves with purpose — staggered rises, weight shifts, or cursor-reactive letters instead of static headlines.",
-    promptTip:
-      "Animate a display headline with staggered letter/word reveals (short ease-out, 40–80ms delay steps). Keep motion purposeful; respect prefers-reduced-motion.",
-    exampleKey: "kinetic-type",
-    tags: ["motion", "type", "kinetic"],
-  },
-  {
-    id: "bento-grid",
-    category: "creative",
-    name: "Bento grid",
-    alsoKnownAs: ["Modular card grid", "Apple-style bento"],
-    description:
-      "Japanese lunchbox-inspired modular grid of unequal cells — hierarchy through span, not identical cards.",
-    promptTip:
-      "Lay out a bento grid: uneven cells (1×1, 2×1, 1×2) with one hero tile spanning two columns. Use consistent gap and radius; vary content density, not random sizes.",
-    exampleKey: "bento-grid",
-    tags: ["layout", "modular", "grid"],
-  },
-  {
-    id: "paper-texture",
-    category: "creative",
-    name: "Paper / fiber texture",
-    alsoKnownAs: ["Editorial paper", "Print stock"],
-    description:
-      "Warm fiber noise that reads like printed stock — tactile depth without plastic flatness.",
-    promptTip:
-      "Place content on a warm paper fiber texture (subtle noise + cream base). Pair with ink-black type and restrained margins for an editorial print feel.",
-    exampleKey: "paper-texture",
-    tags: ["print", "texture", "editorial"],
-  },
-  {
-    id: "editorial-type",
-    category: "creative",
-    name: "Editorial type contrast",
-    alsoKnownAs: ["Display vs body pairing", "Magazine hierarchy"],
-    description:
-      "Extreme size/weight contrast — oversized display against quiet body — like a magazine spread.",
-    promptTip:
-      "Pair a huge tight-tracking display line with small muted body (size jump ≥3 steps). One accent rule or number; leave generous negative space.",
-    exampleKey: "editorial-type",
-    tags: ["type", "editorial", "contrast"],
-  },
-  {
-    id: "vignette",
-    category: "creative",
-    name: "Vignette focus",
-    alsoKnownAs: ["Edge darken", "Spotlight mask"],
-    description:
-      "Soft darkened edges that pull the eye to the center subject — photography and cinematic UI.",
-    promptTip:
-      "Add a soft radial vignette over a photo or hero so edges fall off and the subject stays focal. Keep center readable; don't crush midtones.",
-    exampleKey: "vignette",
-    tags: ["photo", "focus", "cinematic"],
-  },
-  {
-    id: "risograph",
-    category: "creative",
-    name: "Risograph overprint",
-    alsoKnownAs: ["Ink misregistration", "Riso print"],
-    description:
-      "Offset ink layers with slight misregistration — handmade print energy from indie posters and zines.",
-    promptTip:
-      "Stack two semi-transparent ink shapes (e.g. coral + teal) with 2–4px offset and multiply blend for a risograph overprint look. Limit to two spot colors.",
-    exampleKey: "risograph",
-    tags: ["print", "riso", "zine"],
-  },
-  {
-    id: "letterpress",
-    category: "creative",
-    name: "Letterpress emboss",
-    alsoKnownAs: ["Deboss type", "Pressed ink"],
-    description:
-      "Subtle inset highlight/shadow that makes type feel pressed into paper.",
-    promptTip:
-      "Style a short display word with letterpress: soft inset text-shadow on a paper ground, slightly reduced letter-spacing, never on long body copy.",
-    exampleKey: "letterpress",
-    tags: ["print", "tactile", "type"],
-  },
-  {
-    id: "swiss-grid",
-    category: "creative",
-    name: "Swiss modular grid",
-    alsoKnownAs: ["International Typographic Style", "Baseline grid"],
-    description:
-      "Strict modular columns, hairline rules, and asymmetric balance from mid-century Swiss design.",
-    promptTip:
-      "Compose a Swiss-style fragment: strict column grid, hairline rules, flush-left grotesque type, one bold word, and intentional empty modules.",
-    exampleKey: "swiss-grid",
-    tags: ["swiss", "grid", "modernist"],
-  },
-  {
-    id: "specular-chrome",
-    category: "creative",
-    name: "Specular / chrome sheen",
-    alsoKnownAs: ["Material highlight", "Metallic foil"],
-    description:
-      "A controlled light streak that sells metal, glass, or premium material — not full-page chrome noise.",
-    promptTip:
-      "Add a single diagonal specular highlight across a dark metal/glass panel. One restrained sheen reads premium; animated rainbow chrome is usually slop.",
-    exampleKey: "specular-chrome",
-    tags: ["material", "metal", "highlight"],
-  },
-  {
-    id: "ink-wash",
-    category: "creative",
-    name: "Ink wash / soft bleed",
-    alsoKnownAs: ["Watercolor wash", "Soft bloom"],
-    description:
-      "Soft pigment blooms that feel hand-brushed — art-directed color without hard digital edges.",
-    promptTip:
-      "Use 2–3 large blurred ink-wash blobs at low opacity under type. Choose a short monochrome or dual palette (ink + one wash); keep type sharp on top.",
-    exampleKey: "ink-wash",
-    tags: ["wash", "organic", "illustration"],
-  },
-  {
-    id: "crosshatch",
-    category: "creative",
-    name: "Crosshatch shading",
-    alsoKnownAs: ["Pen hatching", "Engraving texture"],
-    description:
-      "Diagonal pen lines that build tone like engraving or sketchbook shading.",
-    promptTip:
-      "Apply a crosshatch pattern (dual-angle repeating lines) as a decorative field behind a headline or empty state. Keep line weight thin and contrast modest.",
-    exampleKey: "crosshatch",
-    tags: ["drawing", "texture", "print"],
+      "While dragging, lift the item with shadow, reduce opacity of the placeholder slot, and use cursor-grabbing.",
+    exampleKey: "drag-state",
+    tags: ["drag", "reorder", "dnd"],
   },
 
   // ── AI Slop ─────────────────────────────────────────────

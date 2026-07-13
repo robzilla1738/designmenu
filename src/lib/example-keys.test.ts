@@ -37,9 +37,10 @@ describe("ElementExample coverage", () => {
 describe("brand tokens are non-purple", () => {
   const css = readFileSync(join(here, "../app/globals.css"), "utf8");
 
-  it("documents teal brand and uses non-purple OKLCH hues for primary tokens", () => {
-    expect(css).toMatch(/teal primary/i);
+  it("documents light blue brand and uses non-purple OKLCH hues for primary tokens", () => {
+    expect(css).toMatch(/light blue primary/i);
     expect(css).not.toMatch(/indigo primary/i);
+    expect(css).not.toMatch(/teal primary/i);
 
     // Extract --primary / --ring / --sidebar-primary declarations (not chart leftovers)
     const brandProps =

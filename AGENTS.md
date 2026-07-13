@@ -7,6 +7,6 @@ This version has breaking changes — APIs, conventions, and file structure may 
 # Design Menu — agent notes
 
 - Catalog data: `src/lib/catalog.ts` (pure). Demos: `src/components/ElementExample.tsx`.
-- Brand accent is **teal** (not purple). Purple only in intentional AI-slop demos.
+- Brand accent is **light blue** (OKLCH hue ~232, not purple). Purple only in intentional AI-slop demos.
 - New elements need both a catalog entry and a matching `exampleKey` switch case.
 - Run `npm test` after catalog or demo changes. See `docs/ARCHITECTURE.md` and `CONTRIBUTING.md`.

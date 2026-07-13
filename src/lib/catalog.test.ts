@@ -8,7 +8,7 @@ import {
   type CategoryId,
 } from "./catalog";
 
-/** Minimum categories required by the product plan */
+/** All shipped categories — none may be removed or left empty */
 const REQUIRED_CATEGORIES: CategoryId[] = [
   "typography",
   "color",
@@ -20,10 +20,29 @@ const REQUIRED_CATEGORIES: CategoryId[] = [
   "overlays",
   "data-display",
   "surfaces",
-  "creative",
+  "media",
+  "states",
   "ai-slop",
   "library-practices",
 ];
+
+/** Core UI categories use a solid coverage floor; specialized sections use higher floors */
+const CORE_UI_CATEGORIES: CategoryId[] = [
+  "typography",
+  "color",
+  "spacing-layout",
+  "buttons",
+  "forms",
+  "navigation",
+  "feedback",
+  "overlays",
+  "data-display",
+  "surfaces",
+  "media",
+  "states",
+];
+const CORE_UI_FLOOR = 8;
+const SPECIALIZED_FLOOR = 15;
 
 describe("catalog data", () => {
   it("includes all required design categories", () => {
@@ -80,22 +99,33 @@ describe("catalog data", () => {
     expect(buttonStat?.count).toBe(getElementsByCategory("buttons").length);
   });
 
-  it("includes multi-item Creative, AI slop, and Library best practices sections", () => {
-    const creative = getElementsByCategory("creative");
+  it("meets per-category solid-coverage floors for every CategoryId", () => {
+    expect(CATEGORIES).toHaveLength(REQUIRED_CATEGORIES.length);
+
+    for (const id of CORE_UI_CATEGORIES) {
+      const els = getElementsByCategory(id);
+      expect(
+        els.length,
+        `${id} needs ≥${CORE_UI_FLOOR} elements (got ${els.length})`,
+      ).toBeGreaterThanOrEqual(CORE_UI_FLOOR);
+    }
+
     const slop = getElementsByCategory("ai-slop");
     const libs = getElementsByCategory("library-practices");
+    expect(slop.length).toBeGreaterThanOrEqual(SPECIALIZED_FLOOR);
+    expect(libs.length).toBeGreaterThanOrEqual(SPECIALIZED_FLOOR);
 
-    // Expanded floors after catalog polish (several net-new in each)
-    expect(creative.length).toBeGreaterThanOrEqual(15);
-    expect(slop.length).toBeGreaterThanOrEqual(15);
-    expect(libs.length).toBeGreaterThanOrEqual(15);
+    for (const cat of CATEGORIES) {
+      expect(
+        getElementsByCategory(cat.id).length,
+        `${cat.id} must not be empty`,
+      ).toBeGreaterThanOrEqual(1);
+    }
+  });
 
-    expect(creative.some((e) => e.id === "dither" || e.exampleKey === "dither")).toBe(
-      true,
-    );
-    expect(creative.some((e) => e.id === "kinetic-type")).toBe(true);
-    expect(creative.some((e) => e.id === "bento-grid")).toBe(true);
-    expect(creative.some((e) => e.id === "paper-texture")).toBe(true);
+  it("includes multi-item AI slop and Library best practices sections", () => {
+    const slop = getElementsByCategory("ai-slop");
+    const libs = getElementsByCategory("library-practices");
 
     // AI slop teaches avoidance
     expect(slop.every((e) => e.promptKind === "avoid")).toBe(true);
@@ -122,6 +152,36 @@ describe("catalog data", () => {
     expect(libs.some((e) => e.id === "lib-form-field-pattern")).toBe(true);
     expect(libs.some((e) => e.id === "lib-data-state")).toBe(true);
     expect(libs.some((e) => e.id === "lib-destructive-confirm")).toBe(true);
+  });
+
+  it("ships standard vocabulary added for category completeness", () => {
+    const expected: Array<{ id: string; category: CategoryId }> = [
+      { id: "lead-text", category: "typography" },
+      { id: "tabular-nums", category: "typography" },
+      { id: "accent-color", category: "color" },
+      { id: "opacity-scale", category: "color" },
+      { id: "split-layout", category: "spacing-layout" },
+      { id: "outline-button", category: "buttons" },
+      { id: "search-input", category: "forms" },
+      { id: "segmented-control", category: "navigation" },
+      { id: "status-dot", category: "feedback" },
+      { id: "alert-dialog", category: "overlays" },
+      { id: "bottom-sheet", category: "overlays" },
+      { id: "timeline", category: "data-display" },
+      { id: "raised-surface", category: "surfaces" },
+      { id: "media-object", category: "media" },
+      { id: "cover-image", category: "media" },
+      { id: "active-pressed", category: "states" },
+      { id: "drag-state", category: "states" },
+    ];
+
+    for (const { id, category } of expected) {
+      const el = getElementById(id);
+      expect(el, `missing element ${id}`).toBeDefined();
+      expect(el!.category).toBe(category);
+      expect(el!.exampleKey).toBe(id);
+      expect(el!.promptTip.trim().length).toBeGreaterThan(10);
+    }
   });
 
   it("maps every catalog exampleKey to a unique id and non-empty live key", () => {

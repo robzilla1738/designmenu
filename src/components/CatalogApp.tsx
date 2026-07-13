@@ -87,9 +87,7 @@ export function CatalogApp() {
                       count={count}
                       href={`#${cat.id}`}
                       highlight={
-                        cat.id === "ai-slop" ||
-                        cat.id === "creative" ||
-                        cat.id === "library-practices"
+                        cat.id === "ai-slop" || cat.id === "library-practices"
                       }
                     />
                   );
@@ -109,8 +107,8 @@ export function CatalogApp() {
             </h1>
             <p className="mt-4 max-w-[58ch] text-[15px] leading-[1.6] tracking-[-0.01em] text-muted-foreground sm:text-[17px]">
               Live examples of design elements — with the names designers use and
-              ready-made language for prompting AI. Includes creative effects, AI
-              slop to avoid, and library best practices.
+              ready-made language for prompting AI. Includes AI slop to avoid and
+              library best practices.
             </p>
 
             <div className="group relative mt-7 max-w-[560px]">
@@ -199,7 +197,6 @@ export function CatalogApp() {
                           {category.name}
                         </h2>
                         {(category.id === "ai-slop" ||
-                          category.id === "creative" ||
                           category.id === "library-practices") && (
                           <Badge className="h-5 rounded-full border-0 bg-secondary px-2.5 text-[10px] font-medium tracking-wide text-secondary-foreground">
                             New

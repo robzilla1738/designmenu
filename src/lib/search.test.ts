@@ -62,19 +62,7 @@ describe("searchCatalog", () => {
     expect(result.categories).toEqual([]);
   });
 
-  it("finds new Creative, AI slop, and library practice entries", () => {
-    const dither = searchCatalog({ query: "dither" });
-    expect(dither.elements.some((e) => e.category === "creative")).toBe(true);
-
-    const kinetic = searchCatalog({ query: "kinetic typography" });
-    expect(kinetic.elements.some((e) => e.id === "kinetic-type")).toBe(true);
-
-    const bento = searchCatalog({ query: "bento", categoryId: "creative" });
-    expect(bento.elements.some((e) => e.id === "bento-grid")).toBe(true);
-
-    const paper = searchCatalog({ query: "editorial paper" });
-    expect(paper.elements.some((e) => e.id === "paper-texture")).toBe(true);
-
+  it("finds AI slop and library practice entries", () => {
     const slop = searchCatalog({ query: "purple gradient", categoryId: "ai-slop" });
     expect(slop.total).toBeGreaterThan(0);
     expect(slop.elements.every((e) => e.category === "ai-slop")).toBe(true);
@@ -94,6 +82,44 @@ describe("searchCatalog", () => {
       categoryId: "library-practices",
     });
     expect(field.elements.some((e) => e.id === "lib-form-field-pattern")).toBe(true);
+  });
+
+  it("finds completeness-pack entries across core categories", () => {
+    const lead = searchCatalog({ query: "lead paragraph", categoryId: "typography" });
+    expect(lead.elements.some((e) => e.id === "lead-text")).toBe(true);
+
+    const accent = searchCatalog({ query: "accent token", categoryId: "color" });
+    expect(accent.elements.some((e) => e.id === "accent-color")).toBe(true);
+
+    const outline = searchCatalog({ query: "outline button", categoryId: "buttons" });
+    expect(outline.elements.some((e) => e.id === "outline-button")).toBe(true);
+
+    const searchField = searchCatalog({ query: "search field", categoryId: "forms" });
+    expect(searchField.elements.some((e) => e.id === "search-input")).toBe(true);
+
+    const segments = searchCatalog({
+      query: "segmented control",
+      categoryId: "navigation",
+    });
+    expect(segments.elements.some((e) => e.id === "segmented-control")).toBe(true);
+
+    const status = searchCatalog({ query: "status dot", categoryId: "feedback" });
+    expect(status.elements.some((e) => e.id === "status-dot")).toBe(true);
+
+    const alert = searchCatalog({ query: "confirm dialog", categoryId: "overlays" });
+    expect(alert.elements.some((e) => e.id === "alert-dialog")).toBe(true);
+
+    const timeline = searchCatalog({ query: "timeline", categoryId: "data-display" });
+    expect(timeline.elements.some((e) => e.id === "timeline")).toBe(true);
+
+    const raised = searchCatalog({ query: "raised surface", categoryId: "surfaces" });
+    expect(raised.elements.some((e) => e.id === "raised-surface")).toBe(true);
+
+    const media = searchCatalog({ query: "media object", categoryId: "media" });
+    expect(media.elements.some((e) => e.id === "media-object")).toBe(true);
+
+    const pressed = searchCatalog({ query: "pressed state", categoryId: "states" });
+    expect(pressed.elements.some((e) => e.id === "active-pressed")).toBe(true);
   });
 });
 

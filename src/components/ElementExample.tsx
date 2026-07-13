@@ -994,244 +994,6 @@ export function ElementExample({ exampleKey }: { exampleKey: string }) {
         </div>
       );
 
-    // ── Creative ──────────────────────────────────────────
-    case "dither":
-      return (
-        <div className="relative h-20 w-full max-w-[220px] overflow-hidden rounded-xl bg-gradient-to-r from-teal-700 to-amber-500">
-          <div className="dm-dither absolute inset-0 text-black/50 mix-blend-overlay" />
-          <div className="relative flex h-full items-end p-3">
-            <span className="text-xs font-semibold text-white drop-shadow">Dither overlay</span>
-          </div>
-        </div>
-      );
-    case "noise-grain":
-      return (
-        <div className="relative h-20 w-full max-w-[220px] overflow-hidden rounded-xl bg-zinc-800">
-          <div className="dm-noise absolute inset-0 opacity-40 mix-blend-overlay" />
-          <div className="relative flex h-full items-center justify-center text-xs font-medium text-zinc-200">
-            Film grain
-          </div>
-        </div>
-      );
-    case "scanlines":
-      return (
-        <div className="relative h-20 w-full max-w-[220px] overflow-hidden rounded-xl bg-emerald-950 text-emerald-300">
-          <div className="dm-scanlines absolute inset-0" />
-          <div className="relative flex h-full items-center justify-center font-mono text-xs">
-            &gt; system ready_
-          </div>
-        </div>
-      );
-    case "halftone":
-      return (
-        <div className="relative h-20 w-full max-w-[220px] overflow-hidden rounded-xl bg-amber-100 dark:bg-amber-950">
-          <div className="dm-halftone absolute inset-0 text-rose-600/70 dark:text-rose-400/50" />
-          <div className="relative flex h-full items-center justify-center text-xs font-bold text-rose-900 dark:text-rose-100">
-            Halftone
-          </div>
-        </div>
-      );
-    case "glitch":
-      return (
-        <p className="dm-glitch text-2xl font-black tracking-tight">
-          GLITCH
-        </p>
-      );
-    case "mesh-gradient":
-      return (
-        <div className="relative h-20 w-full max-w-[220px] overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900">
-          <div className="absolute -top-4 -left-4 size-24 rounded-full bg-teal-400/55 blur-2xl" />
-          <div className="absolute -right-2 bottom-0 size-20 rounded-full bg-sky-400/50 blur-2xl" />
-          <div className="absolute top-6 left-10 size-16 rounded-full bg-amber-300/40 blur-xl" />
-          <div className="relative flex h-full items-center justify-center text-xs font-medium">
-            Mesh / aurora
-          </div>
-        </div>
-      );
-    case "duotone":
-      return (
-        <div
-          className="h-20 w-full max-w-[180px] rounded-xl"
-          style={{
-            backgroundImage:
-              "linear-gradient(135deg, #0f3d3e 0%, #0f3d3e 42%, #e8a54b 100%)",
-          }}
-        >
-          <div className="flex h-full items-end p-2">
-            <span className="rounded bg-black/30 px-1.5 py-0.5 text-[10px] font-medium text-white">
-              Duotone
-            </span>
-          </div>
-        </div>
-      );
-    case "marquee":
-      return (
-        <div className="w-full max-w-[240px] overflow-hidden rounded-lg border border-border bg-card py-2">
-          <div className="dm-marquee-track flex w-max gap-6 text-xs font-medium whitespace-nowrap">
-            <span>Design Menu</span>
-            <span>·</span>
-            <span>Name it</span>
-            <span>·</span>
-            <span>See it</span>
-            <span>·</span>
-            <span>Prompt it</span>
-            <span>·</span>
-            <span>Design Menu</span>
-            <span>·</span>
-            <span>Name it</span>
-            <span>·</span>
-            <span>See it</span>
-            <span>·</span>
-            <span>Prompt it</span>
-          </div>
-        </div>
-      );
-    case "pixel-art":
-      return (
-        <div
-          className="flex size-16 items-center justify-center border-4 border-foreground bg-primary text-xs font-bold text-primary-foreground"
-          style={{ imageRendering: "pixelated", boxShadow: "4px 4px 0 0 currentColor" }}
-        >
-          PX
-        </div>
-      );
-    case "blob-shape":
-      return (
-        <div
-          className="flex size-20 items-center justify-center bg-gradient-to-br from-teal-500 to-cyan-600 text-xs font-semibold text-white"
-          style={{ borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" }}
-        >
-          Blob
-        </div>
-      );
-    case "kinetic-type":
-      return (
-        <p className="text-xl font-black tracking-tight sm:text-2xl">
-          {"MOTION".split("").map((ch, i) => (
-            <span
-              key={`${ch}-${i}`}
-              className="dm-kinetic-char"
-              style={{ animationDelay: `${i * 55}ms` }}
-            >
-              {ch}
-            </span>
-          ))}
-        </p>
-      );
-    case "bento-grid":
-      return (
-        <div className="grid w-full max-w-[220px] grid-cols-3 grid-rows-2 gap-1.5">
-          <div className="col-span-2 row-span-2 rounded-lg bg-primary/90 p-2 text-[10px] font-semibold text-primary-foreground">
-            Hero
-          </div>
-          <div className="rounded-lg bg-muted p-1.5 text-[9px] font-medium">A</div>
-          <div className="rounded-lg bg-accent p-1.5 text-[9px] font-medium text-accent-foreground">
-            B
-          </div>
-        </div>
-      );
-    case "paper-texture":
-      return (
-        <div className="dm-paper relative h-20 w-full max-w-[220px] overflow-hidden rounded-xl border border-stone-300/60 dark:border-stone-700">
-          <div className="relative flex h-full flex-col justify-end p-3">
-            <p className="font-serif text-sm font-semibold tracking-tight text-stone-900 dark:text-stone-100">
-              On paper
-            </p>
-            <p className="text-[10px] text-stone-600 dark:text-stone-400">
-              Fiber · ink · margin
-            </p>
-          </div>
-        </div>
-      );
-    case "editorial-type":
-      return (
-        <div className="w-full max-w-[220px] space-y-1 border-l-2 border-foreground pl-3">
-          <p className="text-[10px] font-medium tracking-[0.2em] text-muted-foreground uppercase">
-            Vol. 04
-          </p>
-          <p className="font-serif text-3xl leading-none font-bold tracking-tight">
-            Quiet
-          </p>
-          <p className="max-w-[16ch] text-[10px] leading-snug text-muted-foreground">
-            Oversized display against a whisper of body copy.
-          </p>
-        </div>
-      );
-    case "vignette":
-      return (
-        <div className="relative h-20 w-full max-w-[220px] overflow-hidden rounded-xl bg-gradient-to-br from-stone-300 via-teal-700 to-stone-900">
-          <div className="dm-vignette absolute inset-0" />
-          <div className="relative flex h-full items-center justify-center text-xs font-semibold text-white drop-shadow">
-            Focal subject
-          </div>
-        </div>
-      );
-    case "risograph":
-      return (
-        <div className="relative h-20 w-full max-w-[200px] overflow-hidden rounded-xl bg-[#f7f2e8] dark:bg-stone-900">
-          <div className="dm-risograph absolute top-3 left-4 size-14 rounded-full bg-rose-500/70" />
-          <div className="dm-risograph absolute top-5 left-8 size-14 rounded-full bg-teal-600/70" />
-          <div className="relative flex h-full items-end p-2">
-            <span className="text-[10px] font-bold tracking-wide text-stone-800 uppercase dark:text-stone-200">
-              Riso
-            </span>
-          </div>
-        </div>
-      );
-    case "letterpress":
-      return (
-        <div className="dm-paper flex h-20 w-full max-w-[200px] items-center justify-center rounded-xl border border-stone-300/50 dark:border-stone-700">
-          <span className="dm-letterpress text-2xl font-black tracking-tight text-stone-700 dark:text-stone-300">
-            PRESS
-          </span>
-        </div>
-      );
-    case "swiss-grid":
-      return (
-        <div className="grid w-full max-w-[220px] grid-cols-4 gap-0 border border-foreground/80">
-          <div className="col-span-1 border-r border-foreground/80 p-1.5">
-            <div className="h-full min-h-12 border border-dashed border-foreground/30" />
-          </div>
-          <div className="col-span-3 space-y-1 p-2">
-            <p className="text-[9px] font-medium tracking-widest uppercase">Grid 12</p>
-            <p className="text-sm font-bold tracking-tight">Helvetic</p>
-            <div className="h-px bg-foreground/80" />
-            <p className="text-[9px] leading-snug text-muted-foreground">
-              Modules · rules · asymmetry
-            </p>
-          </div>
-        </div>
-      );
-    case "specular-chrome":
-      return (
-        <div className="relative h-16 w-full max-w-[200px] overflow-hidden rounded-xl bg-gradient-to-br from-zinc-700 via-zinc-500 to-zinc-800 shadow-md">
-          <div className="dm-specular absolute inset-0" />
-          <div className="relative flex h-full items-center justify-center text-xs font-semibold tracking-wide text-white/90">
-            Specular
-          </div>
-        </div>
-      );
-    case "ink-wash":
-      return (
-        <div className="relative h-20 w-full max-w-[220px] overflow-hidden rounded-xl bg-stone-50 dark:bg-stone-950">
-          <div className="absolute -top-2 left-2 size-24 rounded-full bg-teal-700/25 blur-2xl" />
-          <div className="absolute right-0 bottom-0 size-20 rounded-full bg-stone-800/20 blur-2xl dark:bg-stone-200/15" />
-          <div className="absolute top-8 left-12 size-14 rounded-full bg-amber-800/15 blur-xl" />
-          <div className="relative flex h-full items-center justify-center text-xs font-medium tracking-wide">
-            Ink wash
-          </div>
-        </div>
-      );
-    case "crosshatch":
-      return (
-        <div className="relative h-20 w-full max-w-[220px] overflow-hidden rounded-xl border border-border bg-card">
-          <div className="dm-crosshatch absolute inset-0 text-foreground/15" />
-          <div className="relative flex h-full items-center justify-center text-xs font-semibold">
-            Crosshatch
-          </div>
-        </div>
-      );
-
     // ── AI Slop (anti-patterns) ───────────────────────────
     case "slop-purple-gradient":
       return (
@@ -1751,6 +1513,471 @@ export function ElementExample({ exampleKey }: { exampleKey: string }) {
               Delete
             </Button>
           </div>
+        </div>
+      );
+
+    // ── Completeness pack (standard vocabulary gaps) ──────
+    case "lead-text":
+      return (
+        <p className="max-w-[18rem] text-left text-base leading-relaxed text-muted-foreground sm:text-lg">
+          A short lead that frames the page before denser body copy begins.
+        </p>
+      );
+    case "text-truncation":
+      return (
+        <p
+          className="w-40 truncate text-left text-sm font-medium"
+          title="Design systems need shared language for every role"
+        >
+          Design systems need shared language for every role
+        </p>
+      );
+    case "tabular-nums":
+      return (
+        <div className="w-full max-w-[180px] space-y-1 text-sm tabular-nums">
+          <div className="flex justify-between gap-4">
+            <span className="text-muted-foreground">Revenue</span>
+            <span className="font-medium">$12,480.00</span>
+          </div>
+          <div className="flex justify-between gap-4">
+            <span className="text-muted-foreground">Refunds</span>
+            <span className="font-medium">$1,205.50</span>
+          </div>
+          <div className="flex justify-between gap-4">
+            <span className="text-muted-foreground">Net</span>
+            <span className="font-medium">$11,274.50</span>
+          </div>
+        </div>
+      );
+    case "unordered-list":
+      return (
+        <ul className="list-disc space-y-1 pl-4 text-left text-sm">
+          <li>Clear hierarchy</li>
+          <li>Consistent spacing</li>
+          <li>Accessible contrast</li>
+        </ul>
+      );
+    case "accent-color":
+      return (
+        <div className="flex items-center gap-3">
+          <div className="size-12 rounded-xl bg-accent shadow-sm ring-1 ring-border" />
+          <div className="text-sm">
+            <p className="font-medium text-accent-foreground">Accent</p>
+            <p className="text-muted-foreground">Soft highlight</p>
+          </div>
+        </div>
+      );
+    case "border-color":
+      return (
+        <div className="flex gap-2">
+          <div className="rounded-lg border border-border bg-card px-3 py-2 text-xs">
+            border
+          </div>
+          <div className="rounded-lg border-2 border-primary/40 bg-card px-3 py-2 text-xs">
+            emphasis
+          </div>
+        </div>
+      );
+    case "opacity-scale":
+      return (
+        <div className="flex items-end gap-1.5">
+          {[5, 10, 20, 40, 60, 80].map((o) => (
+            <div key={o} className="flex flex-col items-center gap-1">
+              <div
+                className="h-10 w-7 rounded-md bg-primary"
+                style={{ opacity: o / 100 }}
+              />
+              <span className="text-[9px] text-muted-foreground">{o}%</span>
+            </div>
+          ))}
+        </div>
+      );
+    case "inverse-colors":
+      return (
+        <div className="flex gap-2">
+          <div className="rounded-lg bg-primary px-3 py-2 text-xs font-medium text-primary-foreground">
+            On primary
+          </div>
+          <div className="rounded-lg bg-foreground px-3 py-2 text-xs font-medium text-background">
+            Inverse
+          </div>
+        </div>
+      );
+    case "z-index-layers":
+      return (
+        <div className="relative h-16 w-full max-w-[180px]">
+          <div className="absolute top-4 left-0 z-0 h-10 w-24 rounded-md border border-border bg-muted text-[9px] leading-10 text-center">
+            base
+          </div>
+          <div className="absolute top-2 left-8 z-10 h-10 w-24 rounded-md border border-border bg-card shadow-sm text-[9px] leading-10 text-center">
+            sticky
+          </div>
+          <div className="absolute top-0 left-16 z-20 h-10 w-24 rounded-md bg-primary text-[9px] font-medium leading-10 text-center text-primary-foreground shadow-md">
+            modal
+          </div>
+        </div>
+      );
+    case "sticky-position":
+      return (
+        <div className="h-20 w-full max-w-[200px] overflow-y-auto rounded-lg border border-border">
+          <div className="sticky top-0 z-10 border-b border-border bg-card/95 px-2 py-1.5 text-[10px] font-semibold backdrop-blur">
+            Sticky header
+          </div>
+          <div className="space-y-1 p-2">
+            {["Row A", "Row B", "Row C", "Row D", "Row E"].map((r) => (
+              <div key={r} className="rounded bg-muted/60 px-2 py-1 text-[10px]">
+                {r}
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    case "split-layout":
+      return (
+        <div className="grid w-full max-w-[220px] grid-cols-2 gap-2">
+          <div className="rounded-lg border border-border bg-muted/50 p-2 text-[10px]">
+            List
+          </div>
+          <div className="rounded-lg border border-border bg-card p-2 text-[10px] shadow-sm">
+            Detail
+          </div>
+        </div>
+      );
+    case "outline-button":
+      return <Button variant="outline">Outline</Button>;
+    case "link-button":
+      return <Button variant="link">Link action</Button>;
+    case "button-with-icon":
+      return (
+        <Button>
+          <Settings />
+          Settings
+        </Button>
+      );
+    case "search-input":
+      return (
+        <div className="relative w-full max-w-[220px]">
+          <Search className="pointer-events-none absolute top-1/2 left-2.5 size-3.5 -translate-y-1/2 text-muted-foreground" />
+          <Input
+            type="search"
+            placeholder="Search…"
+            className="pl-8"
+            readOnly
+          />
+        </div>
+      );
+    case "password-input":
+      return (
+        <Input
+          type="password"
+          defaultValue="••••••••"
+          className="max-w-[220px]"
+          readOnly
+          aria-label="Password"
+        />
+      );
+    case "number-input":
+      return (
+        <div className="flex items-center gap-1">
+          <Button size="sm" variant="outline" className="size-8 p-0">
+            −
+          </Button>
+          <Input
+            type="number"
+            defaultValue={3}
+            className="w-14 text-center"
+            readOnly
+          />
+          <Button size="sm" variant="outline" className="size-8 p-0">
+            +
+          </Button>
+        </div>
+      );
+    case "date-input":
+      return (
+        <Input type="date" defaultValue="2026-07-13" className="max-w-[180px]" readOnly />
+      );
+    case "segmented-control":
+      return (
+        <div className="inline-flex rounded-lg bg-muted p-0.5">
+          {["Day", "Week", "Month"].map((t, i) => (
+            <button
+              key={t}
+              type="button"
+              className={cn(
+                "rounded-md px-2.5 py-1 text-[11px] font-medium",
+                i === 1
+                  ? "bg-background text-foreground shadow-sm"
+                  : "text-muted-foreground",
+              )}
+            >
+              {t}
+            </button>
+          ))}
+        </div>
+      );
+    case "skip-link":
+      return (
+        <a
+          href="#main"
+          className="rounded-md border border-primary bg-primary px-2.5 py-1.5 text-[11px] font-medium text-primary-foreground shadow-sm"
+        >
+          Skip to content
+        </a>
+      );
+    case "active-nav-item":
+      return (
+        <nav className="w-full max-w-[160px] space-y-0.5 text-left text-xs">
+          <div className="rounded-md bg-accent px-2 py-1.5 font-medium text-accent-foreground">
+            Overview
+          </div>
+          <div className="rounded-md px-2 py-1.5 text-muted-foreground">Projects</div>
+          <div className="rounded-md px-2 py-1.5 text-muted-foreground">Settings</div>
+        </nav>
+      );
+    case "status-dot":
+      return (
+        <div className="flex flex-col gap-2 text-xs">
+          {[
+            { label: "Online", className: "bg-emerald-500" },
+            { label: "Away", className: "bg-amber-500" },
+            { label: "Busy", className: "bg-destructive" },
+          ].map((s) => (
+            <div key={s.label} className="flex items-center gap-2">
+              <span className={cn("size-2.5 rounded-full", s.className)} />
+              {s.label}
+            </div>
+          ))}
+        </div>
+      );
+    case "inline-callout":
+      return (
+        <div className="w-full max-w-[220px] rounded-lg border border-primary/20 bg-accent/60 px-3 py-2 text-left">
+          <p className="text-[11px] font-semibold text-accent-foreground">Tip</p>
+          <p className="mt-0.5 text-[10px] leading-snug text-muted-foreground">
+            Use callouts for non-urgent guidance, not critical errors.
+          </p>
+        </div>
+      );
+    case "success-banner":
+      return (
+        <Alert className="w-full max-w-[240px] border-emerald-500/40 bg-emerald-500/10 text-left">
+          <Check className="size-4 text-emerald-600" />
+          <AlertTitle className="text-emerald-800 dark:text-emerald-200">
+            Saved
+          </AlertTitle>
+          <AlertDescription className="text-emerald-700/90 dark:text-emerald-300/90">
+            Your changes are live.
+          </AlertDescription>
+        </Alert>
+      );
+    case "alert-dialog":
+      return (
+        <div className="w-full max-w-[220px] space-y-2 rounded-xl border border-border bg-card p-3 shadow-lg">
+          <p className="text-xs font-semibold">Delete this file?</p>
+          <p className="text-[10px] text-muted-foreground">
+            This action cannot be undone.
+          </p>
+          <div className="flex justify-end gap-1.5 pt-1">
+            <Button size="sm" variant="outline">
+              Cancel
+            </Button>
+            <Button size="sm" variant="destructive">
+              Delete
+            </Button>
+          </div>
+        </div>
+      );
+    case "bottom-sheet":
+      return (
+        <div className="relative h-24 w-full max-w-[200px] overflow-hidden rounded-xl border border-border bg-muted/40">
+          <div className="absolute inset-x-0 bottom-0 rounded-t-xl border border-border bg-card p-2 shadow-lg">
+            <div className="mx-auto mb-2 h-1 w-8 rounded-full bg-muted-foreground/30" />
+            <p className="text-center text-[11px] font-medium">Actions</p>
+            <p className="text-center text-[10px] text-muted-foreground">Share · Edit · Copy</p>
+          </div>
+        </div>
+      );
+    case "context-menu":
+      return (
+        <div className="w-full max-w-[160px] rounded-lg border border-border bg-popover p-1 text-left text-[11px] shadow-md">
+          <div className="rounded-md px-2 py-1.5 hover:bg-accent">Open</div>
+          <div className="rounded-md px-2 py-1.5 hover:bg-accent">Rename</div>
+          <Separator className="my-1" />
+          <div className="rounded-md px-2 py-1.5 text-destructive hover:bg-accent">
+            Delete
+          </div>
+        </div>
+      );
+    case "hover-card":
+      return (
+        <div className="flex w-full max-w-[200px] items-start gap-2 rounded-xl border border-border bg-card p-2.5 shadow-md">
+          <Avatar className="size-8">
+            <AvatarFallback>AL</AvatarFallback>
+          </Avatar>
+          <div className="min-w-0 text-left">
+            <p className="text-xs font-semibold">Alex Lee</p>
+            <p className="text-[10px] text-muted-foreground">Product design · Online</p>
+            <Button size="sm" variant="outline" className="mt-1.5 h-6 text-[10px]">
+              View profile
+            </Button>
+          </div>
+        </div>
+      );
+    case "timeline":
+      return (
+        <div className="relative w-full max-w-[200px] space-y-3 pl-4 text-left">
+          <div className="absolute top-1 bottom-1 left-[5px] w-px bg-border" />
+          {["Shipped", "In review", "Opened"].map((t, i) => (
+            <div key={t} className="relative">
+              <span
+                className={cn(
+                  "absolute top-1 -left-4 size-2.5 rounded-full border-2 border-background",
+                  i === 0 ? "bg-primary" : "bg-muted-foreground/40",
+                )}
+              />
+              <p className="text-[11px] font-medium">{t}</p>
+              <p className="text-[9px] text-muted-foreground">Step {3 - i}</p>
+            </div>
+          ))}
+        </div>
+      );
+    case "tree-list":
+      return (
+        <div className="w-full max-w-[180px] space-y-0.5 text-left font-mono text-[11px]">
+          <div className="font-medium">▾ src</div>
+          <div className="pl-3 text-muted-foreground">▾ components</div>
+          <div className="pl-6">Button.tsx</div>
+          <div className="pl-6">Card.tsx</div>
+          <div className="pl-3 text-muted-foreground">lib</div>
+        </div>
+      );
+    case "toolbar":
+      return (
+        <div className="inline-flex items-center gap-0.5 rounded-lg border border-border bg-card p-1 shadow-sm">
+          <Button size="sm" variant="ghost" className="h-7 w-7 p-0" aria-label="Home">
+            <Home className="size-3.5" />
+          </Button>
+          <Button size="sm" variant="ghost" className="h-7 w-7 p-0" aria-label="Search">
+            <Search className="size-3.5" />
+          </Button>
+          <Separator orientation="vertical" className="mx-0.5 h-5" />
+          <Button size="sm" variant="ghost" className="h-7 w-7 p-0" aria-label="Settings">
+            <Settings className="size-3.5" />
+          </Button>
+        </div>
+      );
+    case "raised-surface":
+      return (
+        <div className="rounded-xl bg-card px-4 py-3 text-xs shadow-[var(--card-shadow-hover)]">
+          Raised panel
+        </div>
+      );
+    case "inset-surface":
+      return (
+        <div className="w-full max-w-[180px] rounded-lg bg-muted/80 px-3 py-3 text-xs text-muted-foreground shadow-inner ring-1 ring-inset ring-border/60">
+          Inset well
+        </div>
+      );
+    case "outline-ring":
+      return (
+        <div className="rounded-xl border border-border bg-card px-4 py-3 text-xs ring-2 ring-primary ring-offset-2 ring-offset-background">
+          Selected ring
+        </div>
+      );
+    case "dashed-border":
+      return (
+        <div className="flex h-16 w-full max-w-[180px] items-center justify-center rounded-xl border border-dashed border-border text-[11px] text-muted-foreground">
+          Drop files here
+        </div>
+      );
+    case "media-object":
+      return (
+        <div className="flex w-full max-w-[220px] items-start gap-2.5 text-left">
+          <div className="size-10 shrink-0 rounded-lg bg-gradient-to-br from-sky-400 to-blue-600" />
+          <div className="min-w-0">
+            <p className="text-xs font-semibold">Media object</p>
+            <p className="text-[10px] leading-snug text-muted-foreground">
+              Image left, supporting text right.
+            </p>
+          </div>
+        </div>
+      );
+    case "image-caption":
+      return (
+        <figure className="w-full max-w-[160px] text-left">
+          <div className="aspect-video rounded-lg bg-gradient-to-br from-sky-300 to-indigo-400" />
+          <figcaption className="mt-1.5 text-[10px] text-muted-foreground">
+            Figure 1 · Cover study
+          </figcaption>
+        </figure>
+      );
+    case "video-placeholder":
+      return (
+        <div className="relative aspect-video w-full max-w-[200px] overflow-hidden rounded-xl bg-zinc-900">
+          <div className="absolute inset-0 bg-gradient-to-br from-zinc-700 to-zinc-900" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="flex size-10 items-center justify-center rounded-full bg-white/90 text-zinc-900 shadow">
+              ▶
+            </div>
+          </div>
+          <span className="absolute right-2 bottom-2 rounded bg-black/70 px-1.5 py-0.5 text-[9px] text-white">
+            2:14
+          </span>
+        </div>
+      );
+    case "icon-badge":
+      return (
+        <div className="relative inline-flex">
+          <Bell className="size-6 text-foreground" />
+          <span className="absolute -top-1 -right-1 flex size-4 items-center justify-center rounded-full bg-destructive text-[9px] font-bold text-white">
+            3
+          </span>
+        </div>
+      );
+    case "cover-image":
+      return (
+        <div className="h-16 w-full max-w-[220px] overflow-hidden rounded-xl">
+          <div className="h-full w-full bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-500" />
+        </div>
+      );
+    case "active-pressed":
+      return (
+        <div className="flex gap-2">
+          <Button size="sm">Rest</Button>
+          <Button size="sm" className="scale-[0.98] bg-primary/85">
+            Pressed
+          </Button>
+        </div>
+      );
+    case "loading-state":
+      return (
+        <Button disabled>
+          <Loader2 className="animate-spin" />
+          Saving…
+        </Button>
+      );
+    case "error-state":
+      return (
+        <div className="w-full max-w-[200px] space-y-1 text-left">
+          <Input
+            aria-invalid
+            defaultValue="not-an-email"
+            className="border-destructive focus-visible:ring-destructive/30"
+            readOnly
+          />
+          <p className="text-[10px] text-destructive">Enter a valid email address.</p>
+        </div>
+      );
+    case "drag-state":
+      return (
+        <div className="w-full max-w-[200px] space-y-1.5">
+          <div className="h-8 rounded-md border border-dashed border-border bg-muted/40" />
+          <div className="flex h-9 cursor-grabbing items-center gap-2 rounded-md border border-border bg-card px-2 text-[11px] font-medium shadow-md opacity-90">
+            <span className="text-muted-foreground">⠿</span>
+            Dragging item
+          </div>
+          <div className="h-8 rounded-md border border-border bg-card/50" />
         </div>
       );
 
